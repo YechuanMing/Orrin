@@ -20,7 +20,6 @@ public class NormalEnemyConditional : Conditional
         rigidbody2D = gameObject.GetComponentInParent<Rigidbody2D>();
         destructable = GetComponent<Destructable>();
         spiritualization =gameObject.GetComponentInParent<Spiritualize_Enemy>();
-
     }
 
 }
