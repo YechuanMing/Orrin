@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity;
+using BehaviorDesigner.Runtime;
 
 
-public class BeetleBasic : MonoBehaviour
+public class BeetleBasic :MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -12,6 +13,6 @@ public class BeetleBasic : MonoBehaviour
 
     public float moveSpeed;
 
-    public Transform[] patrolPoints=new Transform[2];
+    public Transform[] patrolPoints;
 
 }

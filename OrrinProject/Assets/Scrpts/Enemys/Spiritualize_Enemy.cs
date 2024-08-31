@@ -1,18 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using BehaviorDesigner.Runtime.Tasks;
+using UnityEngine.Events;
+using System;
 
 public class Spiritualize_Enemy : MonoBehaviour
 {
-    public bool canSpritualize;
     private void OnEnable()
     {
-        PlayerController.OnSpritualized += Spritualize;
+        PlayerController.Spritualize += Spritualize;
+        PlayerController.DeSpritualize += DeSpiritualize;
     }
 
     private void Spritualize()
-    { 
+    {
+        Debug.Log("ÇÐ»»ÎªÁé»ê×´Ì¬");
+        OnEnemySpritualized?.Invoke();
+    }
+
+    private void DeSpiritualize()
+    {
+        Debug.Log("ÇÐ»»ÎªÉúÃü×´Ì¬");
+        OnEnemyDespritualized?.Invoke();
+    }
+
+    public void SpiritKilled()
+    {
 
     }
+
+    public UnityEvent OnEnemySpritualized;
+    public UnityEvent OnEnemyDespritualized;
+
 }

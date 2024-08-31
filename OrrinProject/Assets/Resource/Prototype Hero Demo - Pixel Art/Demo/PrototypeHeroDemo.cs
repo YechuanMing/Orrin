@@ -1,29 +1,49 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
+using System;
 
-public class PrototypeHeroDemo : MonoBehaviour {
+public class PrototypeHeroDemo : MonoBehaviour
+{
 
     [Header("Variables")]
-    [SerializeField] float      m_maxSpeed = 4.5f;
-    [SerializeField] float      m_jumpForce = 7.5f;
-    [SerializeField] bool       m_hideSword = false;
+    public SpiritState m_State = SpiritState.Physical;
+    [SerializeField] private float m_maxSpeed = 4.5f;
+    [SerializeField] private float m_jumpForce = 7.5f;
+    [SerializeField] private float jumpMaxTime = 2f;
+    [SerializeField][Range(0.01f, 10)] private float jumpStartPower = 2f;
+    [SerializeField] private float jumpTimer;
+    [SerializeField] private bool m_hideSword = false;
     [Header("Effects")]
-    [SerializeField] GameObject m_RunStopDust;
-    [SerializeField] GameObject m_JumpDust;
-    [SerializeField] GameObject m_LandingDust;
+    [SerializeField] private GameObject m_RunStopDust;
+    [SerializeField] private GameObject m_JumpDust;
+    [SerializeField] private GameObject m_LandingDust;
+    [Header("AudioClips")]
+    [SerializeField] private AudioClip[] m_RunSounds;
+    [SerializeField] private AudioClip m_JumpSound;
+    [SerializeField] private AudioClip m_LandSound;
 
-    private Animator            m_animator;
-    private Rigidbody2D         m_body2d;
-    private Sensor_Prototype    m_groundSensor;
-    private AudioSource         m_audioSource;
+    private Animator m_animator;
+    private Rigidbody2D m_body2d;
+    private Sensor_Prototype m_groundSensor;
+    private AudioSource m_audioSource;
     private AudioManager_PrototypeHero m_audioManager;
-    private bool                m_grounded = false;
-    private bool                m_moving = false;
-    private int                 m_facingDirection = 1;
-    private float               m_disableMovementTimer = 0.0f;
+    private bool m_grounded = false;
+    private bool m_moving = false;
+    private int m_facingDirection = 1;
+    private float m_disableMovementTimer = 0.0f;
+
+
+    public static event Action Spritualize;
+    public static event Action DeSpritualize;
+
+    public enum SpiritState
+    {
+        Physical, Spiritual
+    }
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
@@ -33,8 +53,9 @@ public class PrototypeHeroDemo : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
+        Spiritualize();
         // Decrease timer that disables input movement. Used when attacking
         m_disableMovementTimer -= Time.deltaTime;
 
@@ -42,14 +63,18 @@ public class PrototypeHeroDemo : MonoBehaviour {
         if (!m_grounded && m_groundSensor.State())
         {
             m_grounded = true;
+            jumpTimer = 0f;
             m_animator.SetBool("Grounded", m_grounded);
         }
 
         //Check if character just started falling
         if (m_grounded && !m_groundSensor.State())
         {
-            m_grounded = false;
-            m_animator.SetBool("Grounded", m_grounded);
+            DOVirtual.DelayedCall(0.3f, () =>
+            {
+                m_grounded = false;
+                m_animator.SetBool("Grounded", m_grounded);
+            });
         }
 
         // -- Handle input and movement --
@@ -62,26 +87,30 @@ public class PrototypeHeroDemo : MonoBehaviour {
         float inputRaw = Input.GetAxisRaw("Horizontal");
         // Check if current move input is larger than 0 and the move direction is equal to the characters facing direction
         if (Mathf.Abs(inputRaw) > Mathf.Epsilon && Mathf.Sign(inputRaw) == m_facingDirection)
+        {
             m_moving = true;
-
+        }
         else
+        {
             m_moving = false;
+        }
 
-        // Swap direction of sprite depending on move direction
+
+        // 根据运动方向翻转Sprite朝向
         if (inputRaw > 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
             m_facingDirection = 1;
         }
-            
+
         else if (inputRaw < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
             m_facingDirection = -1;
         }
-     
-        // SlowDownSpeed helps decelerate the characters when stopping
-        float SlowDownSpeed = m_moving ? 1.0f : 0.5f;
+
+
+        float SlowDownSpeed = m_moving ? 1.0f : 0.5f;// 减速速度帮助玩家在停下时过渡
         // Set movement
         m_body2d.velocity = new Vector2(inputX * m_maxSpeed * SlowDownSpeed, m_body2d.velocity.y);
 
@@ -89,7 +118,7 @@ public class PrototypeHeroDemo : MonoBehaviour {
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
         // Set Animation layer for hiding sword
-        int boolInt = m_hideSword ? 1 : 0;
+        int boolInt = m_State == SpiritState.Spiritual ? 1 : 0;
         m_animator.SetLayerWeight(1, boolInt);
 
         // -- Handle Animations --
@@ -99,12 +128,28 @@ public class PrototypeHeroDemo : MonoBehaviour {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
+            m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce * jumpStartPower);
+            m_groundSensor.Disable(0.1f);
+            jumpTimer += 0.1f;
+
+        }
+        else if (Input.GetButton("Jump") && !m_grounded)
+        {
+            if (jumpTimer >= jumpMaxTime || jumpTimer == 0)
+            {
+                return;
+            }
             m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-            m_groundSensor.Disable(0.2f);
+            jumpTimer += Time.deltaTime;
+
+        }
+        else if (Input.GetButtonUp("Jump") && !m_grounded)
+        {
+            jumpTimer = 0f;
         }
 
         //Run
-        else if(m_moving)
+        else if (m_moving)
             m_animator.SetInteger("AnimState", 1);
 
         //Idle
@@ -116,6 +161,25 @@ public class PrototypeHeroDemo : MonoBehaviour {
     // All dust effects spawns on the floor
     // dustXoffset controls how far from the player the effects spawns.
     // Default dustXoffset is zero
+
+    private void Spiritualize()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if(m_State == SpiritState.Physical)
+            {
+                Spritualize?.Invoke();
+                m_State = SpiritState.Spiritual;
+            }else
+            {
+                DeSpritualize?.Invoke();
+                m_State = SpiritState.Physical;
+            }
+
+        }
+
+    }
+
     void SpawnDustEffect(GameObject dust, float dustXOffset = 0)
     {
         if (dust != null)
@@ -132,7 +196,7 @@ public class PrototypeHeroDemo : MonoBehaviour {
     // These functions are called inside the animation files
     void AE_runStop()
     {
-        m_audioManager.PlaySound("RunStop");
+        AudioSource.PlayClipAtPoint(m_RunSounds[0], this.transform.position);
         // Spawn Dust
         float dustXOffset = 0.6f;
         SpawnDustEffect(m_RunStopDust, dustXOffset);
@@ -140,20 +204,23 @@ public class PrototypeHeroDemo : MonoBehaviour {
 
     void AE_footstep()
     {
-        m_audioManager.PlaySound("Footstep");
+        int seed = UnityEngine.Random.Range(0, m_RunSounds.Length);
+        AudioSource.PlayClipAtPoint(m_RunSounds[seed], this.transform.position);
     }
 
     void AE_Jump()
     {
-        m_audioManager.PlaySound("Jump");
+        AudioSource.PlayClipAtPoint(m_JumpSound, this.transform.position);
         // Spawn Dust
         SpawnDustEffect(m_JumpDust);
     }
 
     void AE_Landing()
     {
-        m_audioManager.PlaySound("Landing");
+        AudioSource.PlayClipAtPoint(m_LandSound, this.transform.position);
         // Spawn Dust
         SpawnDustEffect(m_LandingDust);
     }
+
+
 }

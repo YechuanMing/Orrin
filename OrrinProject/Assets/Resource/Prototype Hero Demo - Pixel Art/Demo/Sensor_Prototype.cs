@@ -7,6 +7,7 @@ public class Sensor_Prototype : MonoBehaviour {
 
     private float m_DisableTimer;
 
+
     private void OnEnable()
     {
         m_ColCount = 0;
@@ -38,4 +39,5 @@ public class Sensor_Prototype : MonoBehaviour {
     {
         m_DisableTimer = duration;
     }
+
 }
