@@ -200,8 +200,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485993799}
-  m_LocalRotation: {x: -0.043640777, y: 5.399871e-26, z: 7.193453e-27, w: 0.9990473}
-  m_LocalPosition: {x: -5.29, y: 3.510101, z: -20.90553}
+  m_LocalRotation: {x: -0.04364078, y: 0.0000000037217414, z: 1.6257459e-10, w: 0.9990473}
+  m_LocalPosition: {x: -5.29, y: 3.5101008, z: -20.90553}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -868,8 +868,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112075607}
-  m_LocalRotation: {x: -0.043640777, y: 5.399871e-26, z: 7.193453e-27, w: 0.9990473}
-  m_LocalPosition: {x: -5.29, y: 3.510101, z: -20.90553}
+  m_LocalRotation: {x: -0.04364078, y: 0.0000000037217414, z: 1.6257459e-10, w: 0.9990473}
+  m_LocalPosition: {x: -5.29, y: 3.5101008, z: -20.90553}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1738096718}
@@ -987,6 +987,14 @@ PrefabInstance:
     - target: {fileID: 1616646329352140462, guid: 58628d6effacc5645807a23ae1355b82, type: 3}
       propertyPath: m_Name
       value: Beetle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614646924350549595, guid: 58628d6effacc5645807a23ae1355b82, type: 3}
+      propertyPath: gizmoViewMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614646924350549595, guid: 58628d6effacc5645807a23ae1355b82, type: 3}
+      propertyPath: showBehaviorDesignerGizmo
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58628d6effacc5645807a23ae1355b82, type: 3}
