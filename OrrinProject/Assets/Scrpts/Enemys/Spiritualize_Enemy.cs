@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 
+
 public class Spiritualize_Enemy : MonoBehaviour
 {
+    public bool isSpiritKilled;
     private void OnEnable()
     {
-        PlayerController.Spritualize += Spritualize;
-        PlayerController.DeSpritualize += DeSpiritualize;
+        PlayerSpiritualization.Spritualize += Spritualize;
+        PlayerSpiritualization.DeSpritualize += DeSpiritualize;
     }
 
     private void Spritualize()
@@ -26,7 +28,7 @@ public class Spiritualize_Enemy : MonoBehaviour
 
     public void SpiritKilled()
     {
-
+        isSpiritKilled = true;
     }
 
     public UnityEvent OnEnemySpritualized;

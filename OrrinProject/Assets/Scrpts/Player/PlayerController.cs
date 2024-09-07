@@ -6,7 +6,7 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     [Header("Variables")]
-    public SpiritState m_State = SpiritState.Physical;
+
     [SerializeField] private float m_maxSpeed = 4.5f;
     [SerializeField] private float m_jumpForce = 7.5f;
     [SerializeField][Range(0.5f, 1)] private float jumpMaxTime = 0.7f;
@@ -33,13 +33,8 @@ public class PlayerController : MonoBehaviour
     private float m_disableMovementTimer = 0.0f;
 
 
-    public static event Action Spritualize;
-    public static event Action DeSpritualize;
 
-    public enum SpiritState
-    {
-        Physical, Spiritual
-    }
+
 
     // Use this for initialization
     void Start()
@@ -54,7 +49,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Spiritualize();
         // Decrease timer that disables input movement. Used when attacking
         m_disableMovementTimer -= Time.deltaTime;
 
@@ -110,17 +104,18 @@ public class PlayerController : MonoBehaviour
 
 
         float SlowDownSpeed = m_moving ? 1.0f : 0.5f;// 减速速度帮助玩家在停下时过渡
-        // Set movement
+
+        // 设置速度
         m_body2d.velocity = new Vector2(inputX * m_maxSpeed * SlowDownSpeed, m_body2d.velocity.y);
 
-        // Set AirSpeed in animator
+        // 为Animator中的变量赋值
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
         // Set Animation layer for hiding sword
-        int boolInt = m_State == SpiritState.Spiritual ? 1 : 0;
-        m_animator.SetLayerWeight(1, boolInt);
+        //int boolInt = m_State == SpiritState.Spiritual ? 1 : 0;
+        //m_animator.SetLayerWeight(1, boolInt);
 
-        // -- Handle Animations --
+        // -- 动画相关 --
         //Jump
         if (Input.GetButtonDown("Jump") && m_grounded && m_disableMovementTimer < 0.0f)
         {
@@ -147,38 +142,24 @@ public class PlayerController : MonoBehaviour
             jumpTimer = 0f;
         }
 
-        //Run
+        //跑
         else if (m_moving)
-            m_animator.SetInteger("AnimState", 1);
-
-        //Idle
-        else
-            m_animator.SetInteger("AnimState", 0);
-    }
-
-    // Function used to spawn a dust effect
-    // All dust effects spawns on the floor
-    // dustXoffset controls how far from the player the effects spawns.
-    // Default dustXoffset is zero
-
-    private void Spiritualize()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (m_State == SpiritState.Physical)
-            {
-                Spritualize?.Invoke();
-                m_State = SpiritState.Spiritual;
-            }
-            else
-            {
-                DeSpritualize?.Invoke();
-                m_State = SpiritState.Physical;
-            }
-
+            m_animator.SetInteger("AnimState", 1);
         }
 
+        //静止状态
+        else
+        {
+            m_animator.SetInteger("AnimState", 0);
+        }
     }
+
+    
+
+    // 用于生成灰尘效果的方法
+    // 灰尘均在地面生成
+    // dustXoffset可以调节生成距离，默认为0
 
     void SpawnDustEffect(GameObject dust, float dustXOffset = 0)
     {
@@ -192,8 +173,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Animation Events
-    // These functions are called inside the animation files
+
+
+    // Animation Events 动画帧事件
+    // 在角色动画中调用
     void AE_runStop()
     {
         AudioSource.PlayClipAtPoint(m_RunSounds[0], this.transform.position);
