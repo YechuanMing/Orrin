@@ -5,7 +5,6 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-
     [Header("Variables")]
     public SpiritState m_State = SpiritState.Physical;
     [SerializeField] private float m_maxSpeed = 4.5f;
@@ -17,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [Header("Effects")]
     [SerializeField] private GameObject m_RunStopDust;
     [SerializeField] private GameObject m_JumpDust;
-    [SerializeField] private GameObject m_LandingDust;
+    [SerializeField] private GameObject m_LandingDust;//ÌØÐ§
     [Header("AudioClips")]
     [SerializeField] private AudioClip[] m_RunSounds;
     [SerializeField] private AudioClip m_JumpSound;
