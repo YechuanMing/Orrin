@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerSpiritControl : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerSpiritControl : MonoBehaviour
     [SerializeField] private float spawnOffsetY = 0.1f;
 
     private Animator m_animator;
-    private Rigidbody2D m_body2d;
+    private Rigidbody2D m_rbody2d;
     private bool m_moving = false;
     private int m_facingDirection = 1;
     private float m_disableMovementTimer = 0.0f;
@@ -21,7 +22,7 @@ public class PlayerSpiritControl : MonoBehaviour
     void Start()
     {
         m_animator = GetComponent<Animator>();
-        m_body2d = GetComponent<Rigidbody2D>();
+        m_rbody2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -64,8 +65,12 @@ public class PlayerSpiritControl : MonoBehaviour
         float SlowDownSpeed = m_moving ? 1.0f : 0.5f;// 减速速度帮助玩家在停下时过渡
 
         // 设置速度
-        m_body2d.velocity = new Vector2(inputX * m_maxSpeed * SlowDownSpeed, inputY * m_maxSpeed * SlowDownSpeed);
+        m_rbody2d.velocity = new Vector2(inputX * m_maxSpeed * SlowDownSpeed, inputY * m_maxSpeed * SlowDownSpeed);
 
+        if(Input.GetMouseButtonDown(0))
+        {
+            NormalAttack();
+        }
         
     }
 
@@ -88,7 +93,14 @@ public class PlayerSpiritControl : MonoBehaviour
         }
     }
 
-
+    Tween dashTween;
+    private void NormalAttack()
+    {
+        m_animator.SetTrigger("Attack");
+        Vector3 des = new Vector3(transform.position.x + m_rbody2d.velocity.x * 0.7f, transform.position.y + m_rbody2d.velocity.y * 1f, transform.position.z);
+        dashTween.Kill();
+        dashTween=transform.DOMove(des, 0.5f).SetEase(Ease.OutSine);
+    }
 
    public void ResetPos()
     {

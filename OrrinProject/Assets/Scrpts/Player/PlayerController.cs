@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float m_maxSpeed = 4.5f;
     [SerializeField] private float m_jumpForce = 7.5f;
-    [SerializeField][Range(0.5f, 1)] private float jumpMaxTime = 0.7f;
-    [SerializeField][Range(0.01f, 10)] private float jumpStartPower = 2f;
+    [SerializeField] [Range(0.5f, 1)] private float jumpMaxTime = 0.7f;
+    [SerializeField] [Range(0.01f, 10)] private float jumpStartPower = 2f;
     [SerializeField] private float jumpTimer;
     [SerializeField] private bool m_hideSword = false;
     [Header("Effects")]
@@ -33,7 +33,10 @@ public class PlayerController : MonoBehaviour
     private int m_facingDirection = 1;
     private float m_disableMovementTimer = 0.0f;
 
-
+    [SerializeField]
+    private float m_disablePhysicalAttackTimer = 0.0f;
+    [SerializeField]
+    private float m_PhysicalAttackCoolDownTime = 0.5f;
 
 
 
@@ -45,6 +48,8 @@ public class PlayerController : MonoBehaviour
         m_audioSource = GetComponent<AudioSource>();
         m_audioManager = AudioManager_PrototypeHero.instance;
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Prototype>();
+
+
     }
 
     // Update is called once per frame
@@ -93,13 +98,15 @@ public class PlayerController : MonoBehaviour
         // 根据运动方向翻转Sprite朝向
         if (inputRaw > 0)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            //GetComponent<SpriteRenderer>().flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
             m_facingDirection = 1;
         }
 
         else if (inputRaw < 0)
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            //GetComponent<SpriteRenderer>().flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
             m_facingDirection = -1;
         }
 
@@ -154,9 +161,36 @@ public class PlayerController : MonoBehaviour
         {
             m_animator.SetInteger("AnimState", 0);
         }
+
+        //攻击
+
+        if (m_disablePhysicalAttackTimer <= 0)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (Input.GetMouseButtonDown(0)&&Input.GetKey(KeyCode.W))
+                {
+                    m_animator.SetTrigger("UpAttack");
+                }
+                else if (Input.GetMouseButtonDown(0)&&Input.GetKey(KeyCode.S))
+                {
+                    m_animator.SetTrigger("DownAttack");
+                }
+                else
+                {
+                    m_animator.SetTrigger("FrontAttack");
+                }
+                m_disablePhysicalAttackTimer = m_PhysicalAttackCoolDownTime;
+            }
+        }
+        else
+        {
+            m_disablePhysicalAttackTimer -= Time.deltaTime;
+        }
+
     }
 
-    
+
 
     // 用于生成灰尘效果的方法
     // 灰尘均在地面生成
@@ -178,6 +212,42 @@ public class PlayerController : MonoBehaviour
 
     // Animation Events 动画帧事件
     // 在角色动画中调用
+    [SerializeField]
+    private GameObject AttackWave_Front;
+    [SerializeField]
+    private GameObject AttackWave_Up;
+    [SerializeField]
+    private GameObject AttackWave_Down;
+    [SerializeField]
+    private float attackDuration;
+    [SerializeField]
+    private Transform attackFrontSpot;
+    [SerializeField]
+    private Transform attackUpSpot;
+    [SerializeField]
+    private Transform attackDownSpot;
+
+
+    void AE_Attack_Front()
+    {
+        GameObject attackWave = Instantiate(AttackWave_Front, attackFrontSpot.position, attackFrontSpot.rotation);
+        Destroy(attackWave, attackDuration);
+    }
+
+    void AE_Attack_Up()
+    {
+        GameObject attackWave = Instantiate(AttackWave_Up, attackUpSpot.position,attackUpSpot.rotation);
+        Destroy(attackWave, attackDuration);
+    }
+
+    void AE_Attack_Down()
+    {
+        GameObject attackWave = Instantiate(AttackWave_Down, attackDownSpot.position,attackDownSpot.rotation);
+        Destroy(attackWave, attackDuration);
+    }
+
+
+
     void AE_runStop()
     {
         AudioSource.PlayClipAtPoint(m_RunSounds[0], this.transform.position);
