@@ -7,6 +7,7 @@ public class BettleCircle : MonoBehaviour
 {
     public Transform[] waypoints; // 敌人巡逻的路径点
     public float patrolSpeed = 1f; // 敌人巡逻的速度
+    public float rotationDuration = 1f; // 旋转动画持续时间
     // Start is called before the first frame update
     void Start()
     { 
@@ -35,6 +36,8 @@ public class BettleCircle : MonoBehaviour
         if (i == 0) return;
         // 顺时针旋转90度
         transform.Rotate(0, 0f,90f, Space.World);
+        // 顺时针旋转90度，使用平滑的旋转动画
+        //transform.DORotate(new Vector3(0, 0, 90), rotationDuration).SetEase(Ease.InOutQuad);
     }
 
     // Update is called once per frame
