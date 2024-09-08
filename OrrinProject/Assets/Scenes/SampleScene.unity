@@ -517,6 +517,7 @@ MonoBehaviour:
   - {fileID: 170204596}
   - {fileID: 532219029}
   patrolSpeed: 10
+  rotationDuration: 1.5
 --- !u!1 &607780801
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,9 +10,9 @@ using Unity;
 public class Destructable : MonoBehaviour
 {
 
-    [Header("物理生命值")]
-    public float currHealth;
-    public float maxHealth;
+    [Header("生命值")]
+    public int currHealth;
+    public int maxHealth;
 
 
     [Header("是否处于可交互状态")]
@@ -28,7 +28,7 @@ public class Destructable : MonoBehaviour
 
 
 
-    public float CurrPhysicalHealth
+    public int CurrlHealth
     {
         get { return currHealth; }
         set
@@ -49,5 +49,9 @@ public class Destructable : MonoBehaviour
         Destroy(gameObject, delayDestroyTime);
     }
 
+    public void Damage(int damage)
+    {
+        CurrlHealth -= damage;
+    }
 
 }
