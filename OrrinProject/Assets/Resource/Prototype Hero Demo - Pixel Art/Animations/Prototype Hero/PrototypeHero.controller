@@ -16,7 +16,11 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_Name: FrontAttack
+=======
+  - m_Name: Attack1
+>>>>>>> parent of aa4eae8 (角色攻击)
 =======
   - m_Name: Attack1
 >>>>>>> parent of aa4eae8 (角色攻击)
@@ -26,7 +30,11 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_Name: UpAttack
+=======
+  - m_Name: Attack2
+>>>>>>> parent of aa4eae8 (角色攻击)
 =======
   - m_Name: Attack2
 >>>>>>> parent of aa4eae8 (角色攻击)
@@ -36,12 +44,15 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_Name: DownAttack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+=======
+>>>>>>> parent of aa4eae8 (角色攻击)
 =======
 >>>>>>> parent of aa4eae8 (角色攻击)
   - m_Name: Spellcast
@@ -266,6 +277,7 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 1102999884274504608}
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Position: {x: 80, y: -180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5854854541213773597}
@@ -282,6 +294,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -4753533942663000314}
     m_Position: {x: 440, y: 30, z: 0}
+=======
+    m_Position: {x: 84, y: -180, z: 0}
+>>>>>>> parent of aa4eae8 (角色攻击)
 =======
     m_Position: {x: 84, y: -180, z: 0}
 >>>>>>> parent of aa4eae8 (角色攻击)
