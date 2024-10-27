@@ -423,7 +423,11 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: -0.04364077, y: -0.000000002148748, z: -9.3862446e-11, w: 0.99904734}
+=======
+  m_LocalRotation: {x: -0.04364077, y: 0.000000002148749, z: 9.386249e-11, w: 0.99904734}
+>>>>>>> parent of ea49d71 (空白)
 =======
   m_LocalRotation: {x: -0.04364077, y: 0.000000002148749, z: 9.386249e-11, w: 0.99904734}
 >>>>>>> parent of ea49d71 (空白)
@@ -926,6 +930,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of ea49d71 (空白)
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
@@ -1549,6 +1556,7 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Father: {fileID: 243663002}
   m_RootOrder: 3
 =======
@@ -1570,6 +1578,10 @@ Transform:
 >>>>>>> parent of ea49d71 (空白)
 =======
 >>>>>>> parent of aa4eae8 (角色攻击)
+=======
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+>>>>>>> parent of ea49d71 (空白)
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2112075607
 GameObject:
@@ -1635,7 +1647,11 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: -0.04364077, y: -0.000000002148748, z: -9.3862446e-11, w: 0.99904734}
+=======
+  m_LocalRotation: {x: -0.04364077, y: 0.000000002148749, z: 9.386249e-11, w: 0.99904734}
+>>>>>>> parent of ea49d71 (空白)
 =======
   m_LocalRotation: {x: -0.04364077, y: 0.000000002148749, z: 9.386249e-11, w: 0.99904734}
 >>>>>>> parent of ea49d71 (空白)
@@ -1849,6 +1865,7 @@ PrefabInstance:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       objectReference: {fileID: 21300000, guid: 300ea1a5869382b43bf6149aba92c4db, type: 3}
 =======
 >>>>>>> parent of aa4eae8 (角色攻击)
@@ -1863,6 +1880,9 @@ PrefabInstance:
 >>>>>>> parent of ea49d71 (空白)
 =======
 >>>>>>> parent of aa4eae8 (角色攻击)
+=======
+      objectReference: {fileID: 21300000, guid: c09a8548b62bc674bb0fde8e4e1c5ac9, type: 3}
+>>>>>>> parent of ea49d71 (空白)
     - target: {fileID: 4743438937909063529, guid: 21043299f435184449ea09eaa43401cb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1870,6 +1890,7 @@ PrefabInstance:
 <<<<<<< HEAD
     - target: {fileID: 7121481401393242942, guid: 21043299f435184449ea09eaa43401cb, type: 3}
       propertyPath: m_RootOrder
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1895,6 +1916,9 @@ PrefabInstance:
 >>>>>>> parent of ea49d71 (空白)
 =======
 >>>>>>> parent of aa4eae8 (角色攻击)
+=======
+      value: 1
+>>>>>>> parent of ea49d71 (空白)
       objectReference: {fileID: 0}
     - target: {fileID: 7121481401393242942, guid: 21043299f435184449ea09eaa43401cb, type: 3}
       propertyPath: m_LocalPosition.x
