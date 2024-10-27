@@ -25,21 +25,30 @@ public class Destructable : MonoBehaviour
     protected float delayDestroyTime = 2f;
 
     public UnityEvent OnDeath;
+    public UnityEvent OnDamage;
 
 
-
-    public int CurrlHealth
+    public int CurrHealth
     {
         get { return currHealth; }
         set
         {
-            currHealth = value;
-
-            if (currHealth <= 0)
+            if (interactable)
             {
-                interactable = false;
-                OnDeath.Invoke();
+                currHealth = value;
+
+                if (currHealth <= 0)
+                {
+                    interactable = false;
+                    DestroyThisDelayed();
+                    OnDeath.Invoke();
+                }
+                else
+                {
+                    OnDamage.Invoke();
+                }
             }
+
         }
     }
 
@@ -51,7 +60,10 @@ public class Destructable : MonoBehaviour
 
     public void Damage(int damage)
     {
-        CurrlHealth -= damage;
+        CurrHealth -= damage;
+        Debug.Log("Hit");
+
     }
+
 
 }

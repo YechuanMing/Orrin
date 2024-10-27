@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2251513408065160902}
   - component: {fileID: 8732620031443411197}
   - component: {fileID: 6678617286969998508}
+  - component: {fileID: 1855398224462777848}
   m_Layer: 0
   m_Name: AttackWave_Up
   m_TagString: Untagged
@@ -97,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c341ed0572ebe45bd2d600d08dce59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
 --- !u!95 &8732620031443411197
 Animator:
   serializedVersion: 5
@@ -144,3 +146,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1855398224462777848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6794844470641357130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c341ed0572ebe45bd2d600d08dce59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
