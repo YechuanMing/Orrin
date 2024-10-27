@@ -5,6 +5,7 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+
     [Header("Variables")]
 
     [SerializeField] private float m_maxSpeed = 4.5f;
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [Header("Effects")]
     [SerializeField] private GameObject m_RunStopDust;
     [SerializeField] private GameObject m_JumpDust;
-    [SerializeField] private GameObject m_LandingDust;//ÌØÐ§
+    [SerializeField] private GameObject m_LandingDust;
     [Header("AudioClips")]
     [SerializeField] private AudioClip[] m_RunSounds;
     [SerializeField] private AudioClip m_JumpSound;
