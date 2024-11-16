@@ -170,15 +170,18 @@ public class PlayerController : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0)&&Input.GetKey(KeyCode.W))
                 {
-                    m_animator.SetTrigger("UpAttack");
+                    //m_animator.SetTrigger("UpAttack");
+                    m_animator.Play("UpAttack");
                 }
                 else if (Input.GetMouseButtonDown(0)&&Input.GetKey(KeyCode.S))
                 {
-                    m_animator.SetTrigger("DownAttack");
+                    //m_animator.SetTrigger("DownAttack");
+                    m_animator.Play("DownAttack");
                 }
                 else
                 {
-                    m_animator.SetTrigger("FrontAttack");
+                    //m_animator.SetTrigger("FrontAttack");
+                    m_animator.Play("FrontAttack");
                 }
                 m_disablePhysicalAttackTimer = m_PhysicalAttackCoolDownTime;
             }
@@ -196,12 +199,14 @@ public class PlayerController : MonoBehaviour
     // 灰尘均在地面生成
     // dustXoffset可以调节生成距离，默认为0
 
+    [SerializeField][Range(0.1f,0.5f)]
+    private float dustYOffset;
     void SpawnDustEffect(GameObject dust, float dustXOffset = 0)
     {
         if (dust != null)
         {
             // Set dust spawn position
-            Vector3 dustSpawnPosition = transform.position + new Vector3(dustXOffset * m_facingDirection, 0.0f, 0.0f);
+            Vector3 dustSpawnPosition = transform.position + new Vector3(dustXOffset * m_facingDirection, 0.0f-dustYOffset, 0.0f);
             GameObject newDust = Instantiate(dust, dustSpawnPosition, Quaternion.identity) as GameObject;
             // Turn dust in correct X direction
             newDust.transform.localScale = newDust.transform.localScale.x * new Vector3(m_facingDirection, 1, 1);
@@ -227,22 +232,33 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Transform attackDownSpot;
 
+    [SerializeField] [Range(0.4f, 1)]
+    private float attackFrontOffsetX;
+
+    [SerializeField][Range(0.4f,1)]
+    private float attackUpOffsetY;
+
+    [SerializeField][Range(0.4f,1)]
+    private float attackDownOffsetY;
 
     void AE_Attack_Front()
     {
-        GameObject attackWave = Instantiate(AttackWave_Front, attackFrontSpot.position, attackFrontSpot.rotation);
+        GameObject attackWave = Instantiate(AttackWave_Front, attackFrontSpot.position+Vector3.right*attackFrontOffsetX*transform.localScale.x, attackFrontSpot.rotation);
+        attackWave.transform.localScale = transform.localScale;
         Destroy(attackWave, attackDuration);
     }
 
     void AE_Attack_Up()
     {
-        GameObject attackWave = Instantiate(AttackWave_Up, attackUpSpot.position,attackUpSpot.rotation);
+        GameObject attackWave = Instantiate(AttackWave_Up, attackUpSpot.position+Vector3.up*attackUpOffsetY,attackUpSpot.rotation);
+        attackWave.transform.localScale = transform.localScale;
         Destroy(attackWave, attackDuration);
     }
 
     void AE_Attack_Down()
     {
-        GameObject attackWave = Instantiate(AttackWave_Down, attackDownSpot.position,attackDownSpot.rotation);
+        GameObject attackWave = Instantiate(AttackWave_Down, attackDownSpot.position + Vector3.down * attackDownOffsetY, attackDownSpot.rotation);
+        attackWave.transform.localScale = transform.localScale;
         Destroy(attackWave, attackDuration);
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using Unity;
+using DG.Tweening;
 
 
 //此脚本适用于所有可被玩家攻击摧毁的物体，不仅限于敌人。
@@ -62,8 +63,12 @@ public class Destructable : MonoBehaviour
     {
         CurrHealth -= damage;
         Debug.Log("Hit");
-
+        
     }
 
+    private void Flash()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
 }
