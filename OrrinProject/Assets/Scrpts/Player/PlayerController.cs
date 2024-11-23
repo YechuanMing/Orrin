@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
         m_audioSource = GetComponent<AudioSource>();
         m_audioManager = AudioManager_PrototypeHero.instance;
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Prototype>();
+        PlayerCameraControl.playerBodyTrans = this.transform;
 
 
     }
@@ -193,7 +194,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
+    private void OnDisable()
+    {
+        m_animator.Play("Idle");
+    }
 
     // 用于生成灰尘效果的方法
     // 灰尘均在地面生成

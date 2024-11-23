@@ -67,11 +67,11 @@ public class PlayerSpiritControl : MonoBehaviour
         // …Ë÷√ÀŸ∂»
         m_rbody2d.velocity = new Vector2(inputX * m_maxSpeed * SlowDownSpeed, inputY * m_maxSpeed * SlowDownSpeed);
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             NormalAttack();
         }
-        
+
     }
 
 
@@ -94,22 +94,33 @@ public class PlayerSpiritControl : MonoBehaviour
     }
 
     Tween dashTween;
+
+    [SerializeField][Range(0.2f,2f)]
+    private float basicAttackDashDistance = 1f;
+
+    [SerializeField]
+    [Range(0.2f, 1f)]
+    private float attackVelocityMultipier = 0.5f;
+
+    [SerializeField]
+    [Range(0.2f, 0.8f)]
+    private float dashDuration=0.5f;
     private void NormalAttack()
     {
         m_animator.SetTrigger("Attack");
-        Vector3 des = new Vector3(transform.position.x + m_rbody2d.velocity.x * 0.7f, transform.position.y + m_rbody2d.velocity.y * 1f, transform.position.z);
+        Vector3 des = new Vector3(transform.position.x + m_rbody2d.velocity.x * attackVelocityMultipier + basicAttackDashDistance * m_facingDirection, transform.position.y + m_rbody2d.velocity.y * attackVelocityMultipier, transform.position.z);
         dashTween.Kill();
-        dashTween=transform.DOMove(des, 0.5f).SetEase(Ease.OutSine);
+        dashTween = transform.DOMove(des, dashDuration).SetEase(Ease.OutSine);
     }
 
-   public void ResetPos()
+    public void ResetPos()
     {
-        transform.localPosition = Vector3.zero+Vector3.up*spawnOffsetY;
+        transform.localPosition = Vector3.zero + Vector3.up * spawnOffsetY;
     }
 
     private void OnDisable()
     {
-        transform.localPosition = Vector3.zero+ Vector3.up;
+        transform.localPosition = Vector3.zero + Vector3.up;
     }
 
 }
