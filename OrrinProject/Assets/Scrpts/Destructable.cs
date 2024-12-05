@@ -11,8 +11,9 @@ using DG.Tweening;
 public class Destructable : MonoBehaviour
 {
 
-    [Header("生命值")]
+    [Header("当前生命值")]
     public int currHealth;
+    [Header("最大生命值")]
     public int maxHealth;
 
 
@@ -25,8 +26,12 @@ public class Destructable : MonoBehaviour
     [Range(0, 10)]
     protected float delayDestroyTime = 2f;
 
-    public UnityEvent OnDeath;
+    [Header("收到攻击时触发事件")]
     public UnityEvent OnDamage;
+
+    [Header("死亡时触发事件")]
+    public UnityEvent OnDeath;
+
 
 
     public int CurrHealth
@@ -53,6 +58,7 @@ public class Destructable : MonoBehaviour
         }
     }
 
+    //延迟销毁
     protected void DestroyThisDelayed()
     {
         Debug.Log("Detroy In" + delayDestroyTime + "seconds");
@@ -66,9 +72,40 @@ public class Destructable : MonoBehaviour
         
     }
 
-    private void Flash()
+
+    //受击闪烁功能。
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+
+    // 持续的变白时间
+    public float flashDuration = 0.1f;
+    // 变白的颜色
+    public Color flashColor = Color.white;
+
+    void Start()
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalColor = spriteRenderer.color;
+        }
     }
 
+    // 这个方法可以在角色被攻击时调用
+    public void FlashWhite()
+    {
+        StartCoroutine(FlashCoroutine());
+    }
+
+    private IEnumerator FlashCoroutine()
+    {
+        if (spriteRenderer != null)
+        {
+            // 变白
+            spriteRenderer.color = flashColor;
+            yield return new WaitForSeconds(flashDuration);
+            // 恢复原色
+            spriteRenderer.color = originalColor;
+        }
+    }
 }

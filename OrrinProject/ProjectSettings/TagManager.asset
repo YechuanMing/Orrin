@@ -12,12 +12,12 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Destructables
+  - PhysicalDestructable
   - GroundCheck
   - PlayerBody
   - AttackWave
-  - 
-  - 
+  - PlayerSpirit
+  - SpiritualDestructable
   - 
   - 
   - 

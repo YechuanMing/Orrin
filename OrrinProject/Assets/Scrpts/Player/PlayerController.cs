@@ -192,6 +192,8 @@ public class PlayerController : MonoBehaviour
             m_disablePhysicalAttackTimer -= Time.deltaTime;
         }
 
+
+
     }
 
     private void OnDisable()
@@ -221,6 +223,8 @@ public class PlayerController : MonoBehaviour
 
     // Animation Events 动画帧事件
     // 在角色动画中调用
+    [Header("普通攻击")]
+    [Header("攻击及技能")]
     [SerializeField]
     private GameObject AttackWave_Front;
     [SerializeField]
