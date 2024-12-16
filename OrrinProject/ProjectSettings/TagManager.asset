@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -11,14 +12,22 @@ TagManager:
   - Ground
   - Water
   - UI
-  - EnemyUnGround
+  - PhysicalDestructable
   - GroundCheck
   - PlayerBody
+<<<<<<< HEAD
   - 
   - 
   - 
   - 
   - 
+=======
+  - AttackWave
+  - PlayerSpirit
+  - SpiritualDestructable
+  - LevelTrigger
+  - CameraZone
+>>>>>>> yes
   - 
   - 
   - 

@@ -11,11 +11,18 @@ public class PlayerSpiritualization : MonoBehaviour
         Physical, Spiritual
     }
 
-    public SpiritState m_State = SpiritState.Physical;
+    public static SpiritState m_State = SpiritState.Physical;
 
+    public GameObject playerSpiritPref;
+
+    public PlayerSpiritControl playerSpirit;
+
+
+    //所有怪物及交互物的状态切换委托
     public static event Action Spritualize;
     public static event Action DeSpritualize;
 
+    //玩家的状态切换
     public  UnityEvent OnCharacterSpiritualized;
     public UnityEvent OnCharacterhDeSpiritualized;
     void Start()
@@ -48,4 +55,19 @@ public class PlayerSpiritualization : MonoBehaviour
         }
 
     }
+
+    public void InstantiateSpirit()
+    {
+        playerSpirit = Instantiate(playerSpiritPref, transform.position, transform.rotation).GetComponent<PlayerSpiritControl>();
+        PlayerCameraControl.playerSpiritTrans = playerSpirit.transform;
+        PlayerCameraControl.SwitchFollowState(SpiritState.Spiritual);
+    }
+
+    public void WithdrawSpirit()
+    {
+        Destroy(playerSpirit.gameObject);
+        PlayerCameraControl.SwitchFollowState(SpiritState.Physical);
+    }
+
+    
 }
