@@ -7,8 +7,6 @@ public class PlayerCameraControl : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        //PlayerSpiritualization.Spritualize += FollowSpirit;
-        //PlayerSpiritualization.DeSpritualize += FollowBody;
         cam = GetComponent<Cinemachine.CinemachineVirtualCamera>();
     }
 
@@ -22,18 +20,7 @@ public class PlayerCameraControl : MonoBehaviour
     public static Transform playerBodyTrans;
     public static Transform playerSpiritTrans;
 
-    //public void FollowBody()
-    //{
-    //    cam.Follow = playerBodyTrans ? playerBodyTrans : null;
-    //    cam.LookAt= playerBodyTrans ? playerBodyTrans : null;
-    //}
-
-    //public void FollowSpirit()
-    //{
-    //    cam.Follow = playerSpiritTrans ? playerSpiritTrans : null;
-    //    cam.LookAt = playerSpiritTrans ? playerSpiritTrans : null;  
-    //}
-
+    //用来在身体和灵魂之间切换镜头
     public static void SwitchFollowState(PlayerSpiritualization.SpiritState newState)
     {
         if(newState== PlayerSpiritualization.SpiritState.Spiritual)
@@ -44,6 +31,17 @@ public class PlayerCameraControl : MonoBehaviour
         {
             cam.Follow = playerBodyTrans ? playerBodyTrans : null;
             cam.LookAt = playerBodyTrans ? playerBodyTrans : null;
+        }
+    }
+
+    public static void Initialize(Transform body)
+    {
+        if(cam!=null)
+        {
+            cam.Follow = body;
+            cam.LookAt = body;
+            PlayerSpiritualization.m_State = PlayerSpiritualization.SpiritState.Physical;
+            playerBodyTrans = body;
         }
     }
 }

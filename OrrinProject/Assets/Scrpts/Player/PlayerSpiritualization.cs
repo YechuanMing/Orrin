@@ -11,7 +11,7 @@ public class PlayerSpiritualization : MonoBehaviour
         Physical, Spiritual
     }
 
-    public SpiritState m_State = SpiritState.Physical;
+    public static SpiritState m_State = SpiritState.Physical;
 
     public GameObject playerSpiritPref;
 

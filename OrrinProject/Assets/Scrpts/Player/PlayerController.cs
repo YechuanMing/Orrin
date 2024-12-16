@@ -5,6 +5,7 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; }
 
     [Header("Variables")]
 
@@ -39,7 +40,18 @@ public class PlayerController : MonoBehaviour
     private float m_PhysicalAttackCoolDownTime = 0.5f;
 
 
+    private void Awake()
+    {
+        // 检查是否已有实例
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
+        // 设置实例并标记为不销毁
+        Instance = this;
+    }
     // Use this for initialization
     void Start()
     {
@@ -48,8 +60,8 @@ public class PlayerController : MonoBehaviour
         m_audioSource = GetComponent<AudioSource>();
         m_audioManager = AudioManager_PrototypeHero.instance;
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Prototype>();
-        PlayerCameraControl.playerBodyTrans = this.transform;
-
+        PlayerCameraControl.Initialize(attackFrontSpot);
+        
 
     }
 
