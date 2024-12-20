@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 7534736253528416895}
   - component: {fileID: 5126507519739992232}
   - component: {fileID: 885849304}
+  - component: {fileID: 8948243974802089904}
   m_Layer: 8
   m_Name: PlayerPhysical
   m_TagString: Player
@@ -285,7 +286,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1.17
+  m_LinearDrag: 0.18
   m_AngularDrag: 0.05
   m_GravityScale: 3.6
   m_Material: {fileID: 0}
@@ -331,12 +332,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2339362fea54d45b3b19c61d06b6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDataObject: {fileID: 0}
   m_maxSpeed: 4
   m_jumpForce: 5
   jumpMaxTime: 0.5
   jumpStartPower: 2.77
   jumpTimer: 0
-  m_hideSword: 0
   m_RunStopDust: {fileID: 7310271610845027193, guid: 39afca3c109b26049a80bc07593eb271, type: 3}
   m_JumpDust: {fileID: 8935918012585647707, guid: 4a4123fbc8b39d441868897a71d2b2b1, type: 3}
   m_LandingDust: {fileID: 9076098953984712191, guid: 0b745be9abb3a6d4dadd8705950196d1, type: 3}
@@ -427,3 +428,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &8948243974802089904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4743438937909063529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56101766cb72d7c43b641ea3e951e4af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 1
+  currHealth: 0
+  maxHealth: 0
+  interactable: 1
+  delayDestroyTime: 2
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  flashDuration: 0.1
+  flashColor: {r: 1, g: 1, b: 1, a: 1}

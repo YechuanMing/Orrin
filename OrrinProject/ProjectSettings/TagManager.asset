@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Destructable
+  - SavePoints
   layers:
   - Default
   - TransparentFX
@@ -15,13 +17,13 @@ TagManager:
   - PhysicalDestructable
   - GroundCheck
   - PlayerBody
-  - AttackWave
+  - PlayerPhysicalAttackWave
   - PlayerSpirit
   - SpiritualDestructable
   - LevelTrigger
   - CameraZone
-  - 
-  - 
+  - EnemyBorder
+  - EnemyPhysicalAttackObj
   - 
   - 
   - 
