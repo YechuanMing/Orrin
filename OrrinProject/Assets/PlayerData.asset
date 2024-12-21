@@ -29,5 +29,5 @@ MonoBehaviour:
   attackDashForce_Spiritual: 5
   attackCoolDown_Spiritual: 1
   maxSpiritAmount: 100
-  spiritDeclinationPerSec: 20
-  spiritGainPerHit: 10
+  spiritDeclinationPerSec: 5
+  spiritGainPerHit: 20

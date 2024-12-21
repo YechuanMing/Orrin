@@ -85,23 +85,31 @@ public class Destructable : MonoBehaviour
     //ÑÓ³ÙÏú»Ù
     public void DestroyThisDelayed(float delayTime)
     {
-        OnDeath.Invoke();
-        Debug.Log("Detroy In" + delayDestroyTime + "seconds");
-        Destroy(gameObject, delayDestroyTime);
         if (isPlayer)
         {
             GameManager.Instance.RebornPlayer();
         }
+        OnDeath.Invoke();
+        Debug.Log("Detroy In" + delayDestroyTime + "seconds");
+        Destroy(gameObject, delayDestroyTime);
+
     }
 
     public void Damage(int damage)
     {
         CurrHealth -= damage;
-        if(isPlayer)
+
+        if (isPlayer && currHealth > 0) 
         {
+            if(PlayerSpiritualization.m_State==PlayerSpiritualization.SpiritState.Spiritual)
+            {
+                PlayerSpiritualization.Instance.DeSpiritualize();
+            }
             Time.timeScale = 0.2f;
+            PostProcessManager.Instance.PlayerDamagedVignette();
+            GetComponent<PlayerController>().enabled = false;
             DOVirtual.DelayedCall(0.2f, () => { Time.timeScale = 0.2f; }).OnComplete(()=>
-            { DOVirtual.DelayedCall(0.5f, () => { Time.timeScale = 1f; }); });
+            { DOVirtual.DelayedCall(0.5f, () => { Time.timeScale = 1f; GetComponent<PlayerController>().enabled = true; }); });
         }
         Debug.Log("HitBy"+damage);
     }

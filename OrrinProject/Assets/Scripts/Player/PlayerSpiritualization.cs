@@ -78,6 +78,7 @@ public class PlayerSpiritualization : MonoBehaviour
         {
             return;
         }
+        
         SpiritualizeBroadcast?.Invoke();
         OnCharacterSpiritualized.Invoke();
         m_State = SpiritState.Spiritual;

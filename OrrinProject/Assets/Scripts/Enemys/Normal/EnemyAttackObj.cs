@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAttackObj : MonoBehaviour
 {
 
+    private SpiritualEnemyBase m_base;
     [SerializeField]
     public int damage = 5;
     [SerializeField]
@@ -13,8 +14,17 @@ public class EnemyAttackObj : MonoBehaviour
     [SerializeField]
     private float repelForce;
 
+    private void Awake()
+    {
+        m_base = GetComponent<SpiritualEnemyBase>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(m_base.isBodyDied||m_base.isSpiritDied)
+        {
+            return;
+        }
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<Destructable>().Damage(damage);
@@ -26,6 +36,10 @@ public class EnemyAttackObj : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (m_base.isBodyDied || m_base.isSpiritDied)
+        {
+            return;
+        }
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<Destructable>().Damage(touchDamage);

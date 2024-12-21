@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     public PlayerData playerDataObject;
 
+    public bool isFreeze;
+
     [Header("Variables")]
     [SerializeField] private float m_maxSpeed = 4.5f;
 
@@ -76,9 +78,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void SetFreeze(bool set)
+    {
+        isFreeze = set;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if(isFreeze)
+        {
+            return;
+        }
         // Decrease timer that disables input movement. Used when attacking
         m_disableMovementTimer -= Time.deltaTime;
 
