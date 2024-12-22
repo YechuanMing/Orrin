@@ -10,11 +10,6 @@ public class PlayerCameraControl : MonoBehaviour
         cam = GetComponent<Cinemachine.CinemachineVirtualCamera>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public static Cinemachine.CinemachineVirtualCamera cam;
     public static Transform playerBodyTrans;
@@ -34,6 +29,7 @@ public class PlayerCameraControl : MonoBehaviour
         }
     }
 
+    //≥ı ºªØ
     public static void Initialize(Transform body,Transform front)
     {
         if(cam!=null)

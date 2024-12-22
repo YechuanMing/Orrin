@@ -26,12 +26,13 @@ public class PlayerSpiritControl : MonoBehaviour
     {
         m_animator = GetComponent<Animator>();
         m_rbody2d = GetComponent<Rigidbody2D>();
+        transform.DOMoveY(transform.position.y + 1f, 0.5f).SetEase(Ease.OutCubic);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+       
         float inputY = Input.GetAxis("Vertical");
 
         // -- Handle input and movement --

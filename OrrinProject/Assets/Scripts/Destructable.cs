@@ -21,7 +21,7 @@ public class Destructable : MonoBehaviour
 
     [Header("是否处于可交互状态")]
     [SerializeField]
-    protected bool interactable=true;
+    protected bool interactable = true;
 
     [SerializeField]
     [Header("延迟销毁物体")]
@@ -63,13 +63,14 @@ public class Destructable : MonoBehaviour
 
     void Start()
     {
-
+        //如果是玩家，从数据中获取生命值。（感觉不太对，要改）
         if (isPlayer && GameManager.Instance.playerDataObj != null)
         {
             maxHealth = GameManager.Instance.playerDataObj.maxHealth;
             Debug.Log("Hi");
         }
 
+        //刷新生命值
         CurrHealth = maxHealth;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -81,37 +82,69 @@ public class Destructable : MonoBehaviour
 
     }
 
+    public void UpdateMaxHealth()
+    {
+        maxHealth= GameManager.Instance.playerDataObj.maxHealth;
+    }
 
     //延迟销毁
     public void DestroyThisDelayed(float delayTime)
     {
+        //如果是玩家，触发重生方法
         if (isPlayer)
         {
             GameManager.Instance.RebornPlayer();
+            PostProcessManager.Instance.PlayerDieVignette();
+
         }
+
         OnDeath.Invoke();
         Debug.Log("Detroy In" + delayDestroyTime + "seconds");
         Destroy(gameObject, delayDestroyTime);
 
     }
 
+
+    //核心方法，受击
     public void Damage(int damage)
     {
-        CurrHealth -= damage;
 
-        if (isPlayer && currHealth > 0) 
+        //如果目前挂这个物体的是玩家，需要有独特的受击处理
+        if (isPlayer && currHealth > 0)
         {
-            if(PlayerSpiritualization.m_State==PlayerSpiritualization.SpiritState.Spiritual)
+            //如果玩家处于灵魂状态，弹出来。
+            if (PlayerSpiritualization.m_State == PlayerSpiritualization.SpiritState.Spiritual)
             {
                 PlayerSpiritualization.Instance.DeSpiritualize();
             }
-            Time.timeScale = 0.2f;
-            PostProcessManager.Instance.PlayerDamagedVignette();
-            GetComponent<PlayerController>().enabled = false;
-            DOVirtual.DelayedCall(0.2f, () => { Time.timeScale = 0.2f; }).OnComplete(()=>
-            { DOVirtual.DelayedCall(0.5f, () => { Time.timeScale = 1f; GetComponent<PlayerController>().enabled = true; }); });
+
+            if (currHealth > 0)
+            {
+                Time.timeScale = 0.2f;
+                PostProcessManager.Instance.PlayerDamagedVignette();
+                //这里需要禁用一下playerController，否则玩家没法被rigidbody.Addforce击退，因为playerController的移动用的是rigidbody.velocity，会覆盖掉
+                PlayerController.Instance.enabled = false;
+                //同时禁用状态切换，否则会打乱切换逻辑。
+                PlayerSpiritualization.SetAllowTransfom(false);
+
+                DOVirtual.DelayedCall(0.2f, () => { Time.timeScale = 0.2f; }).OnComplete(() =>
+                {
+                    DOVirtual.DelayedCall(0.5f, () =>
+                    {
+                        Time.timeScale = 1f; PlayerSpiritualization.SetAllowTransfom(true);
+                        PlayerController.Instance.enabled = true;
+                    });
+                });
+            }
+
         }
-        Debug.Log("HitBy"+damage);
+        else
+        {
+            //如果不是玩家，会抖动一下，加强打击感。
+            transform.DOShakeScale(0.3f,0.5f,1,30);
+        }
+        CurrHealth -= damage;
+        Debug.Log("HitBy" + damage);
     }
 
 
