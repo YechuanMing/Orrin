@@ -8,6 +8,7 @@ public class PlayerSpiritualization : MonoBehaviour
 {
     public static PlayerSpiritualization Instance { get; private set; }
 
+    public static bool allowTransform=true;
     public enum SpiritState
     {
         Physical, Spiritual
@@ -46,11 +47,14 @@ public class PlayerSpiritualization : MonoBehaviour
 
     }
 
-
+    public static void SetAllowTransfom(bool set)
+    {
+        allowTransform = set;
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q)&&allowTransform)
         {
             if (m_State == SpiritState.Physical)
             {
@@ -64,28 +68,36 @@ public class PlayerSpiritualization : MonoBehaviour
         }
 
     }
+
+    //去灵魂化
     public  void DeSpiritualize()
     {
         DeSpiritualizeBroadcast?.Invoke();
         OnCharacterhDeSpiritualized.Invoke();
         m_State = SpiritState.Physical;
+        PostProcessManager.Instance.ResetToDefault();
         Time.timeScale = 1f;
     }
 
+    //灵魂化
     public  void Spiritualize()
     {
+        //如果当前灵魂能量不足，不转变
         if (PlayerDisplayData.Instance.currSpiritEnergy <= Mathf.Epsilon)
         {
             return;
         }
-        
+
+        PostProcessManager.Instance.PlayerSpiritualizeCombo();
         SpiritualizeBroadcast?.Invoke();
         OnCharacterSpiritualized.Invoke();
         m_State = SpiritState.Spiritual;
         Time.timeScale = 0.5f;
     }
 
-
+    
+    
+    //放出灵魂
     public void InstantiateSpirit()
     {
         playerSpirit = Instantiate(playerSpiritPref, transform.position, transform.rotation).GetComponent<PlayerSpiritControl>();
@@ -93,6 +105,7 @@ public class PlayerSpiritualization : MonoBehaviour
         PlayerCameraControl.SwitchFollowState(SpiritState.Spiritual);
     }
 
+    //收回灵魂
     public void WithdrawSpirit()
     {
         Destroy(playerSpirit.gameObject);

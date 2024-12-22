@@ -14,10 +14,13 @@ public class GameManager : MonoBehaviour
 
     public static GameObject currPlayer;
 
+    [Header("玩家数据文件")]
     public  PlayerData playerDataObj;
 
+    [Header("游戏的玩家起始位置")]
     public Transform firstPoint;
 
+    [Header("最后保存坐标")]
     public Transform lastSavePoint;
 
     [SerializeField]
@@ -43,6 +46,7 @@ public class GameManager : MonoBehaviour
         SpawnPlayerAtPoint(firstPoint);
     }
 
+    //生成玩家方法
     public  void SpawnPlayerAtPoint(Transform trans)
     {
         currPlayer = Instantiate(playerPref, trans.position, trans.rotation);

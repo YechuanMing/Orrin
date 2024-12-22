@@ -69,11 +69,14 @@ public class SceneChanger : MonoBehaviour
     {
         StartCoroutine(PlayerRebornCoro(rebornFadeTime));
     }
+
+    //场景内重生玩家
     public IEnumerator PlayerRebornCoro(float rebornFadeTime)
     {
         yield return FadeToBlack(rebornFadeTime);
         GameManager.Instance.SpawnPlayerAtPoint(GameManager.Instance.lastSavePoint);
         yield return null;
+        PostProcessManager.Instance.ResetToDefault();
         yield return FadeToTransparent(rebornFadeTime);
     }
 

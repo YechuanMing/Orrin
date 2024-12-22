@@ -59,6 +59,7 @@ public class PlayerDisplayData : MonoBehaviour
     private void Update()
     {
         spiritEnergyBar.value = currSpiritEnergy / playerDataObject.maxSpiritAmount;
+        //如果当前正在灵魂状态，则自动衰减灵魂能量
         if (PlayerSpiritualization.m_State == PlayerSpiritualization.SpiritState.Spiritual)
         {
             CurrSpiritEnergy -= Time.unscaledDeltaTime * playerDataObject.spiritDeclinationPerSec;
@@ -66,6 +67,7 @@ public class PlayerDisplayData : MonoBehaviour
         }
     }
 
+    //攻击回复能量
     public void HitAddSpirit()
     {
         CurrSpiritEnergy += playerDataObject.spiritGainPerHit;
