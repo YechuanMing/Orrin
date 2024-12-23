@@ -44,18 +44,29 @@ public class Destructable : MonoBehaviour
         {
             if (interactable)
             {
+
+                if (value < currHealth)
+                {
+                    if (value <= 0)
+                    {
+                        interactable = false;
+                        DestroyThisDelayed(delayDestroyTime);
+                    }
+                    OnDamage.Invoke();
+
+                }
+                if (value > currHealth)
+                {
+
+                }
                 currHealth = value;
 
-                if (currHealth <= 0)
+                if (isPlayer)
                 {
-                    interactable = false;
-                    DestroyThisDelayed(delayDestroyTime);
+                    PlayerDisplayData.Instance.UpdatePlayerHealthDisplay();
+                    Debug.Log("UpdatedPlayerHealth");
+                }
 
-                }
-                else
-                {
-                    OnDamage.Invoke();
-                }
             }
 
         }
@@ -63,10 +74,14 @@ public class Destructable : MonoBehaviour
 
     void Start()
     {
+
         //如果是玩家，从数据中获取生命值。（感觉不太对，要改）
         if (isPlayer && GameManager.Instance.playerDataObj != null)
         {
             maxHealth = GameManager.Instance.playerDataObj.maxHealth;
+            PlayerDisplayData.Instance.SetCurrPlayerDestructable(this);
+            
+            //PlayerDisplayData.Instance.UpdatePlayerHealthDisplay();
             Debug.Log("Hi");
         }
 
@@ -84,7 +99,7 @@ public class Destructable : MonoBehaviour
 
     public void UpdateMaxHealth()
     {
-        maxHealth= GameManager.Instance.playerDataObj.maxHealth;
+        maxHealth = GameManager.Instance.playerDataObj.maxHealth;
     }
 
     //延迟销毁
@@ -141,7 +156,7 @@ public class Destructable : MonoBehaviour
         else
         {
             //如果不是玩家，会抖动一下，加强打击感。
-            transform.DOShakeScale(0.3f,0.5f,1,30);
+            transform.DOShakeScale(0.3f, 0.5f, 1, 30);
         }
         CurrHealth -= damage;
         Debug.Log("HitBy" + damage);

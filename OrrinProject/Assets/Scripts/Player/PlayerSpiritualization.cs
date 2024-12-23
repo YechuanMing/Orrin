@@ -20,6 +20,35 @@ public class PlayerSpiritualization : MonoBehaviour
 
     public PlayerSpiritControl playerSpirit;
 
+    //当前灵魂能量值
+    public float currSpiritEnergy;
+    public float CurrSpiritEnergy
+    {
+        get
+        {
+            return currSpiritEnergy;
+        }
+        set
+        {
+            if (value <= 0)
+            {
+                //当玩家的灵魂能量值降到零时，自动退出灵魂模式
+                if (PlayerSpiritualization.m_State == PlayerSpiritualization.SpiritState.Spiritual)
+                {
+                    DeSpiritualize();
+                }
+                currSpiritEnergy = 0;
+            }
+            else if (value >= GameManager.Instance.playerDataObj.maxSpiritAmount)
+            {
+                currSpiritEnergy = GameManager.Instance.playerDataObj.maxSpiritAmount;
+            }
+            else
+            {
+                currSpiritEnergy = value;
+            }
+        }
+    }
 
     //所有怪物及交互物的状态切换委托
     public static event Action SpiritualizeBroadcast;
@@ -67,6 +96,12 @@ public class PlayerSpiritualization : MonoBehaviour
 
         }
 
+        //如果当前在灵魂状态，能量递减
+        if(m_State==SpiritState.Spiritual)
+        {
+            CurrSpiritEnergy -= Time.unscaledDeltaTime * GameManager.Instance.playerDataObj.spiritDeclinationPerSec;
+        }
+
     }
 
     //去灵魂化
@@ -83,7 +118,7 @@ public class PlayerSpiritualization : MonoBehaviour
     public  void Spiritualize()
     {
         //如果当前灵魂能量不足，不转变
-        if (PlayerDisplayData.Instance.currSpiritEnergy <= Mathf.Epsilon)
+        if (currSpiritEnergy <= Mathf.Epsilon)
         {
             return;
         }
@@ -112,5 +147,9 @@ public class PlayerSpiritualization : MonoBehaviour
         PlayerCameraControl.SwitchFollowState(SpiritState.Physical);
     }
 
-    
+    //攻击回复能量
+    public void HitAddSpirit()
+    {
+        CurrSpiritEnergy += GameManager.Instance.playerDataObj.spiritGainPerHit;
+    }
 }

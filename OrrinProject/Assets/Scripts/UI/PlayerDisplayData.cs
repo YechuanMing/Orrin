@@ -6,10 +6,15 @@ using UnityEngine.UI;
 public class PlayerDisplayData : MonoBehaviour
 {
 
-    public PlayerData playerDataObject;
+    private PlayerData playerDataObject;
     public static PlayerDisplayData Instance { get; private set; }
 
     public Slider spiritEnergyBar;
+
+    public GameObject[] healthSprites;
+
+    [SerializeField]
+    private Destructable playerDestructable;
 
     private void Awake()
     {
@@ -26,51 +31,49 @@ public class PlayerDisplayData : MonoBehaviour
 
     }
 
-
-    public float currSpiritEnergy;
-    public float CurrSpiritEnergy
+    public void SetCurrPlayerDestructable(Destructable set)
     {
-        get
-        {
-            return currSpiritEnergy;
-        }
-        set
-        {
-            if (value <= 0)
-            {
-                //当玩家的灵魂能量值降到零时，自动退出灵魂模式
-                if (PlayerSpiritualization.m_State == PlayerSpiritualization.SpiritState.Spiritual)
-                {
-                    PlayerSpiritualization.Instance.DeSpiritualize();
-                }
-                currSpiritEnergy = 0;
-            }
-            else if(value>=playerDataObject.maxSpiritAmount)
-            {
-                currSpiritEnergy = playerDataObject.maxSpiritAmount;
-            }else
-            {
-                currSpiritEnergy = value;
-            }
-        }
+        playerDestructable = set;
     }
 
-   
+
+    private void Start()
+    {
+        playerDataObject = GameManager.Instance.playerDataObj;
+        playerDestructable = PlayerController.Instance.gameObject.GetComponent<Destructable>();
+        
+    }
     private void Update()
     {
-        spiritEnergyBar.value = currSpiritEnergy / playerDataObject.maxSpiritAmount;
-        //如果当前正在灵魂状态，则自动衰减灵魂能量
-        if (PlayerSpiritualization.m_State == PlayerSpiritualization.SpiritState.Spiritual)
-        {
-            CurrSpiritEnergy -= Time.unscaledDeltaTime * playerDataObject.spiritDeclinationPerSec;
+        spiritEnergyBar.value = PlayerSpiritualization.Instance.currSpiritEnergy / playerDataObject.maxSpiritAmount;
 
-        }
     }
 
-    //攻击回复能量
-    public void HitAddSpirit()
+    public void UpdatePlayerHealthDisplay()
     {
-        CurrSpiritEnergy += playerDataObject.spiritGainPerHit;
-    }
+        //显示最大生命值范围内的生命槽，如果没显示，就显示
+        //如果当前的生命槽序列超过了当前血量，就播放空槽动画
+        //用i+1就可以对应血量了
+        for (int i = 1; i <= healthSprites.Length-1; i++)
+        {
+            if(i>playerDestructable.maxHealth)
+            {
+                healthSprites[i].SetActive(false);
+            }else
+            {
+                
+                healthSprites[i].SetActive(true);
+                
+            }
+            if(i>playerDestructable.CurrHealth)
+            {
+                healthSprites[i].GetComponent<Animator>().Play("Empty");
+            }
+            else
+            {
+                healthSprites[i].GetComponent<Animator>().Play("Filled");
+            }
+        }
 
+    }
 }

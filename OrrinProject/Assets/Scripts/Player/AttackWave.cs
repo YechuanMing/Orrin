@@ -36,7 +36,7 @@ public class AttackWave : MonoBehaviour
                     break;
 
             }
-            PlayerDisplayData.Instance.HitAddSpirit();
+            PlayerSpiritualization.Instance.HitAddSpirit();
             //collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - this.transform.position) * damage * impulseParam, ForceMode2D.Impulse);
         }
         else if(collision.gameObject.CompareTag("Destructable"))

@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
     public void SetFreeze(bool set)
     {
         isFreeze = set;
+        m_body2d.velocity = Vector2.zero;
     }
 
     // Update is called once per frame
