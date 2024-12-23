@@ -62,6 +62,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultIntensity: 0.271
-  peakIntensity: 0.376
-  upDuration: 0.467
-  declineDuration: 4.34
+  playerDamageVignetteData:
+    damageColor: {r: 0.5377358, g: 0.10348876, b: 0.10348876, a: 0}
+    peakIntensity: 0.474
+    upDuration: 0.215
+    declineDuration: 3.9
+  playerDieVignetteData:
+    peakIntensity_Die: 0.895
+    upDuration_Die: 1.8
+  playerSpiritualizeComboData:
+    SprColor: {r: 0.3700605, g: 0.6603774, b: 0.6320136, a: 0}
+    peakIntensity: 0.572
+    upDuration: 0.272
+    chromIntensity: 0.904

@@ -53,6 +53,7 @@ public class SceneChanger : MonoBehaviour
         // ºÚÆÁµ­Èë
         yield return FadeToBlack(fadeDuration);
 
+        GameManager.Instance.DestroyCurrPlayer();
         // ÇÐ»»³¡¾°
         SceneManager.LoadScene(sceneName);
 

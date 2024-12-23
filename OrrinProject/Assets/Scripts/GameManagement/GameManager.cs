@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private  GameObject playerPref;
 
-    public static GameObject currPlayer;
+    public  GameObject currPlayer;
 
     [Header("玩家数据文件")]
     public  PlayerData playerDataObj;
@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     //生成玩家方法
     public  void SpawnPlayerAtPoint(Transform trans)
     {
+        Debug.Log("initializePlayerAtPoint" + transform.position);
         currPlayer = Instantiate(playerPref, trans.position, trans.rotation);
         currPlayer.transform.localScale = trans.localScale;
         PlayerCameraControl.Initialize(currPlayer.transform, currPlayer.GetComponent<PlayerController>().attackFrontSpot);
@@ -57,7 +58,10 @@ public class GameManager : MonoBehaviour
     public static event Action OnPlayerDynamicDataChange;
     public static event Action OnPlayerStaticDataChange;
 
-
+    public void DestroyCurrPlayer()
+    {
+        Destroy(currPlayer);
+    }
     public  void RebornPlayer()
     {
         Destroy(currPlayer, rebornTime / 2);

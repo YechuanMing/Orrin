@@ -228,10 +228,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnDisable()
-    {
-        m_animator.Play("Idle");
-    }
+    //private void OnDisable()
+    //{
+    //    m_animator.Play("Idle");
+    //}
 
     // 用于生成灰尘效果的方法
     // 灰尘均在地面生成
