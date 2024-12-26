@@ -7,9 +7,10 @@ public class GoToOriginalPoint : PhysicEnemyAction
 {
     public float distanceThreshold;
     public float chaseSpeed;
+
     public override TaskStatus OnUpdate()
     {
-        if (Mathf.Abs(originPos.x - transform.position.x) <= distanceThreshold)
+        if (/*Mathf.Abs(originPos.x - transform.position.x)*/ Vector2.Distance(originPos,transform.position)<= distanceThreshold)
         {
             return TaskStatus.Success;
         }

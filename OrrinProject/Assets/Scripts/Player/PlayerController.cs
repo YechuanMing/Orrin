@@ -71,9 +71,9 @@ public class PlayerController : MonoBehaviour
         playerDataObject = GameManager.Instance.playerDataObj;
         if(playerDataObject!=null)
         {
-            //m_maxSpeed = playerDataObject.moveSpeed;
-            //m_jumpForce = playerDataObject.jumpForce;
-            //jumpStartPower = playerDataObject.jumpMaxTime;
+            m_maxSpeed = playerDataObject.moveSpeed;
+            m_jumpForce = playerDataObject.jumpForce;
+            jumpStartPower = playerDataObject.jumpMaxTime;
         }
 
     }

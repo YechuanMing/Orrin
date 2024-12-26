@@ -42,32 +42,29 @@ public class Destructable : MonoBehaviour
         get { return currHealth; }
         set
         {
-            if (interactable)
+
+            if (value < currHealth)
             {
-
-                if (value < currHealth)
+                if (value <= 0)
                 {
-                    if (value <= 0)
-                    {
-                        interactable = false;
-                        DestroyThisDelayed(delayDestroyTime);
-                    }
-                    OnDamage.Invoke();
-
+                    interactable = false;
+                    DestroyThisDelayed(delayDestroyTime);
                 }
-                if (value > currHealth)
-                {
-
-                }
-                currHealth = value;
-
-                if (isPlayer)
-                {
-                    PlayerDisplayData.Instance.UpdatePlayerHealthDisplay();
-                    Debug.Log("UpdatedPlayerHealth");
-                }
+                OnDamage.Invoke();
 
             }
+            if (value > currHealth)
+            {
+
+            }
+            currHealth = value;
+
+            if (isPlayer)
+            {
+                PlayerDisplayData.Instance.UpdatePlayerHealthDisplay();
+                Debug.Log("UpdatedPlayerHealth");
+            }
+
 
         }
     }
@@ -80,7 +77,7 @@ public class Destructable : MonoBehaviour
         {
             maxHealth = GameManager.Instance.playerDataObj.maxHealth;
             PlayerDisplayData.Instance.SetCurrPlayerDestructable(this);
-            
+
             //PlayerDisplayData.Instance.UpdatePlayerHealthDisplay();
             Debug.Log("Hi");
         }
@@ -123,7 +120,16 @@ public class Destructable : MonoBehaviour
     //核心方法，受击
     public void Damage(int damage)
     {
-
+        if (interactable == false)
+        {
+            return;
+        }
+        CurrHealth -= damage;
+        Debug.Log("HitBy" + damage);
+        if (CurrHealth <= 0)
+        {
+            return;
+        }
         //如果目前挂这个物体的是玩家，需要有独特的受击处理
         if (isPlayer && currHealth > 0)
         {
@@ -141,14 +147,16 @@ public class Destructable : MonoBehaviour
                 PlayerController.Instance.enabled = false;
                 //同时禁用状态切换，否则会打乱切换逻辑。
                 PlayerSpiritualization.SetAllowTransfom(false);
-
+                //同时开无敌帧，避免被多次打。
+                interactable = false;
+                Coroutine FlashBlack = StartCoroutine(FlashCoroutinePlayerDamage());
                 DOVirtual.DelayedCall(0.2f, () => { Time.timeScale = 0.2f; }).OnComplete(() =>
                 {
                     DOVirtual.DelayedCall(0.5f, () =>
                     {
                         Time.timeScale = 1f; PlayerSpiritualization.SetAllowTransfom(true);
                         PlayerController.Instance.enabled = true;
-                    });
+                    }).OnComplete(() => { DOVirtual.DelayedCall(3f, () => { interactable = true; StopCoroutine(FlashBlack); spriteRenderer.color = originalColor; }); });
                 });
             }
 
@@ -158,8 +166,7 @@ public class Destructable : MonoBehaviour
             //如果不是玩家，会抖动一下，加强打击感。
             transform.DOShakeScale(0.3f, 0.5f, 1, 30);
         }
-        CurrHealth -= damage;
-        Debug.Log("HitBy" + damage);
+
     }
 
 
@@ -171,7 +178,8 @@ public class Destructable : MonoBehaviour
     public float flashDuration = 0.1f;
     // 变白的颜色
     public Color flashColor = Color.white;
-
+    public Color playerDamageColor = Color.black;
+    public float playerDamageflashDuration = 0.3f;
 
 
     // 这个方法可以在角色被攻击时调用
@@ -189,6 +197,27 @@ public class Destructable : MonoBehaviour
             yield return new WaitForSeconds(flashDuration);
             // 恢复原色
             spriteRenderer.color = originalColor;
+        }
+    }
+
+    public void FlashBlackPlayerDamage()
+    {
+        StartCoroutine(FlashCoroutinePlayerDamage());
+    }
+
+    private IEnumerator FlashCoroutinePlayerDamage()
+    {
+        if (spriteRenderer != null)
+        {
+            while (true)
+            {
+                spriteRenderer.color = playerDamageColor;
+                yield return new WaitForSeconds(playerDamageflashDuration);
+                // 恢复原色
+                spriteRenderer.color = originalColor;
+                yield return new WaitForSeconds(playerDamageflashDuration);
+            }
+
         }
     }
 }

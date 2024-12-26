@@ -40,7 +40,7 @@ public class PlayerDisplayData : MonoBehaviour
     private void Start()
     {
         playerDataObject = GameManager.Instance.playerDataObj;
-        playerDestructable = PlayerController.Instance.gameObject.GetComponent<Destructable>();
+        //playerDestructable = PlayerController.Instance.gameObject.GetComponent<Destructable>();
         
     }
     private void Update()

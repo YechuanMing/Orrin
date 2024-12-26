@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 4
   moveSpeed: 4.5
   jumpForce: 7.5
-  jumpMaxTime: 0.727
+  jumpMaxTime: 0.925
   jumpStartPower: 2
   moveSpeed_Spiritual: 0
   canDash: 0
