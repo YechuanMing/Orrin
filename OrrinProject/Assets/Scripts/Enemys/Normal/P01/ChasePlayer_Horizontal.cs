@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorDesigner.Runtime.Tasks;
 
-public class ChasePlayer : PhysicEnemyAction
+public class ChasePlayer_Horizontal : PhysicEnemyAction
 {
     public float distanceThreshold;
     public float chaseSpeed;

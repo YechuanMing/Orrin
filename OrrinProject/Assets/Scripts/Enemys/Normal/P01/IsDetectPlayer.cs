@@ -10,11 +10,26 @@ public class IsDetectPlayer : PhysicEnemyConditional
     public float UpDis = 6f;
     public float lostChaseDis = 8f;
 
+    public bool isAllDirection;
+    public float radius;
+    [Range(-5,0)]
+    public float offestY;
+
     public override TaskStatus OnUpdate()
     {
         if(!player)
         {
             return TaskStatus.Failure;
+        }
+
+        if(isAllDirection)
+        {
+            if (Vector2.Distance(transform.position+Vector3.up*offestY, player.transform.position) < radius)
+            {
+                return TaskStatus.Success;
+            }
+            else
+                return TaskStatus.Failure;
         }
 
         if (Mathf.Abs(player.transform.position.y - transform.position.y) < UpDis)

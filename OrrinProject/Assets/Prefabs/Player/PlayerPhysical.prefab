@@ -375,6 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpiritPref: {fileID: 3840741183755558771, guid: 30be9115385af354ba21f9ca68d02ac4, type: 3}
   playerSpirit: {fileID: 0}
+  currSpiritEnergy: 0
   OnCharacterSpiritualized:
     m_PersistentCalls:
       m_Calls:
@@ -472,19 +473,7 @@ MonoBehaviour:
   delayDestroyTime: 2
   OnDamage:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8948243974802089904}
-        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
-        m_MethodName: FlashWhite
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -521,7 +510,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Release
+          m_StringArgument: Die
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7642025844320573020}
@@ -538,3 +527,5 @@ MonoBehaviour:
         m_CallState: 2
   flashDuration: 0.1
   flashColor: {r: 1, g: 1, b: 1, a: 1}
+  playerDamageColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
+  playerDamageflashDuration: 0.3

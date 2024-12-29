@@ -71,9 +71,9 @@ public class PlayerController : MonoBehaviour
         playerDataObject = GameManager.Instance.playerDataObj;
         if(playerDataObject!=null)
         {
-            //m_maxSpeed = playerDataObject.moveSpeed;
-            //m_jumpForce = playerDataObject.jumpForce;
-            //jumpStartPower = playerDataObject.jumpMaxTime;
+            m_maxSpeed = playerDataObject.moveSpeed;
+            m_jumpForce = playerDataObject.jumpForce;
+            jumpStartPower = playerDataObject.jumpMaxTime;
         }
 
     }
@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
     public void SetFreeze(bool set)
     {
         isFreeze = set;
+        m_body2d.velocity = Vector2.zero;
     }
 
     // Update is called once per frame
@@ -227,10 +228,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnDisable()
-    {
-        m_animator.Play("Idle");
-    }
+    //private void OnDisable()
+    //{
+    //    m_animator.Play("Idle");
+    //}
 
     // 用于生成灰尘效果的方法
     // 灰尘均在地面生成

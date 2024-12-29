@@ -60,8 +60,9 @@ public class PlayerData : ScriptableObject
     public float spiritDeclinationPerSec;
     public float spiritGainPerHit;
 
-    public void SetMaxHealth()
+    public int MaxHealth
     {
-
+        get { return maxHealth; }
+        set { maxHealth = value;PlayerDisplayData.Instance.UpdatePlayerHealthDisplay(); }
     }
 }
