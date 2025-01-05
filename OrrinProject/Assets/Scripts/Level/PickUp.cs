@@ -10,7 +10,7 @@ public class PickUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            transform.DOScale(1.5f, 0.5f).SetEase(Ease.InOutBounce).OnComplete(() => { Destroy(this.gameObject); });
+            transform.DOScale(3f, 0.5f).SetEase(Ease.InOutBounce).OnComplete(() => { Destroy(this.gameObject); });
         }
 
     }
