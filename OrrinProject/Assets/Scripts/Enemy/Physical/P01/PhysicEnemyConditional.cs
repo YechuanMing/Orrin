@@ -12,7 +12,6 @@ public class PhysicEnemyConditional :Conditional
     protected Rigidbody2D rigidbody;
     protected Animator animator;
     protected bool isDetectPlayer;
-    protected MoveZone moveZone;
     public override void OnAwake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -20,9 +19,7 @@ public class PhysicEnemyConditional :Conditional
         destructable_Spirit = gameObject.GetComponentInChildren<Destructable>();
         player = PlayerController.Instance;
         animator = GetComponent<Animator>();
-        enemyBase = GetComponent<SpiritualEnemyBase>();
-        moveZone = GetComponent<MoveZone>();
-    }
+        enemyBase = GetComponent<SpiritualEnemyBase>();  }
 
     public override void OnStart()
     {

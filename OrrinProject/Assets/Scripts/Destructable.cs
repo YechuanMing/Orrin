@@ -12,7 +12,6 @@ public class Destructable : MonoBehaviour
 {
     [Header("是否是玩家？")]
     public bool isPlayer;
-
     [Header("当前生命值")]
     public int currHealth;
     [Header("最大生命值")]
@@ -118,7 +117,7 @@ public class Destructable : MonoBehaviour
 
 
     //核心方法，受击
-    public void Damage(int damage)
+    public void Damage(int damage, bool isEnviromentHit = false)
     {
         if (interactable == false)
         {
@@ -139,9 +138,11 @@ public class Destructable : MonoBehaviour
                 PlayerSpiritualization.Instance.DeSpiritualize();
             }
 
-            if (currHealth > 0)
+            //if (currHealth > 0)
             {
-                Time.timeScale = 0.2f;
+                //以下是玩家受攻击时候的僵硬和击退等效果
+                //短暂慢镜头
+                //Time.timeScale = 0.2f;
                 PostProcessManager.Instance.PlayerDamagedVignette();
                 //这里需要禁用一下playerController，否则玩家没法被rigidbody.Addforce击退，因为playerController的移动用的是rigidbody.velocity，会覆盖掉
                 PlayerController.Instance.enabled = false;
@@ -149,13 +150,29 @@ public class Destructable : MonoBehaviour
                 PlayerSpiritualization.SetAllowTransfom(false);
                 //同时开无敌帧，避免被多次打。
                 interactable = false;
+
                 Coroutine FlashBlack = StartCoroutine(FlashCoroutinePlayerDamage());
-                DOVirtual.DelayedCall(0.2f, () => { Time.timeScale = 0.2f; }).OnComplete(() =>
+                DOVirtual.DelayedCall(0.2f, () =>
+                {
+                Time.timeScale = 0.2f;
+                if (isEnviromentHit)
+                {
+                    PostProcessManager.Instance.PlayerDieVignette();
+                    StartCoroutine(SceneChanger.Instance.Fade(1, 0.5f, 1));
+                        Time.timeScale = 1;
+                        DOVirtual.DelayedCall(GameManager.Instance.rebornTime * 0.5f * Time.timeScale,
+                            () => { PlayerController.Instance.transform.position = GameManager.Instance.lastSavePoint.position; });
+                    }//有这么一种情况就是由于玩家位置转换的延迟过长，导致无敌时间失效，但是应该不会。。毕竟目前的无敌帧有三秒之多
+
+                }).OnComplete(() =>
                 {
                     DOVirtual.DelayedCall(0.5f, () =>
                     {
-                        Time.timeScale = 1f; PlayerSpiritualization.SetAllowTransfom(true);
+                        //恢复正常
+                        Time.timeScale = 1f;
+                        PlayerSpiritualization.SetAllowTransfom(true);
                         PlayerController.Instance.enabled = true;
+
                     }).OnComplete(() => { DOVirtual.DelayedCall(3f, () => { interactable = true; StopCoroutine(FlashBlack); spriteRenderer.color = originalColor; }); });
                 });
             }

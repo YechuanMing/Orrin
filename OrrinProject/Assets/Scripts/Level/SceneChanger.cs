@@ -135,5 +135,10 @@ public class SceneChanger : MonoBehaviour
         GameManager.Instance.SpawnPlayerAtPoint(targetDoor.boundPoint);
     }
 
-
+    public IEnumerator Fade(float dur1,float dur2,float dur3)
+    {
+        yield return StartCoroutine(FadeToBlack(dur1));
+        yield return new WaitForSecondsRealtime(dur2);
+        StartCoroutine(FadeToTransparent(dur3));
+    }
 }

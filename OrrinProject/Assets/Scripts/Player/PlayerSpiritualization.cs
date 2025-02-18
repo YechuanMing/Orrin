@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class PlayerSpiritualization : MonoBehaviour
 {
-    public static PlayerSpiritualization Instance { get; private set; }
+    public static PlayerSpiritualization Instance { get;  set; }
 
     public static bool allowTransform=true;
     public enum SpiritState
@@ -151,5 +151,11 @@ public class PlayerSpiritualization : MonoBehaviour
     public void HitAddSpirit()
     {
         CurrSpiritEnergy += GameManager.Instance.playerDataObj.spiritGainPerHit;
+    }
+
+    public void DamageSpirit(int damage)
+    {
+        CurrSpiritEnergy-= damage;
+        Debug.Log("dddddddd");
     }
 }

@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public Transform lastSavePoint;
 
     [SerializeField]
-    private  int rebornTime;
+    public  int rebornTime;
 
     private void Awake()
     {

@@ -69,7 +69,7 @@ public class PostProcessManager : MonoBehaviour
         public float chromIntensity;
     }
 
-    [Range(0,0.5f)]
+    [Range(0, 0.5f)]
     public float defaultIntensity;
 
     public PlayerDamageVignetteData playerDamageVignetteData;
@@ -116,11 +116,11 @@ public class PostProcessManager : MonoBehaviour
         vignette.color.value = playerDamageVignetteData.damageColor;
 
         vignetteTween.Kill();
-        vignetteTween=DOTween.To(
+        vignetteTween = DOTween.To(
            () => vignette.intensity.value,             // getter: 获取当前值
            x => vignette.intensity.value = x,          // setter: 设置新值
            playerDamageVignetteData.peakIntensity,                       // 目标值
-           playerDamageVignetteData.upDuration *Time.timeScale                         // 持续时间
+           playerDamageVignetteData.upDuration * Time.timeScale                         // 持续时间
        ).OnComplete(() =>
        {
            vignetteTween = DOTween.To(
@@ -128,7 +128,7 @@ public class PostProcessManager : MonoBehaviour
            x => vignette.intensity.value = x,          // setter: 设置新值
            defaultIntensity,                       // 目标值
            playerDamageVignetteData.declineDuration            // 持续时间
-       ).OnComplete(()=> { vignette.color.value = new Color(0, 0, 0, 1); });
+       ).OnComplete(() => { vignette.color.value = new Color(0, 0, 0, 1); });
        }); // 实时打印值
     }
 
@@ -141,10 +141,18 @@ public class PostProcessManager : MonoBehaviour
            () => vignette.intensity.value,             // getter: 获取当前值
            x => vignette.intensity.value = x,          // setter: 设置新值
            playerDieVignetteData.peakIntensity_Die,                       // 目标值
-           playerDieVignetteData.upDuration_Die * Time.timeScale                         // 持续时间
+          GameManager.Instance.rebornTime * 0.4f * Time.timeScale                         // 持续时间
        ).OnComplete(() =>
        {
-           //ResetVignette();
+           DOVirtual.DelayedCall(GameManager.Instance.rebornTime * 0.3f * Time.timeScale, () =>
+           {
+               DOTween.To(
+               () => vignette.intensity.value,             // getter: 获取当前值
+               x => vignette.intensity.value = x,          // setter: 设置新值
+               defaultIntensity,                       // 目标值
+               GameManager.Instance.rebornTime * 0.3f * Time.timeScale);
+           });
+           // 持续时间
        }); // 实时打印值
     }
 
