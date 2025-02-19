@@ -46,6 +46,18 @@ public class PostProcessManager : MonoBehaviour
     }
 
     [Serializable]
+    public struct PlayerDashVignetteData
+    {
+        public Color damageColor;
+        [Range(0.3f, 0.75f)]
+        public float peakIntensity;
+        [Range(0.1f, 0.5f)]
+        public float upDuration;
+        [Range(0.5f, 5f)]
+        public float declineDuration;
+    }
+
+    [Serializable]
     public struct PlayerDieVignetteData
     {
         [Range(0.3f, 1f)]
@@ -73,6 +85,8 @@ public class PostProcessManager : MonoBehaviour
     public float defaultIntensity;
 
     public PlayerDamageVignetteData playerDamageVignetteData;
+
+    public PlayerDamageVignetteData playerDashVignetteData;
 
     public PlayerDieVignetteData playerDieVignetteData;
 
@@ -129,6 +143,29 @@ public class PostProcessManager : MonoBehaviour
            defaultIntensity,                       // 目标值
            playerDamageVignetteData.declineDuration            // 持续时间
        ).OnComplete(() => { vignette.color.value = new Color(0, 0, 0, 1); });
+       }); // 实时打印值
+    }
+
+    public void PlayerDashVignette()
+    {
+        vignette.color.value = playerDashVignetteData.damageColor;
+
+        vignetteTween.Kill();
+        vignetteTween = DOTween.To(
+           () => vignette.intensity.value,             // getter: 获取当前值
+           x => vignette.intensity.value = x,          // setter: 设置新值
+           playerDashVignetteData.peakIntensity,                       // 目标值
+           playerDashVignetteData.upDuration * Time.timeScale                         // 持续时间
+       ).OnComplete(() =>
+       {
+           vignetteTween = DOTween.To(
+          () => vignette.intensity.value,             // getter: 获取当前值
+           x => vignette.intensity.value = x,          // setter: 设置新值
+           defaultIntensity,                       // 目标值
+           playerDashVignetteData.declineDuration            // 持续时间
+       ).OnComplete(() => { vignette.color.value = new Color(0, 0, 0, 1); });
+
+
        }); // 实时打印值
     }
 

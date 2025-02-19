@@ -35,7 +35,7 @@ public class PlayerCameraControl : MonoBehaviour
         if(cam!=null)
         {
             cam.Follow = body;
-            cam.LookAt = front;
+            cam.LookAt = body;
             PlayerSpiritualization.m_State = PlayerSpiritualization.SpiritState.Physical;
             playerBodyTrans = body;
         }

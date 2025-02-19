@@ -39,9 +39,9 @@ public class PlayerSpiritualization : MonoBehaviour
                 }
                 currSpiritEnergy = 0;
             }
-            else if (value >= GameManager.Instance.playerDataObj.maxSpiritAmount)
+            else if (value >= GameManager.Instance.playerDataObj.maxSpiritEnergy)
             {
-                currSpiritEnergy = GameManager.Instance.playerDataObj.maxSpiritAmount;
+                currSpiritEnergy = GameManager.Instance.playerDataObj.MaxSpiritEnergy;
             }
             else
             {
@@ -70,6 +70,7 @@ public class PlayerSpiritualization : MonoBehaviour
         // 设置实例并标记为不销毁
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
     }
     void Start()
     {

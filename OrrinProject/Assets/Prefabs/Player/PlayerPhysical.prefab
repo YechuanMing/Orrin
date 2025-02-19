@@ -361,6 +361,8 @@ MonoBehaviour:
   attackFrontOffsetX: 0.5
   attackUpOffsetY: 0.46
   attackDownOffsetY: 0.4
+  dashSpeed: 2.11
+  dashDuration: 0.14
 --- !u!114 &885849304
 MonoBehaviour:
   m_ObjectHideFlags: 0

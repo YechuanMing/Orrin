@@ -4,34 +4,50 @@ using UnityEngine;
 
 public class MoveWithCam : MonoBehaviour
 {
-    // 定义一个公共的比重参数，用于控制物体跟随摄像机移动的速率
-    [Range(0,1)]
+    public Transform cameraTransform;
+    [Range(-1,1)]
     public float parallaxFactor;
+    public float interpolationFactor = 0.1f;
+    public float threshold = 0.01f;
 
-    // 用于存储主摄像机的Transform组件
-    private Transform cameraTransform;
-    // 用于存储摄像机的上一帧位置
+    private Vector3 currentPosition;
+    private Vector3 nextPosition;
     private Vector3 previousCameraPosition;
 
     void Start()
     {
-        // 获取主摄像机的Transform组件
-        cameraTransform = Camera.main.transform;
-        // 记录摄像机的初始位置
+        if (cameraTransform == null)
+        {
+            cameraTransform = /*Camera.main.transform; */PlayerController.Instance.transform;
+        }
         previousCameraPosition = cameraTransform.position;
+        currentPosition = transform.position;
+        nextPosition = currentPosition;
     }
 
     void LateUpdate()
     {
-        // 计算摄像机在x和y轴上的位移
-        Vector3 cameraDelta = cameraTransform.position - previousCameraPosition;
-        // 根据比重计算物体需要移动的位移
-        Vector3 parallaxDelta = new Vector3(cameraDelta.x * parallaxFactor, cameraDelta.y * parallaxFactor, 0);
+        if (cameraTransform == null)
+        {
+            cameraTransform =/* Camera.main.transform;*/PlayerController.Instance.transform;
+        }
+        Vector3 deltaMovement = cameraTransform.position - previousCameraPosition;
+        nextPosition = currentPosition + new Vector3(deltaMovement.x * parallaxFactor, deltaMovement.y * parallaxFactor, 0);
 
-        // 更新物体的位置
-        transform.position += parallaxDelta;
+        float distance = Vector3.Distance(currentPosition, nextPosition);
+        if (distance > threshold)
+        {
+            // 在当前位置和下一位置之间进行插值
+            transform.position = Vector3.Lerp(currentPosition, nextPosition, interpolationFactor);
+            currentPosition = nextPosition;
+        }
+        else
+        {
+            // 当距离小于阈值时，直接将背景移动到目标位置
+            transform.position = nextPosition;
+            currentPosition = nextPosition;
+        }
 
-        // 更新摄像机的上一帧位置
         previousCameraPosition = cameraTransform.position;
     }
 }

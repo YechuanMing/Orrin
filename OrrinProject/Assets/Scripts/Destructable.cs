@@ -54,9 +54,19 @@ public class Destructable : MonoBehaviour
             }
             if (value > currHealth)
             {
+                //回血了
 
             }
-            currHealth = value;
+
+            if (isPlayer && value > maxHealth)
+            {
+
+            }
+            else
+            {
+                currHealth = value;
+            }
+  
 
             if (isPlayer)
             {
@@ -93,9 +103,10 @@ public class Destructable : MonoBehaviour
 
     }
 
-    public void UpdateMaxHealth()
+    public void UpdatePlayerMaxHealth()
     {
-        maxHealth = GameManager.Instance.playerDataObj.maxHealth;
+        if (isPlayer)
+            maxHealth = GameManager.Instance.playerDataObj.maxHealth;
     }
 
     //延迟销毁
@@ -154,11 +165,11 @@ public class Destructable : MonoBehaviour
                 Coroutine FlashBlack = StartCoroutine(FlashCoroutinePlayerDamage());
                 DOVirtual.DelayedCall(0.2f, () =>
                 {
-                Time.timeScale = 0.2f;
-                if (isEnviromentHit)
-                {
-                    PostProcessManager.Instance.PlayerDieVignette();
-                    StartCoroutine(SceneChanger.Instance.Fade(1, 0.5f, 1));
+                    Time.timeScale = 0.2f;
+                    if (isEnviromentHit)
+                    {
+                        PostProcessManager.Instance.PlayerDieVignette();
+                        StartCoroutine(SceneChanger.Instance.Fade(1, 0.5f, 1));
                         Time.timeScale = 1;
                         DOVirtual.DelayedCall(GameManager.Instance.rebornTime * 0.5f * Time.timeScale,
                             () => { PlayerController.Instance.transform.position = GameManager.Instance.lastSavePoint.position; });
@@ -186,6 +197,8 @@ public class Destructable : MonoBehaviour
 
     }
 
+    public void Heal(int heal)
+    { CurrHealth += heal; }
 
     //受击闪烁功能。
     private SpriteRenderer spriteRenderer;

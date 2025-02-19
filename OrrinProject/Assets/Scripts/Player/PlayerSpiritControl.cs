@@ -52,7 +52,7 @@ public class PlayerSpiritControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
         float inputY = Input.GetAxis("Vertical");
 
         // -- Handle input and movement --
@@ -96,6 +96,16 @@ public class PlayerSpiritControl : MonoBehaviour
             NormalAttack();
         }
 
+
+        //技能
+        if (Input.GetKeyDown(KeyCode.T) && GameManager.Instance.playerDataObj.canTeleport)
+        {
+            if (PlayerSpiritualization.Instance.currSpiritEnergy >= GameManager.Instance.playerDataObj.TeleportCostSpirit)
+            {
+                TeleportToSpirit();
+            }
+
+        }
     }
 
 
@@ -119,7 +129,8 @@ public class PlayerSpiritControl : MonoBehaviour
 
     Tween dashTween;
 
-    [SerializeField][Range(0.2f,2f)]
+    [SerializeField]
+    [Range(0.2f, 2f)]
     private float basicAttackDashDistance = 1f;
 
     [SerializeField]
@@ -128,7 +139,7 @@ public class PlayerSpiritControl : MonoBehaviour
 
     [SerializeField]
     [Range(0.2f, 0.8f)]
-    private float dashDuration=0.5f;
+    private float dashDuration = 0.5f;
     private void NormalAttack()
     {
         m_animator.SetTrigger("Attack");
@@ -151,11 +162,17 @@ public class PlayerSpiritControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(onAttack)
+        if (onAttack)
         {
             collision.gameObject.GetComponent<Destructable>().Damage(spiritATK);
         }
     }
 
+    private void TeleportToSpirit()
+    {
+        //后期可以加上特效
+        PlayerController.Instance.transform.position = this.transform.position;
+        PlayerSpiritualization.Instance.DeSpiritualize();
+    }
 
 }
