@@ -34,8 +34,8 @@ public class PickUp : MonoBehaviour
                         break;
                     }
             }
-            //transform.DOScale(3f, 0.2f).SetEase(Ease.InOutBounce).OnComplete(() => { Destroy(this.gameObject); });
-            Destroy(this.gameObject);
+            transform.DOScale(2f, 0.5f).SetEase(Ease.OutCirc).OnComplete(() => { Destroy(this.gameObject); });
+
         }
 
     }

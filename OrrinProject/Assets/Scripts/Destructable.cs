@@ -66,7 +66,7 @@ public class Destructable : MonoBehaviour
             {
                 currHealth = value;
             }
-  
+
 
             if (isPlayer)
             {
@@ -115,7 +115,7 @@ public class Destructable : MonoBehaviour
         //如果是玩家，触发重生方法
         if (isPlayer)
         {
-            GameManager.Instance.RebornPlayer();
+            GameManager.Instance.RebornPlayer_Global();
             PostProcessManager.Instance.PlayerDieVignette();
 
         }
@@ -140,6 +140,8 @@ public class Destructable : MonoBehaviour
         {
             return;
         }
+
+
         //如果目前挂这个物体的是玩家，需要有独特的受击处理
         if (isPlayer && currHealth > 0)
         {
@@ -166,13 +168,16 @@ public class Destructable : MonoBehaviour
                 DOVirtual.DelayedCall(0.2f, () =>
                 {
                     Time.timeScale = 0.2f;
+                    //如果是陷阱伤害
                     if (isEnviromentHit)
                     {
+                        
                         PostProcessManager.Instance.PlayerDieVignette();
                         StartCoroutine(SceneChanger.Instance.Fade(1, 0.5f, 1));
                         Time.timeScale = 1;
                         DOVirtual.DelayedCall(GameManager.Instance.rebornTime * 0.5f * Time.timeScale,
-                            () => { PlayerController.Instance.transform.position = GameManager.Instance.lastSavePoint.position; });
+                            () => { PlayerController.Instance.transform.position = GameManager.Instance.lastSavePoint.position; })
+                        .OnComplete(() => { DOVirtual.DelayedCall(GameManager.Instance.rebornTime * 0.5f * Time.timeScale, () => { PlayerController.Instance.enabled = true; }); });
                     }//有这么一种情况就是由于玩家位置转换的延迟过长，导致无敌时间失效，但是应该不会。。毕竟目前的无敌帧有三秒之多
 
                 }).OnComplete(() =>
@@ -182,7 +187,9 @@ public class Destructable : MonoBehaviour
                         //恢复正常
                         Time.timeScale = 1f;
                         PlayerSpiritualization.SetAllowTransfom(true);
-                        PlayerController.Instance.enabled = true;
+                        if (!isEnviromentHit)
+                        { PlayerController.Instance.enabled = true; }
+
 
                     }).OnComplete(() => { DOVirtual.DelayedCall(3f, () => { interactable = true; StopCoroutine(FlashBlack); spriteRenderer.color = originalColor; }); });
                 });

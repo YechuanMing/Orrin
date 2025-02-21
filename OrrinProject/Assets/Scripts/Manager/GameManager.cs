@@ -20,8 +20,11 @@ public class GameManager : MonoBehaviour
     [Header("游戏的玩家起始位置")]
     public Transform firstPoint;
 
-    [Header("最后保存坐标")]
+    [Header("场景内保存坐标")]
     public Transform lastSavePoint;
+
+    [Header("上一个保存点所在场景")]
+    public string lastSaveChairScene;
 
     [SerializeField]
     public  int rebornTime;
@@ -62,11 +65,17 @@ public class GameManager : MonoBehaviour
     {
         Destroy(currPlayer);
     }
-    public  void RebornPlayer()
+    public  void RebornPlayer_Local()
     {
         Destroy(currPlayer, rebornTime / 2);
-        SceneChanger.Instance.PlayerRebornTransition(rebornTime/2);
+        SceneChanger.Instance.PlayerRebornTransition_Local(rebornTime);
 
+    }
+
+    public void RebornPlayer_Global()
+    {
+        Destroy(currPlayer, rebornTime / 2);
+        SceneChanger.Instance.PlayerRebornTransition_Global(rebornTime, lastSaveChairScene);
     }
     public void KillAllEnemyInScene()
     {

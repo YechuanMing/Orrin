@@ -78,10 +78,15 @@ public class PlayerController : MonoBehaviour
             m_maxSpeed = playerDataObject.moveSpeed;
             m_jumpForce = playerDataObject.jumpForce;
             jumpStartPower = playerDataObject.jumpMaxTime;
+            
         }
 
     }
 
+    public void SetKinematic(bool set)
+    {
+        m_body2d.isKinematic = set;
+    }
     public void SetFreeze(bool set)
     {
         isFreeze = set;
@@ -346,13 +351,6 @@ public class PlayerController : MonoBehaviour
         SpawnDustEffect(m_LandingDust);
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if(collision.gameObject.CompareTag("SavePoints"))
-    //    {
-    //        GameManager.Instance.lastSavePoint = collision.transform;
-    //    }
-    //}
 
     [Header("³å´Ì")]
     public float dashSpeed = 10f; // ³å´ÌËÙ¶È

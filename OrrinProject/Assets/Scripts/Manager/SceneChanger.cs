@@ -65,20 +65,50 @@ public class SceneChanger : MonoBehaviour
         // 黑屏淡出
         yield return FadeToTransparent(fadeDuration);
     }
-
-    public void PlayerRebornTransition(float rebornFadeTime)
+//场景内重生玩家
+    public void PlayerRebornTransition_Local(float rebornFadeTime)
     {
-        StartCoroutine(PlayerRebornCoro(rebornFadeTime));
+        StartCoroutine(PlayerRebornCoro_Local(rebornFadeTime));
     }
 
-    //场景内重生玩家
-    public IEnumerator PlayerRebornCoro(float rebornFadeTime)
+    
+    public IEnumerator PlayerRebornCoro_Local(float rebornFadeTime)
     {
-        yield return FadeToBlack(rebornFadeTime);
+        yield return FadeToBlack(rebornFadeTime/2);
         GameManager.Instance.SpawnPlayerAtPoint(GameManager.Instance.lastSavePoint);
         yield return null;
         PostProcessManager.Instance.ResetToDefault();
-        yield return FadeToTransparent(rebornFadeTime);
+        yield return FadeToTransparent(rebornFadeTime/2);
+    }
+
+    //跨场景重生
+    public void PlayerRebornTransition_Global(float rebornFadeTime,string sceneName)
+    {
+        StartCoroutine(PlayerRebornCoro_Global(rebornFadeTime,sceneName));
+    }
+
+    public IEnumerator PlayerRebornCoro_Global(float rebornFadeTime, string sceneName)
+    {
+        // 黑屏淡入
+        yield return FadeToBlack(rebornFadeTime/2);
+
+        GameManager.Instance.DestroyCurrPlayer();
+        // 切换场景
+        SceneManager.LoadScene(sceneName);
+
+        // 等待一帧以确保场景加载完成
+        yield return null;
+
+        SpawnPlayerAtSaveChair();
+
+        // 黑屏淡出
+        yield return FadeToTransparent(rebornFadeTime/2);
+
+    }
+    public void SpawnPlayerAtSaveChair()
+    {
+        Transform SaveChair = GameObject.Find("SaveChair").transform;
+        GameManager.Instance.SpawnPlayerAtPoint(SaveChair);
     }
 
 
@@ -134,6 +164,8 @@ public class SceneChanger : MonoBehaviour
         RoomDoor targetDoor=GameObject.Find("Door_" + doorIndex.ToString()).GetComponent<RoomDoor>();
         GameManager.Instance.SpawnPlayerAtPoint(targetDoor.boundPoint);
     }
+
+
 
     public IEnumerator Fade(float dur1,float dur2,float dur3)
     {

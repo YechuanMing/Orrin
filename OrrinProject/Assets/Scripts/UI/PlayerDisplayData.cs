@@ -13,8 +13,8 @@ public class PlayerDisplayData : MonoBehaviour
 
     public GameObject[] healthSprites;
 
-    [SerializeField]
-    private Destructable playerDestructable;
+    
+    public Destructable playerDestructable;
 
     private float baseSpiritEnergyBarLength;
 
