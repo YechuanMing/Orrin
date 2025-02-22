@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SpawnPlayerAtPoint(firstPoint);
+        rebornTime = playerDataObj.playerRebornTime;
     }
 
     //生成玩家方法

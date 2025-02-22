@@ -7,7 +7,7 @@ public class MoveWithCam : MonoBehaviour
     public Transform cameraTransform;
     [Range(-1,1)]
     public float parallaxFactor;
-    public float interpolationFactor = 0.1f;
+    private float interpolationFactor = 4f;
     public float threshold = 0.01f;
 
     private Vector3 currentPosition;
@@ -18,7 +18,7 @@ public class MoveWithCam : MonoBehaviour
     {
         if (cameraTransform == null)
         {
-            cameraTransform = /*Camera.main.transform; */PlayerController.Instance.transform;
+            cameraTransform = /*Camera.main.transform;*/ PlayerController.Instance.transform;
         }
         previousCameraPosition = cameraTransform.position;
         currentPosition = transform.position;
@@ -35,7 +35,7 @@ public class MoveWithCam : MonoBehaviour
         nextPosition = currentPosition + new Vector3(deltaMovement.x * parallaxFactor, deltaMovement.y * parallaxFactor, 0);
 
         float distance = Vector3.Distance(currentPosition, nextPosition);
-        if (distance > threshold)
+        if (distance>threshold)
         {
             // 在当前位置和下一位置之间进行插值
             transform.position = Vector3.Lerp(currentPosition, nextPosition, interpolationFactor);

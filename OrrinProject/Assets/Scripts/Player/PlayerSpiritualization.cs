@@ -121,6 +121,7 @@ public class PlayerSpiritualization : MonoBehaviour
         //如果当前灵魂能量不足，不转变
         if (currSpiritEnergy <= Mathf.Epsilon)
         {
+            //弹个UI
             return;
         }
 

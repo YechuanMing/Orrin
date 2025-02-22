@@ -67,6 +67,9 @@ public class PlayerData : ScriptableObject
     //普通攻击获取灵魂值
     public int spiritGainPerHit;
 
+    [Header("重生时间")]
+    public int playerRebornTime;
+
     public int MaxHealth
     {
         get { return maxHealth; }

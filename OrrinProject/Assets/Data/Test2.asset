@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad04050a2d419584d90a8a9c6ba741fb, type: 3}
-  m_Name: PlayerData
+  m_Name: Test2
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 0
   moveSpeed: 4.5
   jumpForce: 7.5
-  jumpMaxTime: 0.925
+  jumpMaxTime: 0.7
   jumpStartPower: 2
   moveSpeed_Spiritual: 0
-  canDash: 1
+  canDash: 0
   dashCoolDownTime: 0
   canDoubleJump: 0
   doubleJumpSpeed: 0
-  canTeleport: 1
-  TeleportCostSpirit: 20
-  ATK_Physical: 1
-  repelForce_Physical: 1
-  attackCoolDown_Physical: 1
-  ATK_Spiritual: 1
-  attackDashForce_Spiritual: 5
-  attackCoolDown_Spiritual: 1
-  maxSpiritEnergy: 100
-  spiritDeclinationPerSec: 5
-  spiritGainPerHit: 10
-  playerRebornTime: 4
+  canTeleport: 0
+  TeleportCostSpirit: 0
+  ATK_Physical: 0
+  repelForce_Physical: 0
+  attackCoolDown_Physical: 0
+  ATK_Spiritual: 0
+  attackDashForce_Spiritual: 0
+  attackCoolDown_Spiritual: 0
+  maxSpiritEnergy: 0
+  spiritDeclinationPerSec: 0
+  spiritGainPerHit: 0
+  playerRebornTime: 0

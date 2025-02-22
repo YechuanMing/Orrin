@@ -21,11 +21,11 @@ public class PlayerCameraControl : MonoBehaviour
         if(newState== PlayerSpiritualization.SpiritState.Spiritual)
         {
             cam.Follow = playerSpiritTrans ? playerSpiritTrans : null;
-            cam.LookAt = playerSpiritTrans ? playerSpiritTrans : null;
+            //cam.LookAt = playerSpiritTrans ? playerSpiritTrans : null;
         }else
         {
             cam.Follow = playerBodyTrans ? playerBodyTrans : null;
-            cam.LookAt = playerBodyTrans ? playerBodyTrans : null;
+            //cam.LookAt = playerBodyTrans ? playerBodyTrans : null;
         }
     }
 
@@ -35,7 +35,7 @@ public class PlayerCameraControl : MonoBehaviour
         if(cam!=null)
         {
             cam.Follow = body;
-            cam.LookAt = body;
+            //cam.LookAt = body;
             PlayerSpiritualization.m_State = PlayerSpiritualization.SpiritState.Physical;
             playerBodyTrans = body;
         }

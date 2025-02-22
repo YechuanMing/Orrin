@@ -175,9 +175,9 @@ public class Destructable : MonoBehaviour
                         PostProcessManager.Instance.PlayerDieVignette();
                         StartCoroutine(SceneChanger.Instance.Fade(1, 0.5f, 1));
                         Time.timeScale = 1;
-                        DOVirtual.DelayedCall(GameManager.Instance.rebornTime * 0.5f * Time.timeScale,
+                        DOVirtual.DelayedCall(GameManager.Instance.rebornTime * 0.4f * Time.timeScale,
                             () => { PlayerController.Instance.transform.position = GameManager.Instance.lastSavePoint.position; })
-                        .OnComplete(() => { DOVirtual.DelayedCall(GameManager.Instance.rebornTime * 0.5f * Time.timeScale, () => { PlayerController.Instance.enabled = true; }); });
+                        .OnComplete(() => { DOVirtual.DelayedCall(GameManager.Instance.rebornTime * 0.1f * Time.timeScale, () => { PlayerController.Instance.enabled = true; }); });
                     }//有这么一种情况就是由于玩家位置转换的延迟过长，导致无敌时间失效，但是应该不会。。毕竟目前的无敌帧有三秒之多
 
                 }).OnComplete(() =>
