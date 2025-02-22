@@ -12,6 +12,8 @@ public class Destructable : MonoBehaviour
 {
     [Header("是否是玩家？")]
     public bool isPlayer;
+
+
     [Header("当前生命值")]
     public int currHealth;
     [Header("最大生命值")]
@@ -103,6 +105,7 @@ public class Destructable : MonoBehaviour
 
     }
 
+
     public void UpdatePlayerMaxHealth()
     {
         if (isPlayer)
@@ -116,6 +119,7 @@ public class Destructable : MonoBehaviour
         if (isPlayer)
         {
             GameManager.Instance.RebornPlayer_Global();
+
             PostProcessManager.Instance.PlayerDieVignette();
 
         }
