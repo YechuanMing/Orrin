@@ -10,7 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4658521456820284297}
   - component: {fileID: 5967336743577488204}
-  m_Layer: 0
+  - component: {fileID: 8717244689325521408}
+  - component: {fileID: 8717244689325521405}
+  - component: {fileID: 8717244689325521404}
+  - component: {fileID: 8717244689325521409}
+  m_Layer: 17
   m_Name: S_01_Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 9126233b5bee9624280948e0133f0fa9, type: 3}
+  m_Color: {r: 1, g: 0.48490566, b: 0.48490566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -82,3 +86,83 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &8717244689325521408
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5204989571978192116}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &8717244689325521405
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5204989571978192116}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.32
+--- !u!114 &8717244689325521404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5204989571978192116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d1a401bc81e2d41bb01f658c2e4f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSpiritBomb: 0
+  damage_Phy: 1
+  damage_Spr: 10
+  repelForce: 3
+  lifeTime: 6.89
+  player: {fileID: 0}
+  minInitialSpeed: 1
+  maxInitialSpeed: 5
+  trackingSpeed: 2
+  turnSpeed: 180
+--- !u!114 &8717244689325521409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5204989571978192116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff4f5a8991d7fa47baed5c5ff25979f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: ae721c767fcd6664ca1cf46b36bb56b7, type: 2}
+  duration: 2
+  corner: 1
+  loop: 1
+  points:
+  - {x: -0.07601452, y: 0, z: -1}
+  - {x: 0.055202723, y: 0, z: 1}
+  - {x: -0.012434483, y: -0.067637205, z: 1}
+  - {x: -0.012434483, y: 0.078042984, z: 1}

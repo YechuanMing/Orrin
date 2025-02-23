@@ -39,6 +39,10 @@ public class PlayerController : MonoBehaviour
     private bool m_moving = false;
     private int m_facingDirection = 1;
     private float m_disableMovementTimer = 0.0f;
+    public int maxJumpCount = 2; // 最大跳跃次数，这里设置为 2 实现二段跳
+    private int currentJumpCount = 0; // 当前跳跃次数
+
+
 
     [SerializeField]
     private float m_disablePhysicalAttackTimer = 0.0f;
@@ -74,10 +78,15 @@ public class PlayerController : MonoBehaviour
             m_maxSpeed = playerDataObject.moveSpeed;
             m_jumpForce = playerDataObject.jumpForce;
             jumpStartPower = playerDataObject.jumpMaxTime;
+            
         }
 
     }
 
+    public void SetKinematic(bool set)
+    {
+        m_body2d.isKinematic = set;
+    }
     public void SetFreeze(bool set)
     {
         isFreeze = set;
@@ -100,6 +109,7 @@ public class PlayerController : MonoBehaviour
             m_grounded = true;
             jumpTimer = 0f;
             m_animator.SetBool("Grounded", m_grounded);
+            currentJumpCount = 0;
         }
 
         //Check if character just started falling
@@ -204,6 +214,7 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetMouseButtonDown(0)&&Input.GetKey(KeyCode.W))
                 {
                     //m_animator.SetTrigger("UpAttack");
+                    
                     m_animator.Play("UpAttack");
                 }
                 else if (Input.GetMouseButtonDown(0)&&Input.GetKey(KeyCode.S))
@@ -222,6 +233,13 @@ public class PlayerController : MonoBehaviour
         else
         {
             m_disablePhysicalAttackTimer -= Time.deltaTime;
+        }
+
+
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && GameManager.Instance.playerDataObj.canDash)
+        {
+            Dash();
         }
 
 
@@ -333,14 +351,21 @@ public class PlayerController : MonoBehaviour
         SpawnDustEffect(m_LandingDust);
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if(collision.gameObject.CompareTag("SavePoints"))
-    //    {
-    //        GameManager.Instance.lastSavePoint = collision.transform;
-    //    }
-    //}
 
-    
+    [Header("冲刺")]
+    public float dashSpeed = 10f; // 冲刺速度
+    public float dashDuration = 0.2f; // 冲刺持续时间
+    private bool isDashing = false; // 是否正在冲刺
+    private float dashTimer = 0f; // 冲刺计时器
+
+
+    void Dash()
+    {
+        //m_body2d.isKinematic = true;
+        m_body2d.gravityScale = 0;
+        PostProcessManager.Instance.PlayerDashVignette();
+        transform.DOMoveX(transform.position.x + transform.localScale.x * dashSpeed, dashDuration).SetEase(Ease.InExpo).OnComplete(()=>
+        { m_body2d.gravityScale = 3.6f; /*m_body2d.isKinematic = false; */});
+    }
 
 }

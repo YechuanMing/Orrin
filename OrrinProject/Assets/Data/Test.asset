@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad04050a2d419584d90a8a9c6ba741fb, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 3
   moveSpeed: 4.5
   jumpForce: 7.5
   jumpMaxTime: 0.7
@@ -22,12 +22,15 @@ MonoBehaviour:
   dashCoolDownTime: 0
   canDoubleJump: 0
   doubleJumpSpeed: 0
+  canTeleport: 0
+  TeleportCostSpirit: 0
   ATK_Physical: 0
   repelForce_Physical: 0
   attackCoolDown_Physical: 0
   ATK_Spiritual: 0
   attackDashForce_Spiritual: 0
   attackCoolDown_Spiritual: 0
-  maxSpiritAmount: 0
+  maxSpiritEnergy: 0
   spiritDeclinationPerSec: 0
   spiritGainPerHit: 0
+  playerRebornTime: 0

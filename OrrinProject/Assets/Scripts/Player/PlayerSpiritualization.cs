@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class PlayerSpiritualization : MonoBehaviour
 {
-    public static PlayerSpiritualization Instance { get; private set; }
+    public static PlayerSpiritualization Instance { get;  set; }
 
     public static bool allowTransform=true;
     public enum SpiritState
@@ -39,9 +39,9 @@ public class PlayerSpiritualization : MonoBehaviour
                 }
                 currSpiritEnergy = 0;
             }
-            else if (value >= GameManager.Instance.playerDataObj.maxSpiritAmount)
+            else if (value >= GameManager.Instance.playerDataObj.maxSpiritEnergy)
             {
-                currSpiritEnergy = GameManager.Instance.playerDataObj.maxSpiritAmount;
+                currSpiritEnergy = GameManager.Instance.playerDataObj.MaxSpiritEnergy;
             }
             else
             {
@@ -70,6 +70,7 @@ public class PlayerSpiritualization : MonoBehaviour
         // 设置实例并标记为不销毁
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
     }
     void Start()
     {
@@ -120,6 +121,7 @@ public class PlayerSpiritualization : MonoBehaviour
         //如果当前灵魂能量不足，不转变
         if (currSpiritEnergy <= Mathf.Epsilon)
         {
+            //弹个UI
             return;
         }
 
@@ -151,5 +153,11 @@ public class PlayerSpiritualization : MonoBehaviour
     public void HitAddSpirit()
     {
         CurrSpiritEnergy += GameManager.Instance.playerDataObj.spiritGainPerHit;
+    }
+
+    public void DamageSpirit(int damage)
+    {
+        CurrSpiritEnergy-= damage;
+        Debug.Log("dddddddd");
     }
 }

@@ -15,7 +15,7 @@ public class RoomDoor : MonoBehaviour
         public int doorNumber;
     }
 
-    public DoorID doorID;
+    //public DoorID doorID;
 
     public DoorID linkDoorID;
 

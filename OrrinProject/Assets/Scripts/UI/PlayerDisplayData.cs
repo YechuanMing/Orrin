@@ -13,8 +13,10 @@ public class PlayerDisplayData : MonoBehaviour
 
     public GameObject[] healthSprites;
 
-    [SerializeField]
-    private Destructable playerDestructable;
+    
+    public Destructable playerDestructable;
+
+    private float baseSpiritEnergyBarLength;
 
     private void Awake()
     {
@@ -28,7 +30,7 @@ public class PlayerDisplayData : MonoBehaviour
         // 设置实例并标记为不销毁
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
+        baseSpiritEnergyBarLength = spiritEnergyBar.GetComponent<RectTransform>().sizeDelta.x;
     }
 
     public void SetCurrPlayerDestructable(Destructable set)
@@ -45,15 +47,24 @@ public class PlayerDisplayData : MonoBehaviour
     }
     private void Update()
     {
-        spiritEnergyBar.value = PlayerSpiritualization.Instance.currSpiritEnergy / playerDataObject.maxSpiritAmount;
+        spiritEnergyBar.value = PlayerSpiritualization.Instance.currSpiritEnergy / playerDataObject.MaxSpiritEnergy;
 
     }
 
+    public void UpdateSpiritBar()
+    {
+        spiritEnergyBar.GetComponent<RectTransform>().
+            SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 
+            baseSpiritEnergyBarLength+(playerDataObject.MaxSpiritEnergy-100)*5);
+    }
     public void UpdatePlayerHealthDisplay()
     {
         //显示最大生命值范围内的生命槽，如果没显示，就显示
         //如果当前的生命槽序列超过了当前血量，就播放空槽动画
         //用i+1就可以对应血量了
+
+        playerDestructable.UpdatePlayerMaxHealth();
+
         for (int i = 1; i <= healthSprites.Length-1; i++)
         {
             if(i>playerDestructable.maxHealth)
@@ -64,7 +75,9 @@ public class PlayerDisplayData : MonoBehaviour
                 
                 healthSprites[i].SetActive(true);
                 
+                
             }
+
             if(i>playerDestructable.CurrHealth)
             {
                 healthSprites[i].GetComponent<Animator>().Play("Empty");

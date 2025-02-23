@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 844473470962915477}
   - component: {fileID: 1828300475909438793}
   - component: {fileID: 6003776867788747087}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,10 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd43d538276a4d24aa539aaf01861d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorID:
-    zoneTag: 5
-    roomNumber: 1
-    doorNumber: 0
   linkDoorID:
     zoneTag: 5
     roomNumber: 0
