@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8604351204917323247}
   - component: {fileID: 5831277155718349849}
   - component: {fileID: 7654388346845713259}
-  - component: {fileID: 6012033187649763865}
+  - component: {fileID: 959279849}
   m_Layer: 6
   m_Name: P_01
   m_TagString: Enemy
@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b19171b22182b4b817f6c66a3a8c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSpirit: 0
   isSpiritDied: 0
   isBodyDied: 0
   OnEnemySpritualized:
@@ -169,8 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  currHealth: 0
-  maxHealth: 20
+  currHealth: 50
+  maxHealth: 50
   interactable: 1
   delayDestroyTime: 2
   OnDamage:
@@ -331,7 +332,7 @@ CircleCollider2D:
   m_Offset: {x: -0.006765008, y: 0.021939993}
   serializedVersion: 2
   m_Radius: 0.3207047
---- !u!114 &6012033187649763865
+--- !u!114 &959279849
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -340,10 +341,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7000609430739116769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78985d926faa564e99b892b6e0548b5, type: 3}
+  m_Script: {fileID: 11500000, guid: a4799c2476385fc4d84a0b01ba7ddab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
   touchDamage: 1
   repelForce: 4
 --- !u!1 &7000609430762208535
@@ -650,13 +650,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1524958818443525257}
   - component: {fileID: 3922233342503739762}
+  - component: {fileID: 1989403172}
   m_Layer: 6
   m_Name: AttackObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1524958818443525257
 Transform:
   m_ObjectHideFlags: 0
@@ -687,3 +688,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.32
+--- !u!114 &1989403172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8389245496615185158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81e0fbaa67e6b243b3343dcc71b9a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  repelForce: 4

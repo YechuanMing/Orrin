@@ -35,9 +35,6 @@ public class Destructable : MonoBehaviour
     [Header("死亡时触发事件")]
     public UnityEvent OnDeath;
 
-
-
-
     public int CurrHealth
     {
         get { return currHealth; }
