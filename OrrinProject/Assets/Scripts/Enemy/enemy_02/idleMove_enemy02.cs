@@ -5,7 +5,7 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 public class idleMove_enemy02 : SpiritualEnemyAction
 {
-    public SharedVector3 currentTarget;
+    public SharedGameObject currentTarget;
     public float moveSpeed = 1f;
 
     public SharedGameObject targetGameObject;
@@ -24,7 +24,7 @@ public class idleMove_enemy02 : SpiritualEnemyAction
     public override TaskStatus OnUpdate()
     {
         // 计算移动方向
-        Vector3 direction = (currentTarget.Value - transform.position).normalized;
+        Vector3 direction = (currentTarget.Value.transform.position - transform.position).normalized;
         animator.Play(stateName.Value, layer, normalizedTime);
         // 根据移动方向改变敌人的朝向
         UpdateFacingDirection(direction);
@@ -32,7 +32,7 @@ public class idleMove_enemy02 : SpiritualEnemyAction
         transform.Translate(direction * moveSpeed * Time.deltaTime, Space.World);
 
         // 检查是否到达目标点
-        if (Vector3.Distance(transform.position, currentTarget.Value) < 1f)
+        if (Vector3.Distance(transform.position, currentTarget.Value.transform.position) < 1f)
         {
             return TaskStatus.Success; // 到达目标点，返回成功
         }

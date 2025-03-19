@@ -5,9 +5,9 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 public class SwitchTarget : Action
 {
-    public SharedVector3 targetPositionA; // 目标点A
-    public SharedVector3 targetPositionB; // 目标点B
-    public SharedVector3 currentTarget; // 当前目标点
+    public SharedGameObject targetPositionA; // 目标点A
+    public SharedGameObject targetPositionB; // 目标点B
+    public SharedGameObject currentTarget; // 当前目标点
     // Start is called before the first frame update
     void Start()
     {
