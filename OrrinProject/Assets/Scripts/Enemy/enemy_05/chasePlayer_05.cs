@@ -6,6 +6,7 @@ public class chasePlayer_05 : PhysicEnemyAction
 {
     public float approachSpeed = 1f; // 靠近敌人的速度
     public float outOfCombatDistance = 5f; // 脱战距离
+ 
     // Start is called before the first frame update
     public override TaskStatus OnUpdate()
     {
@@ -28,7 +29,7 @@ public class chasePlayer_05 : PhysicEnemyAction
         {
             // 如果在脱战距离内，敌人追赶玩家
             Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, approachSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position+new Vector3(0,0.3f,0), approachSpeed * Time.deltaTime);
 
             // 根据移动方向调整敌人朝向
             Vector3 currentScale = transform.localScale;

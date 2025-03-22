@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
-public class idleMove_enemy02 : SpiritualEnemyAction
+public class idlMoveEnemy03 : SpiritualEnemyAction
 {
     public SharedGameObject currentTarget;
     public float moveSpeed = 1f;
@@ -16,7 +16,7 @@ public class idleMove_enemy02 : SpiritualEnemyAction
     public override void OnStart()
     {
         var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
-            animator = currentGameObject.GetComponent<Animator>();
+        animator = currentGameObject.GetComponent<Animator>();
         if (animator == null)
         {
             Debug.LogError("Animator component is not found on the target GameObject.");
@@ -29,7 +29,7 @@ public class idleMove_enemy02 : SpiritualEnemyAction
     {
         // 计算移动方向
         Vector3 direction = (currentTarget.Value.transform.position - transform.position).normalized;
-
+       
         // 根据移动方向改变敌人的朝向
         UpdateFacingDirection(direction);
         // 移动敌人
@@ -44,7 +44,7 @@ public class idleMove_enemy02 : SpiritualEnemyAction
     }
     private void UpdateFacingDirection(Vector3 direction)
     {
-        
+
         // 如果移动方向的 x 分量大于 0，敌人面向右
         if (direction.x > 0)
         {
