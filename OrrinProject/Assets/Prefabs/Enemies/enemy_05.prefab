@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  currHealth: 3
-  maxHealth: 3
+  currHealth: 7
+  maxHealth: 7
   interactable: 1
   delayDestroyTime: 1.01
   OnDamage:
@@ -500,8 +500,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  currHealth: 10
-  maxHealth: 10
+  currHealth: 20
+  maxHealth: 20
   interactable: 1
   delayDestroyTime: 2
   OnDamage:

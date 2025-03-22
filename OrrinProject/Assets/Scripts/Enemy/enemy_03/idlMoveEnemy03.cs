@@ -21,7 +21,7 @@ public class idlMoveEnemy03 : SpiritualEnemyAction
         {
             Debug.LogError("Animator component is not found on the target GameObject.");
         }
-        animator.Play(stateName.Value, layer, normalizedTime);
+        animator.Play("Walk");
     }
 
     // Update is called once per frame
