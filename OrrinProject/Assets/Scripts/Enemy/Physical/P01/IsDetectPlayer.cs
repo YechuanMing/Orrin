@@ -21,7 +21,10 @@ public class IsDetectPlayer : PhysicEnemyConditional
         {
             return TaskStatus.Failure;
         }
-
+        if(Vector2.Distance(transform.position, player.transform.position) > lostChaseDis)
+        {
+            return TaskStatus.Failure;
+        }
         if(isAllDirection)
         {
             if (Vector2.Distance(transform.position+Vector3.up*offestY, player.transform.position) < radius)

@@ -135,10 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d5a6a759a6cdc4ebea196856e150f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fragmentPrefab: {fileID: 0}
+  fragmentPrefab: {fileID: 4225102132858794838, guid: b544bdcc38e4a3a46879514c766e6494, type: 3}
   fragmentCount: 10
-  minFragmentSpeed: 2
-  maxFragmentSpeed: 5
+  minFragmentSpeed: 4
+  maxFragmentSpeed: 8
 --- !u!114 &197606799
 MonoBehaviour:
   m_ObjectHideFlags: 0
