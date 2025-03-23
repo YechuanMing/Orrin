@@ -22,7 +22,7 @@ public class Destructable : MonoBehaviour
 
     [Header("是否处于可交互状态")]
     [SerializeField]
-    protected bool interactable = true;
+    public bool interactable = true;
 
     [SerializeField]
     [Header("延迟销毁物体")]
@@ -131,7 +131,7 @@ public class Destructable : MonoBehaviour
     //核心方法，受击
     public void Damage(int damage, bool isEnviromentHit = false)
     {
-        if (interactable == false)
+        if (interactable == false&&!isEnviromentHit)
         {
             return;
         }

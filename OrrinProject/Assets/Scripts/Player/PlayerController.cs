@@ -364,8 +364,9 @@ public class PlayerController : MonoBehaviour
         //m_body2d.isKinematic = true;
         m_body2d.gravityScale = 0;
         PostProcessManager.Instance.PlayerDashVignette();
+        GetComponent<Destructable>().interactable = false;
         transform.DOMoveX(transform.position.x + transform.localScale.x * dashSpeed, dashDuration).SetEase(Ease.InExpo).OnComplete(()=>
-        { m_body2d.gravityScale = 3.6f; /*m_body2d.isKinematic = false; */});
+        { m_body2d.gravityScale = 3.6f; GetComponent<Destructable>().interactable = true;/*m_body2d.isKinematic = false; */});
     }
 
 }
