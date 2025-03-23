@@ -18,7 +18,7 @@ public class MoveWithCam : MonoBehaviour
     {
         if (cameraTransform == null)
         {
-            cameraTransform = /*Camera.main.transform;*/ PlayerController.Instance.transform;
+            cameraTransform = Camera.main.transform; /*PlayerController.Instance.transform;*/
         }
         previousCameraPosition = cameraTransform.position;
         currentPosition = transform.position;
@@ -29,7 +29,7 @@ public class MoveWithCam : MonoBehaviour
     {
         if (cameraTransform == null)
         {
-            cameraTransform =/* Camera.main.transform;*/PlayerController.Instance.transform;
+            cameraTransform = Camera.main.transform; /*PlayerController.Instance.transform;*/
         }
         Vector3 deltaMovement = cameraTransform.position - previousCameraPosition;
         nextPosition = currentPosition + new Vector3(deltaMovement.x * parallaxFactor, deltaMovement.y * parallaxFactor, 0);
