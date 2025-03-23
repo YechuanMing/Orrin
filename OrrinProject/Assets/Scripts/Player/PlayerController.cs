@@ -205,35 +205,35 @@ public class PlayerController : MonoBehaviour
             m_animator.SetInteger("AnimState", 0);
         }
 
-        //攻击
+        ////攻击
 
-        if (m_disablePhysicalAttackTimer <= 0)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (Input.GetMouseButtonDown(0)&&Input.GetKey(KeyCode.W))
-                {
-                    //m_animator.SetTrigger("UpAttack");
+        //if (m_disablePhysicalAttackTimer <= 0)
+        //{
+        //    if (Input.GetMouseButtonDown(0))
+        //    {
+        //        if (Input.GetMouseButtonDown(0)&&Input.GetKey(KeyCode.W))
+        //        {
+        //            //m_animator.SetTrigger("UpAttack");
                     
-                    m_animator.Play("UpAttack");
-                }
-                else if (Input.GetMouseButtonDown(0)&&Input.GetKey(KeyCode.S))
-                {
-                    //m_animator.SetTrigger("DownAttack");
-                    m_animator.Play("DownAttack");
-                }
-                else
-                {
-                    //m_animator.SetTrigger("FrontAttack");
-                    m_animator.Play("FrontAttack");
-                }
-                m_disablePhysicalAttackTimer = m_PhysicalAttackCoolDownTime;
-            }
-        }
-        else
-        {
-            m_disablePhysicalAttackTimer -= Time.deltaTime;
-        }
+        //            m_animator.Play("UpAttack");
+        //        }
+        //        else if (Input.GetMouseButtonDown(0)&&Input.GetKey(KeyCode.S))
+        //        {
+        //            //m_animator.SetTrigger("DownAttack");
+        //            m_animator.Play("DownAttack");
+        //        }
+        //        else
+        //        {
+        //            //m_animator.SetTrigger("FrontAttack");
+        //            m_animator.Play("FrontAttack");
+        //        }
+        //        m_disablePhysicalAttackTimer = m_PhysicalAttackCoolDownTime;
+        //    }
+        //}
+        //else
+        //{
+        //    m_disablePhysicalAttackTimer -= Time.deltaTime;
+        //}
 
 
 
@@ -274,52 +274,52 @@ public class PlayerController : MonoBehaviour
 
     // Animation Events 动画帧事件
     // 在角色动画中调用
-    [Header("普通攻击")]
-    [Header("攻击及技能")]
-    [SerializeField]
-    private GameObject AttackWave_Front;
-    [SerializeField]
-    private GameObject AttackWave_Up;
-    [SerializeField]
-    private GameObject AttackWave_Down;
-    [SerializeField]
-    private float attackDuration;
-    [SerializeField]
-    public Transform attackFrontSpot;
-    [SerializeField]
-    private Transform attackUpSpot;
-    [SerializeField]
-    private Transform attackDownSpot;
+    //[Header("普通攻击")]
+    //[Header("攻击及技能")]
+    //[SerializeField]
+    //private GameObject AttackWave_Front;
+    //[SerializeField]
+    //private GameObject AttackWave_Up;
+    //[SerializeField]
+    //private GameObject AttackWave_Down;
+    //[SerializeField]
+    //private float attackDuration;
+    //[SerializeField]
+    //public Transform attackFrontSpot;
+    //[SerializeField]
+    //private Transform attackUpSpot;
+    //[SerializeField]
+    //private Transform attackDownSpot;
 
-    [SerializeField] [Range(0.4f, 1)]
-    private float attackFrontOffsetX;
+    //[SerializeField] [Range(0.4f, 1)]
+    //private float attackFrontOffsetX;
 
-    [SerializeField][Range(0.4f,1)]
-    private float attackUpOffsetY;
+    //[SerializeField][Range(0.4f,1)]
+    //private float attackUpOffsetY;
 
-    [SerializeField][Range(0.4f,1)]
-    private float attackDownOffsetY;
+    //[SerializeField][Range(0.4f,1)]
+    //private float attackDownOffsetY;
 
-    void AE_Attack_Front()
-    {
-        GameObject attackWave = Instantiate(AttackWave_Front, attackFrontSpot.position+Vector3.right*attackFrontOffsetX*transform.localScale.x, attackFrontSpot.rotation);
-        attackWave.transform.localScale = transform.localScale;
-        Destroy(attackWave, attackDuration);
-    }
+    //void AE_Attack_Front()
+    //{
+    //    GameObject attackWave = Instantiate(AttackWave_Front, attackFrontSpot.position+Vector3.right*attackFrontOffsetX*transform.localScale.x, attackFrontSpot.rotation);
+    //    attackWave.transform.localScale = transform.localScale;
+    //    Destroy(attackWave, attackDuration);
+    //}
 
-    void AE_Attack_Up()
-    {
-        GameObject attackWave = Instantiate(AttackWave_Up, attackUpSpot.position+Vector3.up*attackUpOffsetY,attackUpSpot.rotation);
-        attackWave.transform.localScale = transform.localScale;
-        Destroy(attackWave, attackDuration);
-    }
+    //void AE_Attack_Up()
+    //{
+    //    GameObject attackWave = Instantiate(AttackWave_Up, attackUpSpot.position+Vector3.up*attackUpOffsetY,attackUpSpot.rotation);
+    //    attackWave.transform.localScale = transform.localScale;
+    //    Destroy(attackWave, attackDuration);
+    //}
 
-    void AE_Attack_Down()
-    {
-        GameObject attackWave = Instantiate(AttackWave_Down, attackDownSpot.position + Vector3.down * attackDownOffsetY, attackDownSpot.rotation);
-        attackWave.transform.localScale = transform.localScale;
-        Destroy(attackWave, attackDuration);
-    }
+    //void AE_Attack_Down()
+    //{
+    //    GameObject attackWave = Instantiate(AttackWave_Down, attackDownSpot.position + Vector3.down * attackDownOffsetY, attackDownSpot.rotation);
+    //    attackWave.transform.localScale = transform.localScale;
+    //    Destroy(attackWave, attackDuration);
+    //}
 
 
 
