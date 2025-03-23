@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 7642025844320573020}
   - component: {fileID: 7534736253528416895}
   - component: {fileID: 5126507519739992232}
+  - component: {fileID: 2555993183255677633}
   - component: {fileID: 885849304}
   - component: {fileID: 8948243974802089904}
   m_Layer: 8
@@ -348,6 +349,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1a631ada4ecd9cf49a88b135aa70c396, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5a18f2ef7db9f1943bedda13ff85ee89, type: 3}
   m_LandSound: {fileID: 8300000, guid: 5329b99920a6642409627b29d379aff7, type: 3}
+  maxJumpCount: 2
   m_disablePhysicalAttackTimer: -0.0027956683
   m_PhysicalAttackCoolDownTime: 0.2
   dustYOffset: 0.236
@@ -363,6 +365,30 @@ MonoBehaviour:
   attackDownOffsetY: 0.4
   dashSpeed: 2.11
   dashDuration: 0.14
+--- !u!114 &2555993183255677633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4743438937909063529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c11153acba22a944a5e7b3abc1aad52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_disablePhysicalAttackTimer: 0
+  m_PhysicalAttackCoolDownTime: 0.5
+  AttackWave_Front: {fileID: 9099021821927981018, guid: f5da330f51994c84b9849f737842a0d2, type: 3}
+  AttackWave_Up: {fileID: 6794844470641357130, guid: b954df4bcdd2e66459d9d52bfe36a4cf, type: 3}
+  AttackWave_Down: {fileID: 4981331631640584198, guid: 796afba54b1800f4fadf1fd0b04981c8, type: 3}
+  attackDuration: 0.1
+  attackFrontSpot: {fileID: 1215271747}
+  attackUpSpot: {fileID: 2023271701}
+  attackDownSpot: {fileID: 1044720816}
+  attackFrontOffsetX: 0.5
+  attackUpOffsetY: 0.46
+  attackDownOffsetY: 0.4
 --- !u!114 &885849304
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("initializePlayerAtPoint" + transform.position);
         currPlayer = Instantiate(playerPref, trans.position, trans.rotation);
         currPlayer.transform.localScale = trans.localScale;
-        PlayerCameraControl.Initialize(currPlayer.transform, currPlayer.GetComponent<PlayerController>().attackFrontSpot);
+        PlayerCameraControl.Initialize(currPlayer.transform, currPlayer.GetComponent<PlayerAttackControl>().attackFrontSpot);
     }
 
     public static event Action OnPlayerDynamicDataChange;
