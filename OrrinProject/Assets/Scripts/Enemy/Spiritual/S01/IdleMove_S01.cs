@@ -29,6 +29,10 @@ public class IdleMove_S01 : SpiritualEnemyAction
     //    MoveTowardsTarget();
     //    KeepWithinHeightRange();
     //}
+    public override void OnStart()
+    {
+        animator.Play("idle");
+    }
     private void SetNewTargetPosition()
     {
         // 以当前位置为中心，在半径范围内随机选择一个目标位置

@@ -5,26 +5,23 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 public class SwitchTarget : Action
 {
-    public SharedGameObject targetPositionA; // 目标点A
-    public SharedGameObject targetPositionB; // 目标点B
-    public SharedGameObject currentTarget; // 当前目标点
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     public override TaskStatus OnUpdate()
     {
         // 切换目标点
-        if (currentTarget.Value == targetPositionA.Value)
+        if (transform.GetComponent<PositionPoint>().currentPoint == transform.GetComponent<PositionPoint>().point[0])
         {
-            currentTarget.Value = targetPositionB.Value;
+            transform.GetComponent<PositionPoint>().currentPoint = transform.GetComponent<PositionPoint>().point[1];
         }
         else
         {
-            currentTarget.Value = targetPositionA.Value;
+            transform.GetComponent<PositionPoint>().currentPoint = transform.GetComponent<PositionPoint>().point[0];
         }
 
         return TaskStatus.Success; // 切换完成

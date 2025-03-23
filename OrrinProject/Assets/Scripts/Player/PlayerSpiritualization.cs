@@ -103,6 +103,12 @@ public class PlayerSpiritualization : MonoBehaviour
             CurrSpiritEnergy -= Time.unscaledDeltaTime * GameManager.Instance.playerDataObj.spiritDeclinationPerSec;
         }
 
+
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            FullSpirit();
+        }
+
     }
 
     //»•¡ÈªÍªØ
@@ -159,5 +165,10 @@ public class PlayerSpiritualization : MonoBehaviour
     {
         CurrSpiritEnergy-= damage;
         Debug.Log("dddddddd");
+    }
+
+    private void FullSpirit()
+    {
+        CurrSpiritEnergy = GameManager.Instance.playerDataObj.MaxSpiritEnergy;
     }
 }

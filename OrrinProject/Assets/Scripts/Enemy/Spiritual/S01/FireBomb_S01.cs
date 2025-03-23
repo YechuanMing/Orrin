@@ -8,7 +8,6 @@ public class FireBomb_S01 : SpiritualEnemyAction
 {
     public GameObject bombPref;
 
-
     public override TaskStatus OnUpdate()
     {
 

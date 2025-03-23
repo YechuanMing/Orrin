@@ -5,7 +5,7 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 public class idlMoveEnemy03 : SpiritualEnemyAction
 {
-    public SharedGameObject currentTarget;
+    //public SharedGameObject currentTarget;
     public float moveSpeed = 1f;
 
     public SharedGameObject targetGameObject;
@@ -16,11 +16,7 @@ public class idlMoveEnemy03 : SpiritualEnemyAction
     public override void OnStart()
     {
         var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
-        animator = currentGameObject.GetComponent<Animator>();
-        if (animator == null)
-        {
-            Debug.LogError("Animator component is not found on the target GameObject.");
-        }
+        animator = GetComponent<Animator>();
         animator.Play("Walk");
     }
 
@@ -28,7 +24,7 @@ public class idlMoveEnemy03 : SpiritualEnemyAction
     public override TaskStatus OnUpdate()
     {
         // 计算移动方向
-        Vector3 direction = (currentTarget.Value.transform.position - transform.position).normalized;
+        Vector3 direction = (transform.GetComponent<PositionPoint>().currentPoint.transform.position - transform.position).normalized;
        
         // 根据移动方向改变敌人的朝向
         UpdateFacingDirection(direction);
@@ -36,7 +32,7 @@ public class idlMoveEnemy03 : SpiritualEnemyAction
         transform.Translate(direction * moveSpeed * Time.deltaTime, Space.World);
 
         // 检查是否到达目标点
-        if (Vector3.Distance(transform.position, currentTarget.Value.transform.position) < 1f)
+        if (Vector3.Distance(transform.position, transform.GetComponent<PositionPoint>().currentPoint.transform.position) < 1f)
         {
             return TaskStatus.Success; // 到达目标点，返回成功
         }

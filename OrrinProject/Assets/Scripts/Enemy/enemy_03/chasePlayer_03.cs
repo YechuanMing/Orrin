@@ -22,14 +22,15 @@ public class chasePlayer_03 : PhysicEnemyAction
         //distanceToPlayer = Mathf.Abs(player.transform.position.x - transform.position.x);
         //// 获取跳跃动画的持续时间
         //jumpDuration = GetAnimationLength("enemyBody03_jump");
-
-        buildUpTween=DOVirtual.DelayedCall(buildupTime, StartJump, false);
+        Debug.Log(player);
+        buildUpTween =DOVirtual.DelayedCall(buildupTime, StartJump, false);
         animator.Play("Jump");
     }
 
     private void StartJump()
     {
-        var direction = player.transform.position.x < transform.position.x ? -1 : 1;
+        var direction = PlayerController.Instance.transform.position.x < transform.position.x ? -1 : 1;
+    
         rigidbody.AddForce(new Vector2(horizontalForce * direction, jumpForce), ForceMode2D.Impulse);
 
         jumpTween=DOVirtual.DelayedCall(jumpDuration, () => { haslanded = true; }, false);
