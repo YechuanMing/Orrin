@@ -123,6 +123,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &30803951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5794345334187626273, guid: 0978ca6fa1ae3df40961c0d8c6f1c3d4, type: 3}
+  m_PrefabInstance: {fileID: 313372778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &30803956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30803951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c11265b855408d42af33d62691f5194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ChannelMask: 1
+  m_Gain: 1
+  m_Use2DDistance: 1
 --- !u!1001 &48489642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -829,7 +849,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191820302}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -41.3564, y: 6.3535, z: 3.8854}
+  m_LocalPosition: {x: -41.3564, y: 3.75, z: 3.8854}
   m_LocalScale: {x: 17.138634, y: 2.2135425, z: 0.36382976}
   m_Children: []
   m_Father: {fileID: 1858592565}
@@ -1631,7 +1651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574310877, guid: 0978ca6fa1ae3df40961c0d8c6f1c3d4, type: 3}
       propertyPath: m_TrackedObjectOffset.z
-      value: -19.13
+      value: -46.49
       objectReference: {fileID: 0}
     - target: {fileID: 5794345334187626273, guid: 0978ca6fa1ae3df40961c0d8c6f1c3d4, type: 3}
       propertyPath: m_Name
@@ -2170,7 +2190,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -9
   m_Sprite: {fileID: 21300000, guid: 80fa92087797a8a44837ea0b14748f3d, type: 3}
   m_Color: {r: 0.7924528, g: 0.41707852, b: 0.3095051, a: 1}
   m_FlipX: 0
@@ -5762,6 +5782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy_05
       objectReference: {fileID: 0}
+    - target: {fileID: 1985315567213825994, guid: 5b9d03e5140f84745aacbb474e9928b9, type: 3}
+      propertyPath: repelForce
+      value: 4.67
+      objectReference: {fileID: 0}
     - target: {fileID: 1985315567213825997, guid: 5b9d03e5140f84745aacbb474e9928b9, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -5805,6 +5829,26 @@ PrefabInstance:
     - target: {fileID: 1985315567213825997, guid: 5b9d03e5140f84745aacbb474e9928b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426668235073723324, guid: 5b9d03e5140f84745aacbb474e9928b9, type: 3}
+      propertyPath: m_ImpulseDefinition.m_RawSignal
+      value: 
+      objectReference: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    - target: {fileID: 4426668235073723324, guid: 5b9d03e5140f84745aacbb474e9928b9, type: 3}
+      propertyPath: m_ImpulseDefinition.m_AmplitudeGain
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426668235073723324, guid: 5b9d03e5140f84745aacbb474e9928b9, type: 3}
+      propertyPath: m_ImpulseDefinition.m_FrequencyGain
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426668235073723324, guid: 5b9d03e5140f84745aacbb474e9928b9, type: 3}
+      propertyPath: m_ImpulseDefinition.m_TimeEnvelope.m_DecayTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426668235073723324, guid: 5b9d03e5140f84745aacbb474e9928b9, type: 3}
+      propertyPath: m_ImpulseDefinition.m_TimeEnvelope.m_SustainTime
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b9d03e5140f84745aacbb474e9928b9, type: 3}

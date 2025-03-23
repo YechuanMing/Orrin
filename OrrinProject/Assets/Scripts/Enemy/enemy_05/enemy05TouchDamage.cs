@@ -8,7 +8,7 @@ public class enemy05TouchDamage : MonoBehaviour
     [SerializeField]
     public int touchDamage = 1;
     [SerializeField]
-    private float repelForce;
+    private float repelForce=3;
 
     private void Awake()
     {
@@ -24,7 +24,9 @@ public class enemy05TouchDamage : MonoBehaviour
         {
             collision.gameObject.GetComponent<Destructable>().Damage(touchDamage);
             Vector3 vec = (collision.transform.position - this.transform.position);
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(vec.x, vec.y) * repelForce, ForceMode2D.Impulse);
+            int i = collision.transform.position.x < this.transform.position.x ? 1 : -1;
+
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce((Vector2.right*i+Vector2.up )* repelForce, ForceMode2D.Impulse);
         }
     }
 }

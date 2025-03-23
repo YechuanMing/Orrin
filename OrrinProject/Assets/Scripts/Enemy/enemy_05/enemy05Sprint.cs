@@ -32,8 +32,8 @@ public class enemy05Sprint : PhysicEnemyAction
         //var direction = PlayerController.Instance.transform.position.x < transform.position.x ? -1 : 1;
 
         transform.DOMove(new Vector3(PlayerController.Instance.transform.position.x, PlayerController.Instance.transform.position.y+trackOffsetY, transform.position.z), sprintDuration)
-        .SetEase(Ease.InCubic)    .OnComplete(()=> {
-            transform.DOMove(transform.position + Vector3.up * upFly, upFlyDuration).SetEase(Ease.Linear);
+        .SetEase(Ease.OutCubic)    .OnComplete(()=> {
+            transform.DOMove(transform.position + Vector3.up * upFly+Vector3.forward*upFly, upFlyDuration).SetEase(Ease.Linear);
         });
 
         sprintTween = DOVirtual.DelayedCall(sprintDuration, () => { hasEnded = true; }, false);
