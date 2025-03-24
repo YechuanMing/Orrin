@@ -22,7 +22,7 @@ public class Destructable : MonoBehaviour
 
     [Header("是否处于可交互状态")]
     [SerializeField]
-    protected bool interactable = true;
+    public bool interactable = true;
 
     [SerializeField]
     [Header("延迟销毁物体")]
@@ -35,6 +35,8 @@ public class Destructable : MonoBehaviour
     [Header("死亡时触发事件")]
     public UnityEvent OnDeath;
 
+
+    private Cinemachine.CinemachineImpulseSource impulseSource;
     public int CurrHealth
     {
         get { return currHealth; }
@@ -79,7 +81,7 @@ public class Destructable : MonoBehaviour
 
     void Start()
     {
-
+        impulseSource = GetComponent<Cinemachine.CinemachineImpulseSource>();
         //如果是玩家，从数据中获取生命值。（感觉不太对，要改）
         if (isPlayer && GameManager.Instance.playerDataObj != null)
         {
@@ -131,11 +133,12 @@ public class Destructable : MonoBehaviour
     //核心方法，受击
     public void Damage(int damage, bool isEnviromentHit = false)
     {
-        if (interactable == false)
+        if (interactable == false&&!isEnviromentHit)
         {
             return;
         }
         CurrHealth -= damage;
+        impulseSource.GenerateImpulse();
         Debug.Log("HitBy" + damage);
         if (CurrHealth <= 0)
         {
@@ -168,7 +171,7 @@ public class Destructable : MonoBehaviour
                 Coroutine FlashBlack = StartCoroutine(FlashCoroutinePlayerDamage());
                 DOVirtual.DelayedCall(0.2f, () =>
                 {
-                    Time.timeScale = 0.2f;
+                    Time.timeScale = 0.2f;  
                     //如果是陷阱伤害
                     if (isEnviromentHit)
                     {

@@ -93,7 +93,7 @@ public class IdleMove_S01 : SpiritualEnemyAction
             timer = 0f;
         }
         MoveTowardsTarget();
-        KeepWithinHeightRange();
+        //KeepWithinHeightRange();
         return TaskStatus.Success;
     }
 }

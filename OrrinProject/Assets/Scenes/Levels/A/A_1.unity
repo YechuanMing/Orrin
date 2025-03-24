@@ -1309,7 +1309,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2418275687657130039, guid: a9c395caa5567f148819f1c4162c7f11, type: 3}
       propertyPath: m_Name
-      value: Door_0 (1)
+      value: Door_1
       objectReference: {fileID: 0}
     - target: {fileID: 6003776867788747087, guid: a9c395caa5567f148819f1c4162c7f11, type: 3}
       propertyPath: boundPoint
@@ -1698,7 +1698,7 @@ PrefabInstance:
     - target: {fileID: 6003776867788747087, guid: a9c395caa5567f148819f1c4162c7f11, type: 3}
       propertyPath: boundPoint
       value: 
-      objectReference: {fileID: 538495562}
+      objectReference: {fileID: 133550356}
     - target: {fileID: 6003776867788747087, guid: a9c395caa5567f148819f1c4162c7f11, type: 3}
       propertyPath: doorID.zoneTag
       value: 0

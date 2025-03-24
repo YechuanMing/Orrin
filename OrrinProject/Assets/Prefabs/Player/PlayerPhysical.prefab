@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 2555993183255677633}
   - component: {fileID: 885849304}
   - component: {fileID: 8948243974802089904}
+  - component: {fileID: 6174881172730336970}
   m_Layer: 8
   m_Name: PlayerPhysical
   m_TagString: Player
@@ -353,16 +354,6 @@ MonoBehaviour:
   m_disablePhysicalAttackTimer: -0.0027956683
   m_PhysicalAttackCoolDownTime: 0.2
   dustYOffset: 0.236
-  AttackWave_Front: {fileID: 9099021821927981018, guid: f5da330f51994c84b9849f737842a0d2, type: 3}
-  AttackWave_Up: {fileID: 6794844470641357130, guid: b954df4bcdd2e66459d9d52bfe36a4cf, type: 3}
-  AttackWave_Down: {fileID: 4981331631640584198, guid: 796afba54b1800f4fadf1fd0b04981c8, type: 3}
-  attackDuration: 0.1
-  attackFrontSpot: {fileID: 1215271747}
-  attackUpSpot: {fileID: 2023271701}
-  attackDownSpot: {fileID: 1044720816}
-  attackFrontOffsetX: 0.5
-  attackUpOffsetY: 0.46
-  attackDownOffsetY: 0.4
   dashSpeed: 2.11
   dashDuration: 0.14
 --- !u!114 &2555993183255677633
@@ -443,6 +434,18 @@ MonoBehaviour:
           m_StringArgument: Release_Start
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2555993183255677633}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCharacterhDeSpiritualized:
     m_PersistentCalls:
       m_Calls:
@@ -480,6 +483,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Idle
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2555993183255677633}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &8948243974802089904
@@ -557,3 +572,45 @@ MonoBehaviour:
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   playerDamageColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
   playerDamageflashDuration: 0.3
+--- !u!114 &6174881172730336970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4743438937909063529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 1000
+    m_PropagationSpeed: 343
