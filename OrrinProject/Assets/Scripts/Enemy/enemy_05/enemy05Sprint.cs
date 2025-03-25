@@ -24,23 +24,21 @@ public class enemy05Sprint : PhysicEnemyAction
         //jumpDuration = GetAnimationLength("enemyBody03_jump");
         Debug.Log(player);
         buildUpTween = DOVirtual.DelayedCall(buildupTime, StartSprint, false);
-        animator.Play("Jump");
+        animator.Play("Sprint");
     }
 
-    private void StartSprint() { 
-    
+    private void StartSprint() {
+
         //var direction = PlayerController.Instance.transform.position.x < transform.position.x ? -1 : 1;
 
-        transform.DOMove(new Vector3(PlayerController.Instance.transform.position.x, PlayerController.Instance.transform.position.y+trackOffsetY, transform.position.z), sprintDuration)
-        .SetEase(Ease.OutCubic)    .OnComplete(()=> {
-            transform.DOMove(transform.position + Vector3.up * upFly+Vector3.forward*upFly, upFlyDuration).SetEase(Ease.Linear);
+        sprintTween = transform.DOMove(new Vector3(PlayerController.Instance.transform.position.x, PlayerController.Instance.transform.position.y+trackOffsetY, transform.position.z), sprintDuration)
+        .SetEase(Ease.OutCubic).OnComplete(()=> { transform.DOMove(transform.position + Vector3.up * upFly+Vector3.forward*upFly, upFlyDuration).SetEase(Ease.Linear);
         });
-
-        sprintTween = DOVirtual.DelayedCall(sprintDuration, () => { hasEnded = true; }, false);
+        DOVirtual.DelayedCall(sprintDuration, () => { hasEnded = true; }, false);
     }
     public override TaskStatus OnUpdate()
     {
-
+        CheckCollision();
         return hasEnded ? TaskStatus.Success : TaskStatus.Running;
 
     }
@@ -52,4 +50,20 @@ public class enemy05Sprint : PhysicEnemyAction
         hasEnded = false;
     }
 
+    public LayerMask layer;
+    private void CheckCollision()
+    {
+        // 检查是否有碰撞体与当前物体重叠
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f, layer);
+        if (colliders.Length > 0)
+        {
+            // 如果检测到碰撞，终止位移     
+            if (sprintTween != null && sprintTween.IsActive())
+            {
+                sprintTween.Kill();
+            }
+        }
+    }
+
 }
+

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9165013394131917803}
   - component: {fileID: 197606798}
   - component: {fileID: 197606799}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BreakableEgg
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96bcfb4770fbdab4f86184e20b39741f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class MoveWithCam : MonoBehaviour
 {
+
+    public enum MoveType
+    {
+        Free,Horizontal,Vertical
+    }
     public Transform cameraTransform;
     [Range(-1,1)]
     public float parallaxFactor;
+    public MoveType type;
     private float interpolationFactor = 4f;
     public float threshold = 0.01f;
 
@@ -32,8 +38,20 @@ public class MoveWithCam : MonoBehaviour
             cameraTransform = GameObject.Find("PlayerCam").transform; /*PlayerController.Instance.transform;*/
         }
         Vector3 deltaMovement = cameraTransform.position - previousCameraPosition;
-        nextPosition = currentPosition + new Vector3(deltaMovement.x * parallaxFactor, deltaMovement.y * parallaxFactor, 0);
+        
+        switch(type)
+        {
+            case MoveType.Free:
+                nextPosition = currentPosition + new Vector3(deltaMovement.x * parallaxFactor, deltaMovement.y * parallaxFactor, 0);
+                break;
+            case MoveType.Horizontal:
+                nextPosition = currentPosition + new Vector3(deltaMovement.x * parallaxFactor,0, 0);
+                break;
+            case MoveType.Vertical:
+                nextPosition = currentPosition + new Vector3(0, deltaMovement.y * parallaxFactor, 0);
+                break;
 
+        }
         float distance = Vector3.Distance(currentPosition, nextPosition);
         if (distance>threshold)
         {

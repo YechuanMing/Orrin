@@ -501,8 +501,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  currHealth: 20
-  maxHealth: 20
+  currHealth: 0
+  maxHealth: 7
   interactable: 1
   delayDestroyTime: 2
   OnDamage:
@@ -627,7 +627,7 @@ MonoBehaviour:
         Move   S 01","Instant":true,"SinglewanderRadius":2.31,"SinglemoveSpeed":0.32,"SinglechangeDirectionInterval":1.5,"SingleheightOffset":1.35,"SingledecelerationDistance":0.26,"SinglemaxMoveSpeed":0.62}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(396.518616,175.852615)"},"ID":19,"Name":"Selector","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-86.94287,185.365616)"},"ID":20,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"enemy05MinDistanceJudge","NodeData":{"Offset":"(-56.55212,170.5263)"},"ID":21,"Name":"Enemy
         05 Min Distance Judge","Instant":true,"SingleapproachDistance":3.56},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(124.081635,170.816345)"},"ID":22,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"FacePlayer","NodeData":{"Offset":"(-178.4031,163.546951)"},"ID":23,"Name":"Face
         Player","Instant":true,"Booleanrevert":true},{"Type":"enemy05Sprint","NodeData":{"Offset":"(-24.8060532,173.114929)"},"ID":24,"Name":"Enemy
-        05 Sprint","Instant":true,"SinglebuildupTime":0.5,"SinglesprintSpeed":1.5,"SinglesprintDuration":1.34,"SingletrackOffsetY":0.3,"SingleupFly":1.5,"SingleupFlyDuration":2.61},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(146.45491,180.269424)"},"ID":25,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1.51},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(292.490936,183.90419)"},"ID":26,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"chasePlayer_05","NodeData":{"Offset":"(4.4642725,149.926315)"},"ID":27,"Name":"Chase
+        05 Sprint","Instant":true,"SinglebuildupTime":0.5,"SinglesprintSpeed":1.5,"SinglesprintDuration":1.34,"SingletrackOffsetY":0.3,"SingleupFly":1.5,"SingleupFlyDuration":2.61,"LayerMasklayer":1},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(146.45491,180.269424)"},"ID":25,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1.51},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(292.490936,183.90419)"},"ID":26,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"chasePlayer_05","NodeData":{"Offset":"(4.4642725,149.926315)"},"ID":27,"Name":"Chase
         Player  05","Instant":true,"SingleapproachSpeed":1,"SingleoutOfCombatDistance":9,"SingletrackOffsetY":2}]}]}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"currentTarget","IsShared":true}]}'
       fieldSerializationData:
         typeName: []

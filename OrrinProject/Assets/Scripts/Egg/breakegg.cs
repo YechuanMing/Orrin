@@ -12,6 +12,25 @@ public class breakegg : MonoBehaviour
     public float minFragmentSpeed = 2f;
     public float maxFragmentSpeed = 5f;
 
+    public void EggHit()
+    {
+        for (int i = 0; i < fragmentCount/3; i++)
+        {
+            // 实例化碎片
+            GameObject fragment = Instantiate(fragmentPrefab, transform.position, Quaternion.identity);
+
+            // 获取碎片的刚体组件
+            Rigidbody2D fragmentRigidbody = fragment.GetComponent<Rigidbody2D>();
+
+            // 生成随机方向和速度
+            Vector2 randomDirection = Random.insideUnitCircle.normalized;
+            float randomSpeed = Random.Range(minFragmentSpeed, maxFragmentSpeed);
+
+            // 设置碎片的初始速度
+            fragmentRigidbody.velocity = randomDirection * randomSpeed;
+        }
+    }
+
     // 蛋被击碎的方法
     public void BreakEgg()
     {

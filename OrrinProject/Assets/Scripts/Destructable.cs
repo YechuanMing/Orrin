@@ -171,7 +171,7 @@ public class Destructable : MonoBehaviour
                 Coroutine FlashBlack = StartCoroutine(FlashCoroutinePlayerDamage());
                 DOVirtual.DelayedCall(0.2f, () =>
                 {
-                    Time.timeScale = 0.2f;  
+                    Time.timeScale = 0.4f;  
                     //如果是陷阱伤害
                     if (isEnviromentHit)
                     {
@@ -186,7 +186,7 @@ public class Destructable : MonoBehaviour
 
                 }).OnComplete(() =>
                 {
-                    DOVirtual.DelayedCall(0.5f, () =>
+                    DOVirtual.DelayedCall(0.65f, () =>
                     {
                         //恢复正常
                         Time.timeScale = 1f;
@@ -203,10 +203,12 @@ public class Destructable : MonoBehaviour
         else
         {
             //如果不是玩家，会抖动一下，加强打击感。
-            transform.DOShakeScale(0.3f, 0.5f, 1, 30);
+            transform.DOShakeScale(0.3f, 0.1f, 1, 10);
         }
 
     }
+
+    
 
     public void Heal(int heal)
     { CurrHealth += heal; }
