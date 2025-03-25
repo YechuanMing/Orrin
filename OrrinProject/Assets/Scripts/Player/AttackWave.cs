@@ -25,14 +25,15 @@ public class AttackWave : MonoBehaviour
             switch(direction)
             {
                 case AttackDirection.Front:
-                    collision.gameObject.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.right*transform.localScale.x * damage * impulseParam, ForceMode2D.Impulse);
-                    PlayerController.Instance.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * transform.localScale.x * damage * impulseParam * (-1), ForceMode2D.Impulse);
+                    collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right*transform.localScale.x * damage * impulseParam, ForceMode2D.Impulse);
+                    PlayerController.Instance.GetComponent<Rigidbody2D>().AddForce(Vector2.right * transform.localScale.x * damage * impulseParam * (-1), ForceMode2D.Impulse);
                     break;
                 case AttackDirection.Up:
-                    collision.gameObject.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * damage * impulseParam, ForceMode2D.Impulse);
+                    collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * damage * impulseParam, ForceMode2D.Impulse);
                     break;
                 case AttackDirection.Down:
-                    collision.gameObject.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.down * damage * impulseParam, ForceMode2D.Impulse);
+                    collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.down * damage * impulseParam, ForceMode2D.Impulse);
+                    PlayerController.Instance.GetComponent<Rigidbody2D>().AddForce(Vector2.up * damage * impulseParam, ForceMode2D.Impulse);
                     break;
 
             }

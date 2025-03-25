@@ -98,7 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c341ed0572ebe45bd2d600d08dce59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 0
   damage: 0
+  impulseParam: 1
 --- !u!95 &8732620031443411197
 Animator:
   serializedVersion: 5
@@ -158,4 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c341ed0572ebe45bd2d600d08dce59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 1
   damage: 1
+  impulseParam: 1

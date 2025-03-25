@@ -119,7 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c341ed0572ebe45bd2d600d08dce59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 0
   damage: 0
+  impulseParam: 1
 --- !u!61 &3251337716704055362
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -158,4 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c341ed0572ebe45bd2d600d08dce59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 2
   damage: 1
+  impulseParam: 16

@@ -112,5 +112,15 @@ public class GameManager : MonoBehaviour
         {
             MovePlayerToSavePosition();
         }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            force();
+        }
+    }
+
+    public void force()
+    {
+        currPlayer.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 10, ForceMode2D.Impulse);
     }
 }

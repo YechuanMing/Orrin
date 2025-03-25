@@ -204,9 +204,11 @@ public class Destructable : MonoBehaviour
         {
             //如果不是玩家，会抖动一下，加强打击感。
             transform.DOShakeScale(0.3f, 0.1f, 1, 10);
+            DamageSound();
         }
 
     }
+
 
     
 
@@ -262,5 +264,12 @@ public class Destructable : MonoBehaviour
             }
 
         }
+    }
+
+    public AudioClip[] damageSounds;
+
+    public void DamageSound()
+    {
+        AudioSource.PlayClipAtPoint(damageSounds[Random.Range(0, damageSounds.Length)], new Vector3(transform.position.x,transform.position.y,20f));
     }
 }
