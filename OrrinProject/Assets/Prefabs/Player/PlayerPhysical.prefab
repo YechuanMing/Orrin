@@ -354,8 +354,8 @@ MonoBehaviour:
   m_disablePhysicalAttackTimer: -0.0027956683
   m_PhysicalAttackCoolDownTime: 0.2
   dustYOffset: 0.236
-  dashSpeed: 2.11
-  dashDuration: 0.14
+  dashSpeed: 4.22
+  dashDuration: 0.31
 --- !u!114 &2555993183255677633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,6 +572,7 @@ MonoBehaviour:
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   playerDamageColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
   playerDamageflashDuration: 0.3
+  damageSounds: []
 --- !u!114 &6174881172730336970
 MonoBehaviour:
   m_ObjectHideFlags: 0

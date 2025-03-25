@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour
 
         // -- ∂Øª≠œ‡πÿ --
         //Jump
-        if (Input.GetButtonDown("Jump") && m_grounded && m_disableMovementTimer < 0.0f)
+        if (Input.GetButtonDown("Jump") && m_grounded && m_disableMovementTimer < 0.0f&&!isDashing)
         {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
@@ -362,10 +362,11 @@ public class PlayerController : MonoBehaviour
     void Dash()
     {
         //m_body2d.isKinematic = true;
+        m_animator.Play("Dash");
         m_body2d.gravityScale = 0;
         PostProcessManager.Instance.PlayerDashVignette();
         GetComponent<Destructable>().interactable = false;
-        transform.DOMoveX(transform.position.x + transform.localScale.x * dashSpeed, dashDuration).SetEase(Ease.InExpo).OnComplete(()=>
+        transform.DOMoveX(transform.position.x + transform.localScale.x * dashSpeed, dashDuration).SetEase(Ease.OutCubic).OnComplete(()=>
         { m_body2d.gravityScale = 3.6f; GetComponent<Destructable>().interactable = true;/*m_body2d.isKinematic = false; */});
     }
 

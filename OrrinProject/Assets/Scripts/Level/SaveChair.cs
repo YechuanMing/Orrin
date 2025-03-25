@@ -42,6 +42,7 @@ public class SaveChair : MonoBehaviour
         if (interactable && Input.GetKeyDown(KeyCode.I))
         {
             Debug.Log("ccc");
+            animator.Play("Brake");
             GameManager.Instance.lastSaveChairScene = sceneName;
             GameManager.Instance.lastSavePoint = this.transform;
             PlayerDisplayData.Instance.playerDestructable.CurrHealth = PlayerDisplayData.Instance.playerDestructable.maxHealth;
