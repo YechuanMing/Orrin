@@ -13025,6 +13025,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 197606798, guid: 65175014778652c42ae5b75185fd9dc9, type: 3}
+      propertyPath: fragmentCount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 197606799, guid: 65175014778652c42ae5b75185fd9dc9, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 197606799, guid: 65175014778652c42ae5b75185fd9dc9, type: 3}
       propertyPath: OnDamage.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -13121,9 +13129,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9165013394131917813, guid: 65175014778652c42ae5b75185fd9dc9, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165013394131917813, guid: 65175014778652c42ae5b75185fd9dc9, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165013394131917813, guid: 65175014778652c42ae5b75185fd9dc9, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165013394131917813, guid: 65175014778652c42ae5b75185fd9dc9, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 9165013394131917815, guid: 65175014778652c42ae5b75185fd9dc9, type: 3}
       propertyPath: m_Name
       value: BreakableEgg
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165013394131917815, guid: 65175014778652c42ae5b75185fd9dc9, type: 3}
+      propertyPath: m_Layer
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65175014778652c42ae5b75185fd9dc9, type: 3}

@@ -31,14 +31,14 @@ public class enemy05Sprint : PhysicEnemyAction
 
         //var direction = PlayerController.Instance.transform.position.x < transform.position.x ? -1 : 1;
 
-        sprintTween = transform.DOMove(new Vector3(PlayerController.Instance.transform.position.x, PlayerController.Instance.transform.position.y+trackOffsetY, transform.position.z), sprintDuration)
+        transform.DOMove(new Vector3(PlayerController.Instance.transform.position.x, PlayerController.Instance.transform.position.y+trackOffsetY, transform.position.z), sprintDuration)
         .SetEase(Ease.OutCubic).OnComplete(()=> { transform.DOMove(transform.position + Vector3.up * upFly+Vector3.forward*upFly, upFlyDuration).SetEase(Ease.Linear);
         });
-        DOVirtual.DelayedCall(sprintDuration, () => { hasEnded = true; }, false);
+        sprintTween = DOVirtual.DelayedCall(sprintDuration, () => { hasEnded = true; }, false);
     }
     public override TaskStatus OnUpdate()
     {
-        CheckCollision();
+        
         return hasEnded ? TaskStatus.Success : TaskStatus.Running;
 
     }

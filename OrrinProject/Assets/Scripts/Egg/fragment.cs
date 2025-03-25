@@ -10,6 +10,6 @@ public class fragment : MonoBehaviour
     void Start()
     {
         // 设置碎片的销毁时间
-        Destroy(gameObject, destroyTime);
+        Destroy(gameObject, Random.Range(destroyTime,destroyTime*2));
     }
 }

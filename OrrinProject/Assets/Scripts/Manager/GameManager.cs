@@ -88,6 +88,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
 
+    public Vector3 savePosition;
+    private void MovePlayerToDoorZero()
+    {
+        savePosition = currPlayer.transform.position;
+        currPlayer.transform.position=GameObject.Find("Door_0").GetComponent<RoomDoor>().boundPoint.position;
+    }
+
+    private void MovePlayerToSavePosition()
+    {
+        currPlayer.transform.position = savePosition;
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            MovePlayerToDoorZero();
+        }
+
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            MovePlayerToSavePosition();
+        }
+    }
 }
