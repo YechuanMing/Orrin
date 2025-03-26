@@ -13,6 +13,7 @@ public class Destructable : MonoBehaviour
     [Header("是否是玩家？")]
     public bool isPlayer;
 
+    public GameObject attackedEffectsPerfabs;
 
     [Header("当前生命值")]
     public int currHealth;
@@ -104,7 +105,12 @@ public class Destructable : MonoBehaviour
 
     }
 
-
+    public void player_attackedEffects()
+    {
+        GameObject attacked = Instantiate(attackedEffectsPerfabs, transform.position, transform.rotation);
+        attacked.transform.localScale = transform.localScale;
+        Destroy(attacked, 40 / 60f);
+    }
     public void UpdatePlayerMaxHealth()
     {
         if (isPlayer)
