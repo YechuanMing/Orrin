@@ -167,6 +167,7 @@ public class Destructable : MonoBehaviour
                 //短暂慢镜头
                 //Time.timeScale = 0.2f;
                 PostProcessManager.Instance.PlayerDamagedVignette();
+                GetComponent<Animator>().Play("Attacked");
                 //这里需要禁用一下playerController，否则玩家没法被rigidbody.Addforce击退，因为playerController的移动用的是rigidbody.velocity，会覆盖掉
                 PlayerController.Instance.enabled = false;
                 //同时禁用状态切换，否则会打乱切换逻辑。
