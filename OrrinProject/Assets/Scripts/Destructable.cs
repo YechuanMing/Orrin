@@ -108,6 +108,7 @@ public class Destructable : MonoBehaviour
     public void player_attackedEffects()
     {
         GameObject attacked = Instantiate(attackedEffectsPerfabs, transform.position, transform.rotation);
+        attacked.transform.SetParent(transform);
         attacked.transform.localScale = transform.localScale;
         Destroy(attacked, 40 / 60f);
     }
