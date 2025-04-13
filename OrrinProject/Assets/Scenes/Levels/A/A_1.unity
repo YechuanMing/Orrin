@@ -6957,6 +6957,18 @@ PrefabInstance:
       propertyPath: m_text
       value: "\u7A7A\u683C\u8DF3\u8DC3"
       objectReference: {fileID: 0}
+    - target: {fileID: 4291588896274818739, guid: 3fb10f1adb4aa174d81d9955aac2d9c7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 035f14d9761374c44983deaa8742f50c, type: 2}
+    - target: {fileID: 4291588896274818739, guid: 3fb10f1adb4aa174d81d9955aac2d9c7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291588896274818740, guid: 3fb10f1adb4aa174d81d9955aac2d9c7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -1118939130070685165, guid: 035f14d9761374c44983deaa8742f50c, type: 2}
     - target: {fileID: 4291588897026345026, guid: 3fb10f1adb4aa174d81d9955aac2d9c7, type: 3}
       propertyPath: m_Name
       value: tutorial
