@@ -22,7 +22,7 @@ public class BeginnerTutorialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayerPrefs.SetInt("spaceJump", 0);//是否空格跳跃新手教程执行了
     }
 
     // Update is called once per frame
