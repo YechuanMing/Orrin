@@ -23,6 +23,9 @@ public class BeginnerTutorialManager : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("spaceJump", 0);//是否空格跳跃新手教程执行了
+        PlayerPrefs.SetInt("attackHint", 0);//是否左键攻击新手教程执行了
+        PlayerPrefs.SetInt("savepointHint", 0);//是否a2存档点新手教程执行了
+     
     }
 
     // Update is called once per frame
