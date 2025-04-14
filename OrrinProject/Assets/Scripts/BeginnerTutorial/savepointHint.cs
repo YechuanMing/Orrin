@@ -15,12 +15,12 @@ public class savepointHint : MonoBehaviour
         {
             Debug.Log("碰到了主角了");
             playerInside = true;
-            if (PlayerPrefs.GetInt("savepointHint") == 0)
-            {
-                PlayerPrefs.SetInt("savepointHint", 1);
+            //if (PlayerPrefs.GetInt("savepointHint") == 0)
+            //{
+            //    PlayerPrefs.SetInt("savepointHint", 1);
                 savePointHint.SetActive(true);
                 savePointHint.GetComponent<fadegroup>().FadeIn();
-            }
+            //}
         }
     }
 
