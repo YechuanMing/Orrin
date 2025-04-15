@@ -42,12 +42,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/B/B_0.unity
     guid: 72b4a7d913a80984bab78f81470a7f13
   - enabled: 1
-    path: Assets/Scenes/Levels/B/B_1.unity
+    path: Assets/Scenes/Levels/B/B_3.unity
     guid: 658c53a9bee6c2a42a175eeb9396c4d9
   - enabled: 1
-    path: Assets/Scenes/Levels/B/B_2.unity
+    path: Assets/Scenes/Levels/B/B_4.unity
     guid: bf9ba021874e0f94a84403764018c839
   - enabled: 1
-    path: Assets/Scenes/Levels/B/B_3.unity
+    path: Assets/Scenes/Levels/B/B_5.unity
     guid: 8b91733881dc81042b4b1416d3f85b26
   m_configObjects: {}
