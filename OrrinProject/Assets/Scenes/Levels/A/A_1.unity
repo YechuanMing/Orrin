@@ -16152,7 +16152,7 @@ MonoBehaviour:
   m_text: "\u7A7A\u683C\u8DF3\u8DC3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 035f14d9761374c44983deaa8742f50c, type: 2}
-  m_sharedMaterial: {fileID: 0}
+  m_sharedMaterial: {fileID: -1118939130070685165, guid: 035f14d9761374c44983deaa8742f50c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

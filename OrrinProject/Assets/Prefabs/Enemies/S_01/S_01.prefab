@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
+  attackedEffectsPerfabs: {fileID: 0}
   currHealth: 0
   maxHealth: 5
   interactable: 1
@@ -136,6 +137,7 @@ MonoBehaviour:
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   playerDamageColor: {r: 0, g: 0, b: 0, a: 1}
   playerDamageflashDuration: 0.3
+  damageSounds: []
 --- !u!95 &6412976444607223281
 Animator:
   serializedVersion: 5
@@ -275,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
+  attackedEffectsPerfabs: {fileID: 0}
   currHealth: 7
   maxHealth: 7
   interactable: 1
@@ -301,6 +304,7 @@ MonoBehaviour:
   flashColor: {r: 0.7924528, g: 0.36183694, b: 0.36183694, a: 1}
   playerDamageColor: {r: 0, g: 0, b: 0, a: 1}
   playerDamageflashDuration: 0.3
+  damageSounds: []
 --- !u!95 &6412976444678679373
 Animator:
   serializedVersion: 5
