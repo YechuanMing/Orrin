@@ -12,4 +12,8 @@ public class collidermanager : MonoBehaviour
     {
         transform.GetComponent<BoxCollider2D>().enabled = false;
     }
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }
