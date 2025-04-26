@@ -6581,9 +6581,9 @@ GameObject:
   - component: {fileID: 4451933661232004843}
   - component: {fileID: 4451933661232004839}
   - component: {fileID: 4451933661232004846}
-  - component: {fileID: 4451933661232004838}
   - component: {fileID: 2956576884642066076}
   - component: {fileID: 210976764370556595}
+  - component: {fileID: 4451933661232004838}
   m_Layer: 6
   m_Name: enemy_04
   m_TagString: Enemy
@@ -6808,7 +6808,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4451933661232004838}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
