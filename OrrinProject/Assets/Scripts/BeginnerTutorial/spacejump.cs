@@ -8,6 +8,7 @@ public class spacejump : MonoBehaviour
     public float fadeDuration = 0.5f;
 
     private bool playerInside = false;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("碰到了主角了11111");

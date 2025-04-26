@@ -6,9 +6,9 @@ public class fadegroup : MonoBehaviour
 {
     public float fadeDuration = 0.5f;
 
-    public SpriteRenderer sprite;
     public TextMeshPro tmp;
-
+    public Animator kuangAnimator;
+    private int flag=0;//是否是渐隐，渐隐后setActive false
     // Start is called before the first frame update
     void Start()
     {
@@ -17,16 +17,18 @@ public class fadegroup : MonoBehaviour
 
     public void FadeIn()
     {
+        flag = 0;
         StopAllCoroutines();
         StartCoroutine(Fade(0f, 1f));
-        StartCoroutine(FadeSprite(0f, 0.4f));
+        kuangAnimator.Play("appear");
     }
 
     public void FadeOut()
     {
+        flag = 1;
         StopAllCoroutines();
         StartCoroutine(Fade(1f, 0f));
-        StartCoroutine(FadeSprite(0.4f, 0f));
+        kuangAnimator.Play("disappear");
     }
 
     private IEnumerator Fade(float from, float to)
@@ -51,36 +53,9 @@ public class fadegroup : MonoBehaviour
         {
             tmp.color = new Color(textColor.r, textColor.g, textColor.b, to);
         }
-    }
-    private IEnumerator FadeSprite(float from, float to)
-    {
-        float elapsed = 0f;
-
-        Color spriteColor = sprite.color;
-       
-        while (elapsed < fadeDuration)
-        {
-            float t = elapsed / fadeDuration;
-            float alpha = Mathf.Lerp(from, to, t);
-
-            if (sprite != null)
-            {
-                sprite.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, alpha);
-            }
-          
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        // 确保最后一帧设定到目标值
-        if (sprite != null)
-        {
-            sprite.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, to);
-        }
-        if (to == 0)
+        if (flag == 1)
         {
             gameObject.SetActive(false);
         }
-       
     }
 }
