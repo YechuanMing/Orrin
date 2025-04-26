@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2889035794311459504}
   - component: {fileID: 2889035794311459459}
   - component: {fileID: 2889035794311459456}
+  - component: {fileID: 1699320369}
   m_Layer: 11
   m_Name: enemy_07
   m_TagString: Enemy
@@ -301,8 +302,8 @@ MonoBehaviour:
         Detect Player","Instant":true,"SinglefrontDis":8,"SinglebackDis":5,"SingleUpDis":6,"SinglelostChaseDis":8,"BooleanisAllDirection":true,"Singleradius":10,"SingleoffestY":-3}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(123.877243,150)"},"ID":6,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,130)"},"ID":7,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"walkIdleMove_enemy07","NodeData":{"Offset":"(4.520111,139.550964)"},"ID":8,"Name":"Walk
         Idle Move  enemy 07","Instant":true,"SinglewanderRadius":2,"SinglemoveSpeed":0.32,"SinglechangeDirectionInterval":3.18,"SingleheightOffset":0.81,"SingledecelerationDistance":0.26,"SinglemaxMoveSpeed":0.59}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(196.071533,229.999939)"},"ID":9,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"ChasePlayer_S01","NodeData":{"Offset":"(-97.5562744,150)"},"ID":10,"Name":"Chase
         Player   S 01","Instant":true,"SingleapproachSpeed":1,"SinglekeepDistance":5,"SinglewanderDistance":1,"SingleheightOffset":1.8,"SingleoutOfCombatDistance":5},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(108.333313,153.913025)"},"ID":11,"Name":"Selector","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(1.30427933,117.82605)"},"ID":12,"Name":"Sequence","Instant":true,"AbortTypeabortType":"LowerPriority","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetTrigger","NodeData":{"Offset":"(-179.387741,146.521729)"},"ID":13,"Name":"Set
-        Trigger","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Attack"}},{"Type":"enemyeffect_07","NodeData":{"Offset":"(-1.68200684,154.9978)"},"ID":14,"Name":"Enemyeffect 
-        07","Instant":true,"GameObjectbombPref":0,"Singleradius":3.5},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(194.893616,155.245148)"},"ID":15,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]}]}]}]}}'
+        Trigger","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Attack"}},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(194.893616,155.245148)"},"ID":14,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]}]}]}]},"DetachedTasks":[{"Type":"enemyeffect_07","NodeData":{"Offset":"(810,690)"},"ID":15,"Name":"Enemyeffect 
+        07","Instant":true,"GameObjectbombPref":0,"Singleradius":3.5}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -315,3 +316,16 @@ MonoBehaviour:
       Version: 1.7.10
   gizmoViewMode: 2
   showBehaviorDesignerGizmo: 1
+--- !u!114 &1699320369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2889035794311459518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 458a1ee23f82e06498c903572c7da318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPref: {fileID: 72228544374327540, guid: 3db97930e9f762e4a9ac565070d0b1c0, type: 3}
