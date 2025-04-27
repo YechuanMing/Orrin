@@ -1687,79 +1687,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0978ca6fa1ae3df40961c0d8c6f1c3d4, type: 3}
---- !u!1001 &378473729
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 547656564415182832, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: currentPoint
-      value: 
-      objectReference: {fileID: 387543298}
-    - target: {fileID: 547656564415182832, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: point.Array.data[0]
-      value: 
-      objectReference: {fileID: 387543298}
-    - target: {fileID: 547656564415182832, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: point.Array.data[1]
-      value: 
-      objectReference: {fileID: 1479306403}
-    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: m_RootOrder
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -36.801
-      objectReference: {fileID: 0}
-    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547656564415182843, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: m_Name
-      value: enemy_03
-      objectReference: {fileID: 0}
-    - target: {fileID: 547656564415182843, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
 --- !u!1 &387543298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,6 +1853,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3295712950039892415, guid: f9e5a7c6b056ff14b9a1f089c88513bf, type: 3}
   m_PrefabInstance: {fileID: 1973513093}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &492721678
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 547656564415182832, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: currentPoint
+      value: 
+      objectReference: {fileID: 387543298}
+    - target: {fileID: 547656564415182832, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: point.Array.data[0]
+      value: 
+      objectReference: {fileID: 387543298}
+    - target: {fileID: 547656564415182832, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: point.Array.data[1]
+      value: 
+      objectReference: {fileID: 1479306403}
+    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -38.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 547656564415182834, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 547656564415182843, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: m_Name
+      value: enemy_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 547656564415182843, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 704af10eff8ebaf4d8ed5edb8b32f134, type: 3}
 --- !u!1 &517222797
 GameObject:
   m_ObjectHideFlags: 0
@@ -6481,7 +6481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &4451933661232004838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6519,8 +6519,8 @@ MonoBehaviour:
         Detect Player","Instant":true,"SinglefrontDis":3,"SinglebackDis":5,"SingleUpDis":2,"SinglelostChaseDis":8,"BooleanisAllDirection":false,"Singleradius":0,"SingleoffestY":0}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(40,150)"},"ID":16,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,110)"},"ID":17,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"idlMoveEnemy03","NodeData":{"Offset":"(-140,140)"},"ID":18,"Name":"Idl
         Move Enemy 03","Instant":true,"SinglemoveSpeed":1,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringstateName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"walk"},"Int32layer":-1,"SinglenormalizedTime":0},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(0,140)"},"ID":19,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.67},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}},{"Type":"SwitchTarget","NodeData":{"Offset":"(129.999939,140)"},"ID":20,"Name":"Switch
         Target","Instant":true}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(360,150)","WatchedFields":["abortType"]},"ID":21,"Name":"\u627e\u5230\u4e86\uff0c\u8ffd\u7740\u6253","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,130.000061)"},"ID":22,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"FacePlayer","NodeData":{"Offset":"(-160,170)"},"ID":23,"Name":"Face
-        Player","Instant":true,"Booleanrevert":true},{"Type":"chasePlayer_03","NodeData":{"Offset":"(0,170)"},"ID":24,"Name":"Jump","Instant":true,"SinglejumpDuration":1,"SinglejumpForce":70,"SinglebuildupTime":0.5,"SinglehorizontalForce":1},{"Type":"enemyeffect_04","NodeData":{"Offset":"(172.668823,169.569427)"},"ID":25,"Name":"Enemyeffect 
-        04","Instant":true,"GameObjectbombPref":0},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(340,170)"},"ID":26,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":3},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]}]}]},"DetachedTasks":[{"Type":"enemy05MinDistanceJudge","NodeData":{"Offset":"(-360,750)"},"ID":27,"Name":"Enemy
+        Player","Instant":true,"Booleanrevert":true},{"Type":"chasePlayer_03","NodeData":{"Offset":"(0,170)"},"ID":24,"Name":"Jump","Instant":true,"SinglejumpDuration":1,"SinglejumpForce":70,"SinglebuildupTime":0.5,"SinglehorizontalForce":10},{"Type":"enemyeffect_04","NodeData":{"Offset":"(172.668823,169.569427)"},"ID":25,"Name":"Enemyeffect 
+        04","Instant":true,"GameObjectbombPref":0},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(340,170)"},"ID":26,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]}]}]},"DetachedTasks":[{"Type":"enemy05MinDistanceJudge","NodeData":{"Offset":"(-360,750)"},"ID":27,"Name":"Enemy
         05 Min Distance Judge","Instant":true,"SingleapproachDistance":0.2}]}'
       fieldSerializationData:
         typeName: []
