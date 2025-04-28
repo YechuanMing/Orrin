@@ -6475,6 +6475,7 @@ GameObject:
   - component: {fileID: 2956576884642066076}
   - component: {fileID: 210976764370556595}
   - component: {fileID: 4451933661232004838}
+  - component: {fileID: 4451933661232004847}
   m_Layer: 6
   m_Name: enemy_04
   m_TagString: Enemy
@@ -6519,9 +6520,9 @@ MonoBehaviour:
         Detect Player","Instant":true,"SinglefrontDis":3,"SinglebackDis":5,"SingleUpDis":2,"SinglelostChaseDis":8,"BooleanisAllDirection":false,"Singleradius":0,"SingleoffestY":0}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(40,150)"},"ID":16,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,110)"},"ID":17,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"idlMoveEnemy03","NodeData":{"Offset":"(-140,140)"},"ID":18,"Name":"Idl
         Move Enemy 03","Instant":true,"SinglemoveSpeed":1,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringstateName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"walk"},"Int32layer":-1,"SinglenormalizedTime":0},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(0,140)"},"ID":19,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.67},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}},{"Type":"SwitchTarget","NodeData":{"Offset":"(129.999939,140)"},"ID":20,"Name":"Switch
         Target","Instant":true}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(360,150)","WatchedFields":["abortType"]},"ID":21,"Name":"\u627e\u5230\u4e86\uff0c\u8ffd\u7740\u6253","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,130.000061)"},"ID":22,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"FacePlayer","NodeData":{"Offset":"(-160,170)"},"ID":23,"Name":"Face
-        Player","Instant":true,"Booleanrevert":true},{"Type":"chasePlayer_03","NodeData":{"Offset":"(0,170)"},"ID":24,"Name":"Jump","Instant":true,"SinglejumpDuration":1,"SinglejumpForce":70,"SinglebuildupTime":0.5,"SinglehorizontalForce":10},{"Type":"enemyeffect_04","NodeData":{"Offset":"(172.668823,169.569427)"},"ID":25,"Name":"Enemyeffect 
-        04","Instant":true,"GameObjectbombPref":0},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(340,170)"},"ID":26,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]}]}]},"DetachedTasks":[{"Type":"enemy05MinDistanceJudge","NodeData":{"Offset":"(-360,750)"},"ID":27,"Name":"Enemy
-        05 Min Distance Judge","Instant":true,"SingleapproachDistance":0.2}]}'
+        Player","Instant":true,"Booleanrevert":true},{"Type":"chasePlayer_03","NodeData":{"Offset":"(0,170)"},"ID":24,"Name":"Jump","Instant":true,"SinglejumpDuration":1,"SinglejumpForce":70,"SinglebuildupTime":0.5,"SinglehorizontalForce":10},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(340,170)"},"ID":25,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]}]}]},"DetachedTasks":[{"Type":"enemy05MinDistanceJudge","NodeData":{"Offset":"(-360,750)"},"ID":26,"Name":"Enemy
+        05 Min Distance Judge","Instant":true,"SingleapproachDistance":0.2},{"Type":"enemyeffect_04","NodeData":{"Offset":"(480,610)"},"ID":27,"Name":"Enemyeffect 
+        04","Instant":true,"GameObjectbombPref":0}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -6807,3 +6808,16 @@ MonoBehaviour:
   - {fileID: 387543298}
   - {fileID: 1479306403}
   currentPoint: {fileID: 387543298}
+--- !u!114 &4451933661232004847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4451933661232004837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cb402b78d07964c99d354f56d4223d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPref: {fileID: 3350834479484362396, guid: 4322c4fb1a870024095fb3f455c8288e, type: 3}
