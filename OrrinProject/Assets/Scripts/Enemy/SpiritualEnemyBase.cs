@@ -13,11 +13,7 @@ public class SpiritualEnemyBase : MonoBehaviour
     public bool isSpiritDied;
     public bool isBodyDied;
 
-    public bool isBOSS;
-    public bool isBody_Died_1;
-    public bool isBody_Died_2;
-    public bool isSpirit_Died_1;
-    public bool isSpirit_Died_2;
+
     private void OnEnable()
     {
         PlayerSpiritualization.SpiritualizeBroadcast += Spritualize;
