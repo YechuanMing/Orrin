@@ -62,6 +62,7 @@ public class PlayerAttackControl : MonoBehaviour
     {
         GameObject attackWave = Instantiate(AttackWave_Front, attackFrontSpot.position + Vector3.right * attackFrontOffsetX * transform.localScale.x, attackFrontSpot.rotation);
         attackWave.transform.localScale = transform.localScale;
+        attackWave.transform.SetParent(this.transform);
         Destroy(attackWave, attackDuration);
     }
 
@@ -69,12 +70,14 @@ public class PlayerAttackControl : MonoBehaviour
     {
         GameObject attackWave = Instantiate(AttackWave_Up, attackUpSpot.position + Vector3.up * attackUpOffsetY, attackUpSpot.rotation);
         attackWave.transform.localScale = transform.localScale;
+        attackWave.transform.SetParent(this.transform);
         Destroy(attackWave, attackDuration);
     }
 
     void AE_Attack_Down()
     {
         GameObject attackWave = Instantiate(AttackWave_Down, attackDownSpot.position + Vector3.down * attackDownOffsetY, attackDownSpot.rotation);
+        attackWave.transform.SetParent(this.transform);
         attackWave.transform.localScale = transform.localScale;
         Destroy(attackWave, attackDuration);
     }
