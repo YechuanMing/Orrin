@@ -9,6 +9,7 @@ TagManager:
   - SavePoints
   - Shell
   - points
+  - PlayerSpirit
   layers:
   - Default
   - TransparentFX
