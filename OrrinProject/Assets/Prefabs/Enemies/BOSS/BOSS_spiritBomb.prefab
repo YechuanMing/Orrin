@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2949128629367038460}
   - component: {fileID: 2949128629367038461}
   - component: {fileID: 2949128629367038464}
-  m_Layer: 17
+  m_Layer: 18
   m_Name: BOSS_spiritBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
