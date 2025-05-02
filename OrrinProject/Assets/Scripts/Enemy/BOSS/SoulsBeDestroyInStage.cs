@@ -26,15 +26,21 @@ public class SoulsBeDestroyInStage : MonoBehaviour
     {
         if (destructable.currHealth <= thirdBeDestroyHealth)
         {
-            Destroy(thirdSoul, 1f);
+            Animator animator = thirdSoul.GetComponent<Animator>();
+            animator.Play("Die");
+            Destroy(thirdSoul, 2f);
         }
         else if (destructable.currHealth <= secondBeDestroyHealth)
         {
-            Destroy(secondSoul, 1f);
+            Animator animator = secondSoul.GetComponent<Animator>();
+            animator.Play("Die");
+            Destroy(secondSoul, 2f);
         }
         else if (destructable.currHealth <= firstBeDestroyHealth)
         {
-            Destroy(firstSoul, 1f);
+            Animator animator = firstSoul.GetComponent<Animator>();
+            animator.Play("Die");
+            Destroy(firstSoul, 2f);
         }
     }
 }
