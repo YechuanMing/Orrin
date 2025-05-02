@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6112191518768207737}
   m_Layer: 10
   m_Name: Spirit
-  m_TagString: Untagged
+  m_TagString: PlayerSpirit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81641e78c88da4841b7bf4d76c3190b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDataObject: {fileID: 0}
   m_maxSpeed: 3.4
   spawnOffsetY: 2
   spiritATK: 1

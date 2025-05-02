@@ -18,10 +18,6 @@ public class chasePlayer_03 : PhysicEnemyAction
     private Tween jumpTween;
     public override void OnStart()
     {
-        //PlayerPos = player.transform.position;
-        //distanceToPlayer = Mathf.Abs(player.transform.position.x - transform.position.x);
-        //// 获取跳跃动画的持续时间
-        //jumpDuration = GetAnimationLength("enemyBody03_jump");
         Debug.Log(player);
         buildUpTween =DOVirtual.DelayedCall(buildupTime, StartJump, false);
         animator.Play("Jump");
@@ -44,27 +40,6 @@ public class chasePlayer_03 : PhysicEnemyAction
     {
 
         return haslanded ? TaskStatus.Success : TaskStatus.Running;
-        //if(distanceToPlayer<=outOfCombatDistance)
-        //{
-        //    if (!isJumping)
-        //    {
-        //        isJumping = true;
-
-        //        animator.Play("enemyBody03_jump");
-
-        //    }
-        //    if (Vector3.Distance(transform.position, PlayerPos) <= 0.1f)
-        //    {
-        //        isJumping = false;
-        //        return TaskStatus.Success;
-        //    }
-        //    //敌人跳到目标位置之后，返回success，
-        //    return TaskStatus.Running;
-        //}
-        //else
-        //{
-        //    return TaskStatus.Success;
-        //}
     }
 
     public override void OnEnd()

@@ -41,7 +41,7 @@ public class interactiveStele : MonoBehaviour
             flag = 1;
             GameObject palyer= GameObject.FindGameObjectWithTag("Player");
             palyer.GetComponent<PlayerController>().enabled=false;
-   
+            gameObject.GetComponent<Animator>().Play("open");
             hint.SetActive(true);
         }
         else if(Input.GetMouseButtonDown(1) && flag == 1)
@@ -49,6 +49,7 @@ public class interactiveStele : MonoBehaviour
             flag = 0;
             GameObject palyer = GameObject.FindGameObjectWithTag("Player");
             palyer.GetComponent<PlayerController>().enabled = true;
+            gameObject.GetComponent<Animator>().Play("close");
             hint.SetActive(false);
         }
     }
