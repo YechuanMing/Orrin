@@ -11,6 +11,9 @@ public class SoulsBeDestroyInStage : MonoBehaviour
     public GameObject firstSoul;
     public GameObject secondSoul;
     public GameObject thirdSoul;
+    private bool firstBeDestroy=false;
+    private bool secondBeDestroy=false;
+    private bool thirdBeDestroy = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,17 +27,26 @@ public class SoulsBeDestroyInStage : MonoBehaviour
     }
     public void Bedestroy()
     {
-        if (destructable.currHealth <= thirdBeDestroyHealth)
+        if (destructable.currHealth <= thirdBeDestroyHealth&&!thirdBeDestroy)
         {
-            Destroy(thirdSoul, 1f);
+            Animator animator = thirdSoul.GetComponent<Animator>();
+            animator.Play("Die");
+            thirdBeDestroy = true;
+            Destroy(thirdSoul, 2f);
         }
-        else if (destructable.currHealth <= secondBeDestroyHealth)
+        else if (destructable.currHealth <= secondBeDestroyHealth&&!secondBeDestroy)
         {
-            Destroy(secondSoul, 1f);
+            Animator animator = secondSoul.GetComponent<Animator>();
+            animator.Play("Die");
+            secondBeDestroy = true;
+            Destroy(secondSoul, 2f);
         }
-        else if (destructable.currHealth <= firstBeDestroyHealth)
+        else if (destructable.currHealth <= firstBeDestroyHealth&&!firstBeDestroy)
         {
-            Destroy(firstSoul, 1f);
+            Animator animator = firstSoul.GetComponent<Animator>();
+            animator.Play("Die");
+            firstBeDestroy = true;
+            Destroy(firstSoul, 2f);
         }
     }
 }
