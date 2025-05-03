@@ -6616,6 +6616,7 @@ GameObject:
   - component: {fileID: 1720748646}
   - component: {fileID: 1720748649}
   - component: {fileID: 1720748650}
+  - component: {fileID: 1720748641}
   m_Layer: 6
   m_Name: BOSS_body1
   m_TagString: Enemy
@@ -6663,7 +6664,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe2990079a6b2a94d8b50f83d9117567, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6710,8 +6711,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &1720748642
-CircleCollider2D:
+--- !u!114 &1720748641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720748637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18cd1369eef4f24585f7809f5b2892d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &1720748642
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6723,9 +6736,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Offset: {x: -0.2738495, y: -0.35278106}
+  m_Size: {x: 0.8760071, y: 4.5406613}
+  m_Direction: 0
 --- !u!114 &1720748643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6831,7 +6844,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1720748642}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -7761,7 +7774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2108528537
 Transform:
   m_ObjectHideFlags: 0
