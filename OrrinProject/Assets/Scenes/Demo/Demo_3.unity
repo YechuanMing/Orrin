@@ -2100,14 +2100,13 @@ GameObject:
   - component: {fileID: 394840443}
   - component: {fileID: 394840442}
   - component: {fileID: 394840446}
-  - component: {fileID: 394840441}
-  - component: {fileID: 394840447}
-  - component: {fileID: 394840449}
   - component: {fileID: 394840448}
   - component: {fileID: 394840450}
   - component: {fileID: 394840452}
   - component: {fileID: 394840453}
   - component: {fileID: 394840454}
+  - component: {fileID: 394840447}
+  - component: {fileID: 394840449}
   m_Layer: 6
   m_Name: BOSS_body2
   m_TagString: Enemy
@@ -2130,22 +2129,6 @@ Transform:
   m_Father: {fileID: 2108528537}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &394840441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394840439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdf411f139270d542aac7bb035c4bb34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  point:
-  - {fileID: 387543298}
-  - {fileID: 1479306403}
-  currentPoint: {fileID: 387543298}
 --- !u!114 &394840442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7840,7 +7823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2108528537
 Transform:
   m_ObjectHideFlags: 0
