@@ -8,10 +8,14 @@ public class BOSSappearPlayerCon : MonoBehaviour
     {
         GameObject palyer = GameObject.FindGameObjectWithTag("Player");
         palyer.GetComponent<PlayerController>().enabled = false;
+        palyer.GetComponent<PlayerAttackControl>().enabled = false;
+        palyer.GetComponent<PlayerSpiritualization>().enabled = false;
     }
     public void PlayerConON()
     {
         GameObject palyer = GameObject.FindGameObjectWithTag("Player");
         palyer.GetComponent<PlayerController>().enabled = true;
+        palyer.GetComponent<PlayerAttackControl>().enabled = true;
+        palyer.GetComponent<PlayerSpiritualization>().enabled = true;
     }
 }
