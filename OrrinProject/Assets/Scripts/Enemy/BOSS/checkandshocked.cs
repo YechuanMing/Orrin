@@ -11,13 +11,14 @@ public class checkandshocked : PhysicEnemyAction
     // Start is called before the first frame update
     public override void  OnStart()
     {
-        num = transform.GetComponent<SoulsBeDestroyInStage>().BeDestroyNum;
+      
     }
 
     // Update is called once per frame
     public override TaskStatus OnUpdate()
     {
-        if(num==2 && !secondBeShocked)
+        num = transform.GetComponent<SoulsBeDestroyInStage>().BeDestroyNum;
+        if (num==2 && !secondBeShocked)
         {
             secondBeShocked = true;
             return TaskStatus.Success;
