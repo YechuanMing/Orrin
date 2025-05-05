@@ -5,19 +5,20 @@ using UnityEngine;
 
 public class checkandshocked : PhysicEnemyAction
 {
-    private int num;//灵魂状态下的血量
-    private bool firstBeShocked = false;
-    private bool secondBeShocked = false;
+    public int num;//灵魂状态下的血量
+    public bool firstBeShocked = false;
+    public bool secondBeShocked = false;
     // Start is called before the first frame update
     public override void  OnStart()
     {
-        num = transform.GetComponent<SoulsBeDestroyInStage>().BeDestroyNum;
+      
     }
 
     // Update is called once per frame
     public override TaskStatus OnUpdate()
     {
-        if(num==2 && !secondBeShocked)
+        num = transform.GetComponent<SoulsBeDestroyInStage>().BeDestroyNum;
+        if (num==2 && !secondBeShocked)
         {
             secondBeShocked = true;
             return TaskStatus.Success;

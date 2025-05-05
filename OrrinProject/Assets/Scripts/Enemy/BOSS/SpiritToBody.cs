@@ -8,7 +8,8 @@ public class SpiritToBody : MonoBehaviour
     // Start is called before the first frame update
     public void ToBodyState()
     {
-        PlayerSpiritualization.Instance.DeSpiritualize();
+      
         be.Bedestroy();
+        PlayerSpiritualization.Instance.DeSpiritualize();
     }
 }
