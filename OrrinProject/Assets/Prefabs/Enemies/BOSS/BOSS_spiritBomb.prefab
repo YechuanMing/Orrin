@@ -139,7 +139,7 @@ MonoBehaviour:
   damage_Phy: 1
   damage_Spr: 1
   repelForce: 3
-  lifeTime: 6.89
+  lifeTime: 8
   player: {fileID: 0}
   minInitialSpeed: 1
   maxInitialSpeed: 5

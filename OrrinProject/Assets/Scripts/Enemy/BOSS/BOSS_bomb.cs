@@ -25,11 +25,11 @@ public class BOSS_bomb : MonoBehaviour
     public void bomb_bodyAttack2()
     {
         Vector3 center = transform.position;
-      
 
+        Instantiate(Bomb, center + new Vector3(-2*radius, 0, 0), Quaternion.identity);
         // ×ó
         Instantiate(Bomb, center + new Vector3(-radius, 0, 0), Quaternion.identity);
-
+        Instantiate(Bomb, center + new Vector3(2*radius, 0, 0), Quaternion.identity);
         // ÓÒ
         Instantiate(Bomb, center + new Vector3(radius, 0, 0), Quaternion.identity);
     }
