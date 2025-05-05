@@ -5,24 +5,24 @@ using UnityEngine;
 
 public class checkandshocked : PhysicEnemyAction
 {
-    private int health;//灵魂状态下的血量
+    private int num;//灵魂状态下的血量
     private bool firstBeShocked = false;
     private bool secondBeShocked = false;
     // Start is called before the first frame update
     public override void  OnStart()
     {
-        health = transform.GetComponent<SoulsBeDestroyInStage>().destructable.currHealth;
+        num = transform.GetComponent<SoulsBeDestroyInStage>().BeDestroyNum;
     }
 
     // Update is called once per frame
     public override TaskStatus OnUpdate()
     {
-        if(health<= transform.GetComponent<SoulsBeDestroyInStage>().secondBeDestroyHealth && !secondBeShocked)
+        if(num==2 && !secondBeShocked)
         {
             secondBeShocked = true;
             return TaskStatus.Success;
         }
-        else if(health <= transform.GetComponent<SoulsBeDestroyInStage>().firstBeDestroyHealth && !firstBeShocked)
+        else if(num == 1 && !firstBeShocked)
         {
             firstBeShocked = true;
             return TaskStatus.Success;
