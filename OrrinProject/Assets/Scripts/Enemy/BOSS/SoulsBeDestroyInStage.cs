@@ -20,5 +20,9 @@ public class SoulsBeDestroyInStage : MonoBehaviour
     public void Bedestroy()
     {
         BeDestroyNum++;
+        if (BeDestroyNum == 3)
+        {
+            transform.GetComponent<SpiritualEnemyBase>().isSpiritDied = true;
+        }
     }
 }
