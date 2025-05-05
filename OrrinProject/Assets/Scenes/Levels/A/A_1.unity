@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 91306981}
   - component: {fileID: 91306982}
   - component: {fileID: 91306983}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: SpaceJump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
