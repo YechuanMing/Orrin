@@ -61,6 +61,7 @@ public class BOSS_bomb : MonoBehaviour
     public void bombSpirit()
     {
         Vector3 center = transform.position;
-        GameObject bomb = Instantiate(BombSpirits, center, Quaternion.identity);
+        GameObject bomb1 = Instantiate(BombSpirits, center, Quaternion.identity);
+        GameObject bomb2 = Instantiate(BombSpirits, center, Quaternion.identity);
     }
 }
