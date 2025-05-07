@@ -1296,10 +1296,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BombOne: {fileID: 8309242971265628427, guid: 8e31966565a3fd349a4a48aba1fe13f3, type: 3}
-  BombOne_time: 0.8
+  BombOne_time: 1.4
   BombTwo: {fileID: 820365179761228088, guid: 23a43d00375c7f145a815eb2654c4739, type: 3}
-  BombTwo_time: 0.8
-  BombSpirits: {fileID: 8309242971265628427, guid: 8e31966565a3fd349a4a48aba1fe13f3, type: 3}
+  BombTwo_time: 1.2
+  BombSpirits: {fileID: 9175160797886411345, guid: f25cd08c185e90945a119cd07c08ddc1, type: 3}
   radius: 5
 --- !u!114 &2876495294061399580
 MonoBehaviour:
@@ -1325,7 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e8ccddcfe4f4a45a514a692f361816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTriggerAnim: 0
+  isTriggerAnim: 1
 --- !u!114 &2876495294061399569
 MonoBehaviour:
   m_ObjectHideFlags: 0

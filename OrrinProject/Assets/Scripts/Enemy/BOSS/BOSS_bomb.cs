@@ -13,20 +13,24 @@ public class BOSS_bomb : MonoBehaviour
     public void bomb_body1Attack1()
     {
         Vector3 center = transform.position;
+        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+        float startX =Mathf.Abs(transform.InverseTransformPoint(player.position).x);
         // ÊµÀý»¯Õ¨µ¯
         GameObject bomb1 = Instantiate(BombOne, center, Quaternion.identity);
-        bomb1.GetComponent<bodyOneAttackOneBomb>().move(5f, -2.3f, BombOne_time);
+        bomb1.GetComponent<bodyOneAttackOneBomb>().move(startX, -2.3f, BombOne_time);
         GameObject bomb2 = Instantiate(BombOne, center, Quaternion.identity);
-        bomb2.GetComponent<bodyOneAttackOneBomb>().move(8f,-2.3f, BombOne_time);
+        bomb2.GetComponent<bodyOneAttackOneBomb>().move(startX+3f, -2.3f, BombOne_time);
         GameObject bomb3 = Instantiate(BombOne, center, Quaternion.identity);
-        bomb3.GetComponent<bodyOneAttackOneBomb>().move(-5f,-2.3f, BombOne_time);
+        bomb3.GetComponent<bodyOneAttackOneBomb>().move(-startX, -2.3f, BombOne_time);
         GameObject bomb4 = Instantiate(BombOne, center, Quaternion.identity);
-        bomb4.GetComponent<bodyOneAttackOneBomb>().move(-8f,-2.3f, BombOne_time);
+        bomb4.GetComponent<bodyOneAttackOneBomb>().move(-startX-3f, -2.3f, BombOne_time);
 
     }
     public void bomb_body1Attack2()
     {
         bool isPlayerOnLeft = GameObject.FindGameObjectWithTag("Player").transform.position.x < gameObject.transform.position.x;
+        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+        float moveStartX = transform.InverseTransformPoint(player.position).x ;//Îó´òÎó×²ÄÜËø¶¨ µ«Âß¼­ºÃÆæ¹Ö
         Vector3 center = transform.position;
         int bombCount = 8;
         GameObject[] bombs = new GameObject[bombCount];
@@ -37,7 +41,7 @@ public class BOSS_bomb : MonoBehaviour
         {
             for (int i = 0; i < bombCount; i++)
             {
-                float x = -5f - i * 0.5f;
+                float x = moveStartX + 1.5f- i * 0.5f;
                 bombs[i] = Instantiate(BombTwo, center, Quaternion.identity);
                 float randomTime = timeOptions[Random.Range(0, timeOptions.Length)];
                 bombs[i].GetComponent<bodyOneAttackTwoBomb>().move(x, -2.3f, randomTime);
@@ -47,7 +51,7 @@ public class BOSS_bomb : MonoBehaviour
         {
             for (int i = 0; i < bombCount; i++)
             {
-                float x = 5f + i * 0.5f;
+                float x = moveStartX - 1.5f + i * 0.5f;
                 bombs[i] = Instantiate(BombTwo, center, Quaternion.identity);
                 float randomTime = timeOptions[Random.Range(0, timeOptions.Length)];
                 bombs[i].GetComponent<bodyOneAttackTwoBomb>().move(x, -2.3f, randomTime);
