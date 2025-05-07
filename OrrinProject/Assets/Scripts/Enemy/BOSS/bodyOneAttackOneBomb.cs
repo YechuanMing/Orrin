@@ -43,7 +43,7 @@ public class bodyOneAttackOneBomb : MonoBehaviour
     {
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOMoveY(transform.position.y+y,t).SetEase(moveCurve_Y))
-            .Join(transform.DOMoveX(transform.position.x+x,t).SetEase(moveCurve_X));
+           .Join(transform.DOMoveX(transform.position.x+x,t).SetEase(moveCurve_X));
       
     }
 }

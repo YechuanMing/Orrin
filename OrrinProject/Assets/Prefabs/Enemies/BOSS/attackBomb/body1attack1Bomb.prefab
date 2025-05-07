@@ -114,3 +114,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   touchDamage: 1
   repelForce: 3
+  moveCurve_Y:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0010147095
+      value: 0
+      inSlope: -1.9272782
+      outSlope: -1.9272782
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.04958673
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2.6790392
+      outSlope: 2.6790392
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.035412915
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  moveCurve_X:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
