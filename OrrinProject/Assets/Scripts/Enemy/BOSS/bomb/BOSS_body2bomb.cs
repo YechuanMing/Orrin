@@ -46,9 +46,9 @@ public class BOSS_body2bomb : MonoBehaviour
     public void bombSpirit()
     {
         Vector3 center = transform.position;
-        GameObject bomb1 = Instantiate(BombSpirits, center + new Vector3(0.5f, 0, 0), Quaternion.identity);
-        GameObject bomb2 = Instantiate(BombSpirits, center - new Vector3(0.5f, 0, 0), Quaternion.identity);
-        GameObject bomb3 = Instantiate(BombSpirits, center + new Vector3(0f, 0.5f, 0), Quaternion.identity);
-        GameObject bomb4 = Instantiate(BombSpirits, center - new Vector3(0f, 0.5f, 0), Quaternion.identity);
+        GameObject bomb1 = Instantiate(BombSpirits, center + new Vector3(1.5f, 0, 0), Quaternion.identity);
+        GameObject bomb2 = Instantiate(BombSpirits, center - new Vector3(1.5f, 0, 0), Quaternion.identity);
+        GameObject bomb3 = Instantiate(BombSpirits, center + new Vector3(0f, 1.5f, 0), Quaternion.identity);
+        GameObject bomb4 = Instantiate(BombSpirits, center - new Vector3(0f,1.5f, 0), Quaternion.identity);
     }
 }
