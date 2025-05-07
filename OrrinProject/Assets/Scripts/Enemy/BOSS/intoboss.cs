@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
+using UnityEngine.Events;
 public class intoboss : MonoBehaviour
 {
     private bool isTrigger = false;
     public GameObject triggerBoss;
+
+    //public UnityEvent idle;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,22 +24,16 @@ public class intoboss : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")&&!isTrigger)
         {
-            StartCoroutine(playerCon());
+            //GameObject palyer = GameObject.FindGameObjectWithTag("Player");
+
+            //palyer.GetComponent<PlayerController>().enabled = false;
+            //palyer.GetComponent<PlayerAttackControl>().enabled = false;
+            //palyer.GetComponent<PlayerSpiritualization>().enabled = false;
+
+            //idle?.Invoke();
+
             isTrigger = true;
             triggerBoss.SetActive(true);
         }
-    }
-    private IEnumerator playerCon()
-    {
-        GameObject palyer = GameObject.FindGameObjectWithTag("Player");
-
-        Animator animator = palyer.GetComponent<Animator>();
-        animator.Play("Idle");
-        yield return null; // 等一帧，确保动画生效
-
-        palyer.GetComponent<PlayerController>().enabled = false;
-        palyer.GetComponent<PlayerAttackControl>().enabled = false;
-        palyer.GetComponent<PlayerSpiritualization>().enabled = false;
-
     }
 }
