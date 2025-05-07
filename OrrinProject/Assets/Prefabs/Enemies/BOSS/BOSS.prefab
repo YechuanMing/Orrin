@@ -209,7 +209,7 @@ MonoBehaviour:
   BombOne_time: 0.6
   BombTwo: {fileID: 820365179761228088, guid: 23a43d00375c7f145a815eb2654c4739, type: 3}
   BombTwo_time: 0.6
-  BombSpirits: {fileID: 9175160797886411345, guid: f25cd08c185e90945a119cd07c08ddc1, type: 3}
+  BombSpirits: {fileID: 5990583984306913397, guid: 3db56800d68f26a49a9434a59f29fc98, type: 3}
   radius: 10
 --- !u!114 &2876495292981116267
 MonoBehaviour:
@@ -389,7 +389,7 @@ GameObject:
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2876495293577579072
 Transform:
   m_ObjectHideFlags: 0
@@ -935,6 +935,7 @@ GameObject:
   - component: {fileID: 2876495294061399578}
   - component: {fileID: 2876495294061399568}
   - component: {fileID: 2876495294061399571}
+  - component: {fileID: 8572011780197763924}
   m_Layer: 6
   m_Name: BOSS_body1
   m_TagString: Enemy
@@ -1115,6 +1116,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8572011780197763924}
+        m_TargetAssemblyTypeName: spiritToBodyBombDestroy, Assembly-CSharp
+        m_MethodName: bombDestroy
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1458,6 +1471,18 @@ MonoBehaviour:
   soul1: {fileID: 2876495294978471144}
   soul2: {fileID: 2876495294423728222}
   soul3: {fileID: 2876495292981116256}
+--- !u!114 &8572011780197763924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2876495294061399584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b37a183818f704e943fcb08e6bac54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2876495294246278117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,7 +1736,7 @@ MonoBehaviour:
   BombOne_time: 0.6
   BombTwo: {fileID: 820365179761228088, guid: 23a43d00375c7f145a815eb2654c4739, type: 3}
   BombTwo_time: 0.6
-  BombSpirits: {fileID: 9175160797886411345, guid: f25cd08c185e90945a119cd07c08ddc1, type: 3}
+  BombSpirits: {fileID: 5990583984306913397, guid: 3db56800d68f26a49a9434a59f29fc98, type: 3}
   radius: 10
 --- !u!114 &2876495294423728224
 MonoBehaviour:
@@ -2113,7 +2138,7 @@ MonoBehaviour:
   BombOne_time: 0.6
   BombTwo: {fileID: 820365179761228088, guid: 23a43d00375c7f145a815eb2654c4739, type: 3}
   BombTwo_time: 0.6
-  BombSpirits: {fileID: 9175160797886411345, guid: f25cd08c185e90945a119cd07c08ddc1, type: 3}
+  BombSpirits: {fileID: 5990583984306913397, guid: 3db56800d68f26a49a9434a59f29fc98, type: 3}
   radius: 10
 --- !u!114 &2876495294978471154
 MonoBehaviour:

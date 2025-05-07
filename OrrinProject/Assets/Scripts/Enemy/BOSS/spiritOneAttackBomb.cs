@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class spiritOneAttackBomb : MonoBehaviour
 {
-    public int test = 0;
     [Header("伤害特性")]
-    [SerializeField]
-    private int damage_Phy;
     [SerializeField]
     private int damage_Spr = 10;
     [SerializeField]
     private float repelForce;
-
     [Range(5, 10)]
     public float lifeTime;
-
     public Transform player;
     // 初始速度范围
     public float minInitialSpeed = 2f;
@@ -34,9 +29,7 @@ public class spiritOneAttackBomb : MonoBehaviour
     }
     private void Start()
     {
-       
-            player = PlayerSpiritControl.Instance.transform;
-      
+        player = PlayerSpiritControl.Instance.transform;
        
         Destroy(this.gameObject, lifeTime);
         // 生成随机的初始方向
@@ -67,26 +60,15 @@ public class spiritOneAttackBomb : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.CompareTag("Enemy"))
-        //{
-        //    Destroy(this.gameObject);
-        //    return;
-        //}
-        
-            PlayerSpiritualization.Instance.DamageSpirit(damage_Spr);
+         PlayerSpiritualization.Instance.DamageSpirit(damage_Spr);
+         PlayerSpiritualization.Instance.DeSpiritualize();
 
-            PlayerSpiritualization.Instance.DeSpiritualize();
-            Destroy(this.gameObject);
+        GameObject[] bombs = GameObject.FindGameObjectsWithTag("spiritBomb");
 
-      
-        if (collision.gameObject.CompareTag("Player"))
+        foreach (GameObject bomb in bombs)
         {
-            collision.gameObject.GetComponent<Destructable>().Damage(damage_Phy);
-            Vector3 vec = (collision.transform.position - this.transform.position);
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(vec.x, vec.y) * repelForce, ForceMode2D.Impulse);
-            Destroy(this.gameObject);
+            Destroy(bomb);
         }
-
         Destroy(this.gameObject);
     }
 }

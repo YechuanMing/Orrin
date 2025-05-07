@@ -6094,6 +6094,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2876495292981116263, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: BombSpirits
+      value: 
+      objectReference: {fileID: 5990583984306913397, guid: 3db56800d68f26a49a9434a59f29fc98, type: 3}
+    - target: {fileID: 2876495293577579073, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2876495294246278116, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -6142,5 +6150,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: BOSS
       objectReference: {fileID: 0}
+    - target: {fileID: 2876495294423728221, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: BombSpirits
+      value: 
+      objectReference: {fileID: 5990583984306913397, guid: 3db56800d68f26a49a9434a59f29fc98, type: 3}
+    - target: {fileID: 2876495294978471150, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: BombSpirits
+      value: 
+      objectReference: {fileID: 5990583984306913397, guid: 3db56800d68f26a49a9434a59f29fc98, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
