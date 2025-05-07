@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public  int rebornTime;
 
+
+    public int money;
+
+    public int NPCDialogueIndex;
+
     private void Awake()
     {
         // 检查是否已有实例

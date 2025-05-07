@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadc648fd18f3e942a508efa0c294860, type: 3}
+  m_Name: MagicWave_PD
+  m_EditorClassIdentifier: 
+  price: 40
+  amount: 1
+  description: "\u5411\u524D\u653E\u53D1\u5C04\u4E00\u9053\u51B2\u51FB\u6CE2\uFF0C\u5BF9\u654C\u4EBA\u9020\u6210\u7075\u9B42\u548C\u7269\u7406\u53CC\u91CD\u4F24\u5BB3"
+  title: "\u7075\u9B42\u51B2\u51FB"
+  sprite: {fileID: 21300000, guid: ad9970ccd13ed854686941409cea5db3, type: 3}

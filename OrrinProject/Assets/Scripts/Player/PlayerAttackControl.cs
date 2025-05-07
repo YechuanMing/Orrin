@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttackControl : MonoBehaviour
 {
 
-
+    public bool isFreeze;
     public static PlayerAttackControl Instance { get; private set; }
     private Animator m_animator;
     private Rigidbody2D m_body2d;
@@ -89,9 +89,19 @@ public class PlayerAttackControl : MonoBehaviour
 
     }
 
+    public void SetFreeze(bool set)
+    {
+        isFreeze = set;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if(isFreeze)
+        {
+            return;
+        }
+
         if (m_disablePhysicalAttackTimer <= 0)
         {
             if (Input.GetMouseButtonDown(0))
