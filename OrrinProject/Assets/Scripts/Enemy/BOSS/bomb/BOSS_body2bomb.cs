@@ -14,6 +14,7 @@ public class BOSS_body2bomb : MonoBehaviour
     public void bomb_body2Attack1()
     {
         Vector3 center = transform.position;
+        bool isPlayerOnLeft = GameObject.FindGameObjectWithTag("Player").transform.position.x < gameObject.transform.position.x;
         Transform player = GameObject.FindGameObjectWithTag("Player").transform;
         float startX = transform.InverseTransformPoint(player.position).x;
         float[] offsets = { -1f, 0f, 1f, 2f };
@@ -24,7 +25,10 @@ public class BOSS_body2bomb : MonoBehaviour
         {
             GameObject bomb = Instantiate(BombOne, center, Quaternion.identity);
             float randomTime = timeOptions[Random.Range(0, timeOptions.Length)];
-            bomb.GetComponent<bodyTwoAttackOneBomb>().move(startX + offsets[i], -2.3f, randomTime);
+            if(isPlayerOnLeft)
+                 bomb.GetComponent<bodyTwoAttackOneBomb>().move(startX + offsets[i], -2.3f, randomTime);
+            else
+                bomb.GetComponent<bodyTwoAttackOneBomb>().move(-(startX + offsets[i]), -2.3f, randomTime);
         }
 
     }

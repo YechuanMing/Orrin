@@ -28,6 +28,7 @@ public class SoulsBeDestroyInStage2 : MonoBehaviour
         if (destructable.currHealth <= thirdBeDestroyHealth && !thirdBeDestroy)
         {
             animator.Play("maskBeDestroy_3");
+            transform.GetComponent<SpiritualEnemyBase>().isSpiritDied = true;
             thirdBeDestroy = true;
         }
         else if (destructable.currHealth <= secondBeDestroyHealth && !secondBeDestroy)
