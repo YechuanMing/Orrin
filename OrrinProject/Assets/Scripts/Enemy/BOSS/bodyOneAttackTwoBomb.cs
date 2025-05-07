@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-public class bodyOneAttackOneBomb : MonoBehaviour
+public class bodyOneAttackTwoBomb : MonoBehaviour
 {
     [SerializeField]
     public int touchDamage = 1;
@@ -13,14 +13,14 @@ public class bodyOneAttackOneBomb : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
     }
-   
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -33,7 +33,7 @@ public class bodyOneAttackOneBomb : MonoBehaviour
             Destroy(gameObject, 0.3f);
         }
     }
-    public void move(float x,float y,float t)
+    public void move(float x, float y, float t)
     {
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOMoveY(transform.position.y + y, t).SetEase(moveCurve_Y))
@@ -42,6 +42,6 @@ public class bodyOneAttackOneBomb : MonoBehaviour
            {
                Destroy(gameObject, 0.3f);
            });
-           
+
     }
 }

@@ -6234,6 +6234,10 @@ PrefabInstance:
       propertyPath: BombSpirits
       value: 
       objectReference: {fileID: 8309242971265628427, guid: 8e31966565a3fd349a4a48aba1fe13f3, type: 3}
+    - target: {fileID: 2876495292981116270, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.87
+      objectReference: {fileID: 0}
     - target: {fileID: 2876495293577579073, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -6370,6 +6374,10 @@ PrefabInstance:
       propertyPath: OnDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2876495294423728228, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.19
+      objectReference: {fileID: 0}
     - target: {fileID: 2876495294978471145, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
       propertyPath: maxHealth
       value: 3
@@ -6438,6 +6446,10 @@ PrefabInstance:
       propertyPath: BombSpirits
       value: 
       objectReference: {fileID: 8309242971265628427, guid: 8e31966565a3fd349a4a48aba1fe13f3, type: 3}
+    - target: {fileID: 2876495294978471158, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.35
+      objectReference: {fileID: 0}
     - target: {fileID: 8175863303721702535, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.26
