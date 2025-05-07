@@ -117,6 +117,9 @@ public class GameManager : MonoBehaviour
         {
             force();
         }
+
+        if(Input.GetKeyDown(KeyCode.P))
+        { PlayerSpiritualization.Instance.currSpiritEnergy = 100; }
     }
 
     public void force()
