@@ -7,7 +7,8 @@ public class BOSSappearPlayerCon : MonoBehaviour
    public void PlayerConOFF()
     {
         GameObject palyer = GameObject.FindGameObjectWithTag("Player");
-
+        Animator animator = palyer.GetComponent<Animator>();
+        animator.Play("idle");
         palyer.GetComponent<PlayerController>().enabled = false;
         palyer.GetComponent<PlayerAttackControl>().enabled = false;
         palyer.GetComponent<PlayerSpiritualization>().enabled = false;

@@ -21,8 +21,22 @@ public class intoboss : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")&&!isTrigger)
         {
+            StartCoroutine(playerCon());
             isTrigger = true;
             triggerBoss.SetActive(true);
         }
+    }
+    private IEnumerator playerCon()
+    {
+        GameObject palyer = GameObject.FindGameObjectWithTag("Player");
+
+        Animator animator = palyer.GetComponent<Animator>();
+        animator.Play("Idle");
+        yield return null; // 等一帧，确保动画生效
+
+        palyer.GetComponent<PlayerController>().enabled = false;
+        palyer.GetComponent<PlayerAttackControl>().enabled = false;
+        palyer.GetComponent<PlayerSpiritualization>().enabled = false;
+
     }
 }

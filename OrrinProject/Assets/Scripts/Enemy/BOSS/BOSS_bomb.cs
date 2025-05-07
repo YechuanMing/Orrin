@@ -4,39 +4,33 @@ using UnityEngine;
 
 public class BOSS_bomb : MonoBehaviour
 {
-    public GameObject Bomb;
+    public GameObject BombOne;
+    public GameObject BombTwo;
+    public GameObject BombSpirits;
     public float radius = 5f;
-    public void bomb_bodyAttack1()
+    public void bomb_body1Attack1()
     {
         Vector3 center = transform.position;
-        //Instantiate(Bomb, center, Quaternion.identity);
-        // 上
-        Instantiate(Bomb, center + new Vector3(0, radius, 0), Quaternion.identity);
+        // 实例化炸弹
+        GameObject bomb = Instantiate(BombOne, center, Quaternion.identity);
 
-        // 下
-        Instantiate(Bomb, center + new Vector3(0, -radius, 0), Quaternion.identity);
-
-        // 左
-        Instantiate(Bomb, center + new Vector3(-radius, 0, 0), Quaternion.identity);
-
-        // 右
-        Instantiate(Bomb, center + new Vector3(radius, 0, 0), Quaternion.identity);
+        // 获取 Rigidbody2D 组件
+        Rigidbody2D rb = bomb.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            // 施加一个向上和向左的力
+            Vector2 force = new Vector2(-3f, 5f); // 可根据需要调整方向和大小
+            rb.AddForce(force, ForceMode2D.Impulse);
+        }
     }
-    public void bomb_bodyAttack2()
+    public void bomb_body1Attack2()
     {
         Vector3 center = transform.position;
 
-        Instantiate(Bomb, center + new Vector3(-2*radius, 0, 0), Quaternion.identity);
-        // 左
-        Instantiate(Bomb, center + new Vector3(-radius, 0, 0), Quaternion.identity);
-        Instantiate(Bomb, center + new Vector3(2*radius, 0, 0), Quaternion.identity);
-        // 右
-        Instantiate(Bomb, center + new Vector3(radius, 0, 0), Quaternion.identity);
     }
-    public void bomb()
+    public void bombSpirit()
     {
         Vector3 center = transform.position;
-        Instantiate(Bomb, center, Quaternion.identity);
-        
+     
     }
 }

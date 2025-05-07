@@ -12,6 +12,8 @@ public class Destructable : MonoBehaviour
 {
     [Header("是否是玩家？")]
     public bool isPlayer;
+    [Header("是否是Boss？")]
+    public bool isBoss=false;
 
     public GameObject attackedEffectsPerfabs;
 
@@ -231,6 +233,7 @@ public class Destructable : MonoBehaviour
     public float flashDuration = 0.1f;
     // 变白的颜色
     public Color flashColor = Color.white;
+    public float flashFadeTime = 0.2f; // 淡出持续时间（可调整）
     public Color playerDamageColor = Color.black;
     public float playerDamageflashDuration = 0.3f;
 
@@ -248,8 +251,26 @@ public class Destructable : MonoBehaviour
             // 变白
             spriteRenderer.color = flashColor;
             yield return new WaitForSeconds(flashDuration);
-            // 恢复原色
-            spriteRenderer.color = originalColor;
+            if (isBoss)
+            {
+                float timer = 0f;
+
+                while (timer < flashFadeTime)
+                {
+                    timer += Time.deltaTime;
+                    float t = timer / flashFadeTime;
+                    spriteRenderer.color = Color.Lerp(flashColor, originalColor, t);
+                    yield return null;
+                }
+
+                // 确保颜色完全恢复
+                spriteRenderer.color = originalColor;
+            }
+            else
+            {
+                // 恢复原色
+                spriteRenderer.color = originalColor;
+            }
         }
     }
 
