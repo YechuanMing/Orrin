@@ -48,8 +48,12 @@ public class Store : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            products[currSelectIndex].OnDeSelectEffect();
-            if (currSelectIndex == products.Count-1)
+            if (currSelectIndex != -1)
+            {
+                products[currSelectIndex].OnDeSelectEffect();
+            }
+
+            if (currSelectIndex >= products.Count-1)
             {
                 currSelectIndex = 0;
             }

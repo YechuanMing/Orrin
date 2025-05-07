@@ -73,12 +73,12 @@ public class PlayerController : MonoBehaviour
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Prototype>();
 
         playerDataObject = GameManager.Instance.playerDataObj;
-        if(playerDataObject!=null)
+        if (playerDataObject != null)
         {
             m_maxSpeed = playerDataObject.moveSpeed;
             m_jumpForce = playerDataObject.jumpForce;
             jumpStartPower = playerDataObject.jumpMaxTime;
-            
+
         }
 
     }
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isFreeze)
+        if (isFreeze)
         {
             return;
         }
@@ -165,10 +165,14 @@ public class PlayerController : MonoBehaviour
         // 为Animator中的变量赋值
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
+        if (Input.GetKeyDown(KeyCode.LeftShift) && GameManager.Instance.playerDataObj.canDash)
+        {
+            Dash();
+        }
 
         // -- 动画相关 --
         //Jump
-        if (Input.GetButtonDown("Jump") && m_grounded && m_disableMovementTimer < 0.0f&&!isDashing)
+        if (Input.GetButtonDown("Jump") && m_grounded && m_disableMovementTimer < 0.0f && !isDashing)
         {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
@@ -205,42 +209,9 @@ public class PlayerController : MonoBehaviour
             m_animator.SetInteger("AnimState", 0);
         }
 
-        ////攻击
-
-        //if (m_disablePhysicalAttackTimer <= 0)
-        //{
-        //    if (Input.GetMouseButtonDown(0))
-        //    {
-        //        if (Input.GetMouseButtonDown(0)&&Input.GetKey(KeyCode.W))
-        //        {
-        //            //m_animator.SetTrigger("UpAttack");
-                    
-        //            m_animator.Play("UpAttack");
-        //        }
-        //        else if (Input.GetMouseButtonDown(0)&&Input.GetKey(KeyCode.S))
-        //        {
-        //            //m_animator.SetTrigger("DownAttack");
-        //            m_animator.Play("DownAttack");
-        //        }
-        //        else
-        //        {
-        //            //m_animator.SetTrigger("FrontAttack");
-        //            m_animator.Play("FrontAttack");
-        //        }
-        //        m_disablePhysicalAttackTimer = m_PhysicalAttackCoolDownTime;
-        //    }
-        //}
-        //else
-        //{
-        //    m_disablePhysicalAttackTimer -= Time.deltaTime;
-        //}
 
 
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && GameManager.Instance.playerDataObj.canDash)
-        {
-            Dash();
-        }
 
 
 
@@ -256,14 +227,15 @@ public class PlayerController : MonoBehaviour
     // dustXoffset可以调节生成距离，默认为0
 
     [Header("灰尘足部y轴偏移")]
-    [SerializeField][Range(0.1f,0.5f)]
+    [SerializeField]
+    [Range(0.1f, 0.5f)]
     private float dustYOffset;
     void SpawnDustEffect(GameObject dust, float dustXOffset = 0)
     {
         if (dust != null)
         {
             // Set dust spawn position
-            Vector3 dustSpawnPosition = transform.position + new Vector3(dustXOffset * m_facingDirection, 0.0f-dustYOffset, 0.0f);
+            Vector3 dustSpawnPosition = transform.position + new Vector3(dustXOffset * m_facingDirection, 0.0f - dustYOffset, 0.0f);
             GameObject newDust = Instantiate(dust, dustSpawnPosition, Quaternion.identity) as GameObject;
             // Turn dust in correct X direction
             newDust.transform.localScale = newDust.transform.localScale.x * new Vector3(m_facingDirection, 1, 1);
@@ -357,17 +329,30 @@ public class PlayerController : MonoBehaviour
     public float dashDuration = 0.2f; // 冲刺持续时间
     private bool isDashing = false; // 是否正在冲刺
     private float dashTimer = 0f; // 冲刺计时器
-
+    private Tween dashTween;
 
     void Dash()
     {
         //m_body2d.isKinematic = true;
         m_animator.Play("Dash");
         m_body2d.gravityScale = 0;
+        m_body2d.velocity = Vector2.zero;
+        isFreeze = true;
+        isDashing = true;
+        jumpTimer = 0;
         PostProcessManager.Instance.PlayerDashVignette();
         GetComponent<Destructable>().interactable = false;
-        transform.DOMoveX(transform.position.x + transform.localScale.x * dashSpeed, dashDuration).SetEase(Ease.OutCubic).OnComplete(()=>
-        { m_body2d.gravityScale = 3.6f; GetComponent<Destructable>().interactable = true;/*m_body2d.isKinematic = false; */});
+        dashTween=transform.DOMoveX(transform.position.x + transform.localScale.x * dashSpeed, dashDuration).SetEase(Ease.OutCubic).OnComplete(() =>
+        { m_body2d.gravityScale = 3.6f; GetComponent<Destructable>().interactable = true; isFreeze = false; isDashing = false; });
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isDashing && (collision.transform.position.x - transform.position.x) * transform.localScale.x > 0)
+        {
+            dashTween.Complete();
+            Debug.Log("Killed");
+        }
     }
 
 }
