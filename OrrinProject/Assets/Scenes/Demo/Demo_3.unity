@@ -6124,6 +6124,10 @@ PrefabInstance:
       propertyPath: BombSpirits
       value: 
       objectReference: {fileID: 8309242971265628427, guid: 8e31966565a3fd349a4a48aba1fe13f3, type: 3}
+    - target: {fileID: 2876495293577579073, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2876495294061399575, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
       propertyPath: BombOne
       value: 
