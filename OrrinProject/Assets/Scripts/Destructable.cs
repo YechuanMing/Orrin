@@ -299,6 +299,7 @@ public class Destructable : MonoBehaviour
 
     public void DamageSound()
     {
-        AudioSource.PlayClipAtPoint(damageSounds[Random.Range(0, damageSounds.Length)], new Vector3(transform.position.x,transform.position.y,20f));
+        //AudioSource.PlayClipAtPoint(damageSounds[Random.Range(0, damageSounds.Length)], new Vector3(transform.position.x, transform.position.y, 20f), 100f);
+        AudioManager.Instance.PlaySoundEffect(damageSounds[Random.Range(0, damageSounds.Length)]);
     }
 }

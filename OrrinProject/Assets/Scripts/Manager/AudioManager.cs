@@ -73,4 +73,10 @@ public class AudioManager : MonoBehaviour
         // ∆Ù∂Ø–Ú¡–
         sequence.Play();
     }
+
+
+    public void PlaySoundEffect(AudioClip clip)
+    {
+        AudioSource.PlayClipAtPoint(clip, transform.position, 5f);
+    }
 }
