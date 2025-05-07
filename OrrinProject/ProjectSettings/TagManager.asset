@@ -10,6 +10,7 @@ TagManager:
   - Shell
   - points
   - PlayerSpirit
+  - spiritBomb
   layers:
   - Default
   - TransparentFX

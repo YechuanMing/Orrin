@@ -6094,14 +6094,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2876495292981116263, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
-      propertyPath: BombSpirits
-      value: 
-      objectReference: {fileID: 5990583984306913397, guid: 3db56800d68f26a49a9434a59f29fc98, type: 3}
-    - target: {fileID: 2876495293577579073, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2876495294246278116, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -6150,13 +6142,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: BOSS
       objectReference: {fileID: 0}
-    - target: {fileID: 2876495294423728221, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
-      propertyPath: BombSpirits
+    - target: {fileID: 5272794033969928389, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3177185
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272794033969928389, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: m_Size.y
+      value: 3.487894
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272794033969928389, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.26377487
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272794033969928389, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.101288795
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854817685988680047, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: BombOne
       value: 
-      objectReference: {fileID: 5990583984306913397, guid: 3db56800d68f26a49a9434a59f29fc98, type: 3}
-    - target: {fileID: 2876495294978471150, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
-      propertyPath: BombSpirits
+      objectReference: {fileID: 6868473530751976986, guid: cef8516c43f2f6346ba08bdf4677310f, type: 3}
+    - target: {fileID: 6854817685988680047, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: BombTwo
       value: 
-      objectReference: {fileID: 5990583984306913397, guid: 3db56800d68f26a49a9434a59f29fc98, type: 3}
+      objectReference: {fileID: 9185014046305461116, guid: 3e3afb82040e4ef439e0acf603eaeff9, type: 3}
+    - target: {fileID: 6854817685988680047, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
+      propertyPath: BombOne_time
+      value: 1.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc850df6fdf24f4c8635b47e5c934d5, type: 3}
