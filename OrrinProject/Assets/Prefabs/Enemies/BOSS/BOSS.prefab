@@ -127,6 +127,7 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 0
   attackedEffectsPerfabs: {fileID: 0}
+  slashEffect: {fileID: 0}
   currHealth: 3
   maxHealth: 3
   interactable: 1
@@ -450,7 +451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2876495293808151813
 Transform:
   m_ObjectHideFlags: 0
@@ -659,6 +660,7 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 0
   attackedEffectsPerfabs: {fileID: 0}
+  slashEffect: {fileID: 0}
   currHealth: 10
   maxHealth: 10
   interactable: 1
@@ -1020,7 +1022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2876495294061399586
 Transform:
   m_ObjectHideFlags: 0
@@ -1229,6 +1231,7 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 1
   attackedEffectsPerfabs: {fileID: 0}
+  slashEffect: {fileID: 0}
   currHealth: 10
   maxHealth: 10
   interactable: 1
@@ -1416,7 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e8ccddcfe4f4a45a514a692f361816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTriggerAnim: 1
+  isTriggerAnim: 0
 --- !u!114 &2876495294061399569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1720,6 +1723,7 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 0
   attackedEffectsPerfabs: {fileID: 0}
+  slashEffect: {fileID: 0}
   currHealth: 3
   maxHealth: 3
   interactable: 1
@@ -2122,6 +2126,7 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 0
   attackedEffectsPerfabs: {fileID: 0}
+  slashEffect: {fileID: 0}
   currHealth: 3
   maxHealth: 3
   interactable: 1
@@ -2168,7 +2173,7 @@ MonoBehaviour:
           m_StringArgument: Die
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2876495294978471151}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -2516,6 +2521,7 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 0
   attackedEffectsPerfabs: {fileID: 0}
+  slashEffect: {fileID: 0}
   currHealth: 6
   maxHealth: 6
   interactable: 1
@@ -2550,16 +2556,28 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2876495293808151815}
-        m_TargetAssemblyTypeName: SpiritualEnemyBase, Assembly-CSharp
-        m_MethodName: SpiritDied
-        m_Mode: 1
+      - m_Target: {fileID: 2876495294989859586}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2876495294989859837}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: maskBeDestroy_3
           m_BoolArgument: 0
         m_CallState: 2
   flashDuration: 0.1

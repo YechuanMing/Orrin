@@ -368,6 +368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c11153acba22a944a5e7b3abc1aad52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDirection: 0
+  isFreeze: 0
   m_disablePhysicalAttackTimer: 0
   m_PhysicalAttackCoolDownTime: 0.5
   AttackWave_Front: {fileID: 9099021821927981018, guid: f5da330f51994c84b9849f737842a0d2, type: 3}
@@ -510,7 +512,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
+  isBoss: 0
   attackedEffectsPerfabs: {fileID: 3822589874063496482, guid: 13d2c973aa567c447985240c2affe375, type: 3}
+  slashEffect: {fileID: 4856510264240475413, guid: 50639398baf5b4546bd7bcf49cc13d6a, type: 3}
   currHealth: 0
   maxHealth: 0
   interactable: 1
@@ -583,6 +587,7 @@ MonoBehaviour:
         m_CallState: 2
   flashDuration: 0.1
   flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashFadeTime: 0.2
   playerDamageColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
   playerDamageflashDuration: 0.3
   damageSounds: []
