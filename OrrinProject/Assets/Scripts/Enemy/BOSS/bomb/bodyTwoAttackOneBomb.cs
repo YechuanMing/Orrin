@@ -42,7 +42,7 @@ public class bodyTwoAttackOneBomb : MonoBehaviour
            .Join(transform.DOMoveX(transform.position.x + x, t).SetEase(moveCurve_X))
            .OnComplete(() =>
            {
-               GameObject effect = Instantiate(landingEffect, transform.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
+               GameObject effect = Instantiate(landingEffect, transform.position - new Vector3(0, 0.6f, 0), Quaternion.identity);
                Destroy(gameObject, 0.3f);
            });
 
