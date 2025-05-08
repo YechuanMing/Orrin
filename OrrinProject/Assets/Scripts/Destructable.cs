@@ -15,8 +15,10 @@ public class Destructable : MonoBehaviour
     [Header("是否是Boss？")]
     public bool isBoss=false;
 
-    public GameObject attackedEffectsPerfabs;
-    public GameObject slashEffect;
+    [Header("玩家受击特效预制体")]
+    public GameObject playerDamagedEffect;
+    [Header("敌人受击特效预制体")]
+    public GameObject enemyDamagedEffect;
 
     [Header("当前生命值")]
     public int currHealth;
@@ -110,7 +112,7 @@ public class Destructable : MonoBehaviour
 
     public void player_attackedEffects()
     {
-        GameObject attacked = Instantiate(attackedEffectsPerfabs, transform.position, transform.rotation);
+        GameObject attacked = Instantiate(playerDamagedEffect, transform.position, transform.rotation);
         attacked.transform.SetParent(transform);
         attacked.transform.localScale = transform.localScale;
         Destroy(attacked, 40 / 60f);
@@ -213,46 +215,50 @@ public class Destructable : MonoBehaviour
         }
         else
         {
-            //如果不是玩家 被主角伤害到了溅血特效
-            if (PlayerAttackControl.Instance.attackDirection == 1)
-            {
-                GameObject slashObject = Instantiate(PlayerAttackControl.Instance.GetComponent<Destructable>().slashEffect,
-                    PlayerAttackControl.Instance.attackUpSpot.position + Vector3.up * 0.5f, PlayerAttackControl.Instance.attackUpSpot.rotation);
-                slashObject.transform.localScale = PlayerAttackControl.Instance.transform.localScale;
-                slashObject.transform.SetParent(PlayerAttackControl.Instance.transform);
-                Destroy(slashObject, 0.3f);
-                //向上
-                PlayerAttackControl.Instance.attackDirection = 0;
-            }
-            else if (PlayerAttackControl.Instance.attackDirection == 2)
-            {
-                GameObject slashObject = Instantiate(PlayerAttackControl.Instance.GetComponent<Destructable>().slashEffect,
-                    PlayerAttackControl.Instance.attackDownSpot.position + Vector3.down * 0.5f, PlayerAttackControl.Instance.attackDownSpot.rotation);
-                slashObject.transform.localScale = PlayerAttackControl.Instance.transform.localScale;
-                slashObject.transform.SetParent(PlayerAttackControl.Instance.transform);
-                Destroy(slashObject, 0.3f);
-                //向下
-                PlayerAttackControl.Instance.attackDirection = 0;
-            }
-            else if (PlayerAttackControl.Instance.attackDirection == 3)
-            {
-                GameObject slashObject = Instantiate(PlayerAttackControl.Instance.GetComponent<Destructable>().slashEffect,
-                   PlayerAttackControl.Instance.attackFrontSpot.position + Vector3.right * 0.5f*PlayerAttackControl.Instance.transform.localScale.x,
-                   PlayerAttackControl.Instance.attackFrontSpot.rotation);
-                slashObject.transform.localScale = PlayerAttackControl.Instance.transform.localScale;
-                slashObject.transform.SetParent(PlayerAttackControl.Instance.transform);
-                Destroy(slashObject, 0.3f);
-                //向前
-                PlayerAttackControl.Instance.attackDirection = 0;
-            }
+            ////如果不是玩家 被主角伤害到了溅血特效
+            //if (PlayerAttackControl.Instance.attackDirection == 1)
+            //{
+            //    GameObject slashObject = Instantiate(PlayerAttackControl.Instance.GetComponent<Destructable>().slashEffect,
+            //        PlayerAttackControl.Instance.attackUpSpot.position + Vector3.up * 0.5f, PlayerAttackControl.Instance.attackUpSpot.rotation);
+            //    slashObject.transform.localScale = PlayerAttackControl.Instance.transform.localScale;
+            //    slashObject.transform.SetParent(PlayerAttackControl.Instance.transform);
+            //    Destroy(slashObject, 0.3f);
+            //    //向上
+            //    PlayerAttackControl.Instance.attackDirection = 0;
+            //}
+            //else if (PlayerAttackControl.Instance.attackDirection == 2)
+            //{
+            //    GameObject slashObject = Instantiate(PlayerAttackControl.Instance.GetComponent<Destructable>().slashEffect,
+            //        PlayerAttackControl.Instance.attackDownSpot.position + Vector3.down * 0.5f, PlayerAttackControl.Instance.attackDownSpot.rotation);
+            //    slashObject.transform.localScale = PlayerAttackControl.Instance.transform.localScale;
+            //    slashObject.transform.SetParent(PlayerAttackControl.Instance.transform);
+            //    Destroy(slashObject, 0.3f);
+            //    //向下
+            //    PlayerAttackControl.Instance.attackDirection = 0;
+            //}
+            //else if (PlayerAttackControl.Instance.attackDirection == 3)
+            //{
+            //    GameObject slashObject = Instantiate(PlayerAttackControl.Instance.GetComponent<Destructable>().slashEffect,
+            //       PlayerAttackControl.Instance.attackFrontSpot.position + Vector3.right * 0.5f*PlayerAttackControl.Instance.transform.localScale.x,
+            //       PlayerAttackControl.Instance.attackFrontSpot.rotation);
+            //    slashObject.transform.localScale = PlayerAttackControl.Instance.transform.localScale;
+            //    slashObject.transform.SetParent(PlayerAttackControl.Instance.transform);
+            //    Destroy(slashObject, 0.3f);
+            //    //向前
+            //    PlayerAttackControl.Instance.attackDirection = 0;
+            //}
             //如果不是玩家，会抖动一下，加强打击感。
-            transform.DOShakeScale(0.3f, 0.1f, 1, 10);
+            transform.DOShakeScale(0.3f, 0.2f, 1, 10);
             DamageSound();
         }
 
     }
 
-
+    public void EnemyDamageEffect()
+    {
+        GameObject effect = Instantiate(enemyDamagedEffect, this.transform.position, this.transform.rotation);
+        Destroy(effect, 0.3f);
+    }
     
 
     public void Heal(int heal)

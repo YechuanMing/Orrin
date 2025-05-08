@@ -513,8 +513,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayer: 1
   isBoss: 0
-  attackedEffectsPerfabs: {fileID: 3822589874063496482, guid: 13d2c973aa567c447985240c2affe375, type: 3}
-  slashEffect: {fileID: 4856510264240475413, guid: 50639398baf5b4546bd7bcf49cc13d6a, type: 3}
+  playerDamagedEffect: {fileID: 3822589874063496482, guid: 13d2c973aa567c447985240c2affe375, type: 3}
+  enemyDamagedEffect: {fileID: 0}
   currHealth: 0
   maxHealth: 0
   interactable: 1
