@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6126563920969164398}
   - component: {fileID: 6126563920969164389}
   - component: {fileID: 6126563920969164394}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: stone_c
   m_TagString: Enemy
   m_Icon: {fileID: 0}
