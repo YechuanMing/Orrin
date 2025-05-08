@@ -5,6 +5,7 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 using System.Linq;
 using DG.Tweening;
+using Cinemachine;
 public class chasePlayer_03 : PhysicEnemyAction
 {
     public float jumpForce = 4f;//跳跃速度
@@ -17,6 +18,7 @@ public class chasePlayer_03 : PhysicEnemyAction
 
     public override void OnStart()
     {
+        
         Debug.Log(player);
         buildUpTween =DOVirtual.DelayedCall(buildupTime, StartJump, false);//可能没啥用
         animator.Play("jumping");
@@ -29,10 +31,11 @@ public class chasePlayer_03 : PhysicEnemyAction
     private void StartJump()
     {
         var direction = PlayerController.Instance.transform.position.x < transform.position.x ? -1 : 1;
-    
-        rigidbody.AddForce(new Vector2(horizontalForce * direction, jumpForce), ForceMode2D.Impulse);
+        float distanceParam = 0.3f*Vector2.Distance(PlayerController.Instance.transform.position, transform.position);
+
+        rigidbody.AddForce(new Vector2(horizontalForce * direction*distanceParam, jumpForce), ForceMode2D.Impulse);
         jumpStarted = true;
-        jumpTween=DOVirtual.DelayedCall(0.2f, () => { haslanded = true; }, false);
+        jumpTween=DOVirtual.DelayedCall(1f, () => { haslanded = true;GetComponent<CinemachineCollisionImpulseSource>().GenerateImpulse(); }, false);
     }
     public override TaskStatus OnUpdate()
     {
