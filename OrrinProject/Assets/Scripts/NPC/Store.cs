@@ -10,20 +10,38 @@ public class Store : MonoBehaviour
     private void Start()
     {
         currSelectIndex = -1;
+       
+    }
+
+    private void OnEnable()
+    {
+        GetComponentInParent<DialogueNPC>().SwitchDialogueIndex(3);
     }
     public void Update()
     {
         Select();
-        Buy();
+        if(Input.GetKeyDown(KeyCode.E)&&currSelectIndex>=0&&currSelectIndex<=products.Count-1)
+        {
+            Buy();
+        }
     }
 
 
     public void Buy()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        bool result=products[currSelectIndex].Purchase();
+        
+
+        if(result)
         {
-            products[currSelectIndex].Purchase();
+            GetComponentInParent<DialogueNPC>().SwitchDialogueIndex(2);
+            Debug.Log("PurchaseSuccess");
         }
+        else
+        {
+            Debug.Log("PurchaseFailed");
+        }
+        
 
     }
 
@@ -31,7 +49,7 @@ public class Store : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W)) 
         {
-            if(currSelectIndex!=-1)
+            if(currSelectIndex!=-1/*&&!products[currSelectIndex].soldOut*/)
             {
                 products[currSelectIndex].OnDeSelectEffect();
             }
@@ -44,11 +62,15 @@ public class Store : MonoBehaviour
                 currSelectIndex -= 1;
             }
 
-            products[currSelectIndex].OnSelectEffect();
+            //if(!products[currSelectIndex].soldOut)
+            {
+                products[currSelectIndex].OnSelectEffect();
+            }
+
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) )
         {
-            if (currSelectIndex != -1)
+            if (currSelectIndex != -1 /*&& !products[currSelectIndex].soldOut*/)
             {
                 products[currSelectIndex].OnDeSelectEffect();
             }
@@ -61,8 +83,16 @@ public class Store : MonoBehaviour
             {
                 currSelectIndex += 1;
             }
+            //if (!products[currSelectIndex].soldOut)
+            {
+                products[currSelectIndex].OnSelectEffect();
+            }
 
-            products[currSelectIndex].OnSelectEffect();
         }
+    }
+
+    private void OnDisable()
+    {
+        GetComponentInParent<DialogueNPC>().InitializeDialogue();
     }
 }
