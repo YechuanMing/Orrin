@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6667920046092988189}
   - component: {fileID: 2906464284528902816}
   - component: {fileID: 758630276210399421}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: stone_a2(4)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
