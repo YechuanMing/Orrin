@@ -8,9 +8,6 @@ using DG.Tweening;
 
 public class DialogueNPC : MonoBehaviour
 {
-
-
-
     [Serializable]
     public struct DialogueEvent
     {
@@ -25,7 +22,14 @@ public class DialogueNPC : MonoBehaviour
 
     //本地对话数据
     public List<DialogueEvent> Dialogue0;
-    private int currDialogueIndex;
+    public List<DialogueEvent> Dialogue1;
+    public List<DialogueEvent> Dialogue2;
+    public List<DialogueEvent> Dialogue3;
+
+    private List<DialogueEvent> currDialogue;
+    public int currDialogueIndex;
+    public int currSentenceIndex;
+
     private Tween dialogueTween;
     public KeyCode InteractKey = KeyCode.E;
     public bool talkAble = true;
@@ -39,7 +43,30 @@ public class DialogueNPC : MonoBehaviour
     public GameObject Store;
     public bool storeOpen;
 
+    public void Start()
+    {
+        currDialogueIndex = GameManager.Instance.NPCDialogueIndex;
+    }
 
+    public void SetCurrentDialogue()
+    {
+        switch(currDialogueIndex)
+        {
+            case 0:
+                currDialogue = Dialogue0;
+                break;
+            case 1:
+                currDialogue = Dialogue1;
+                break;
+            case 2:
+                currDialogue = Dialogue2;
+                break;
+            case 3:
+                currDialogue = Dialogue3;
+                break;
+
+        }
+    }
     public void InitializeDialogue()
     {
         InteractHint.SetActive(false);
@@ -48,29 +75,30 @@ public class DialogueNPC : MonoBehaviour
         PlayerAttackControl.Instance.SetFreeze(true);
         //启用对话面板
         dialogueUIObject.SetActive(true);
+        SetCurrentDialogue();
         isDialogueActive = true;
-        currDialogueIndex = 0;
+        currSentenceIndex = 0;
         dialogueText.text = string.Empty;
-        dialogueTween = dialogueText.DOText(Dialogue0[currDialogueIndex].text, Dialogue0[currDialogueIndex].text.Length * 0.1f).OnComplete(() =>
-          { Dialogue0[currDialogueIndex].OnDisplay.Invoke(); });
+        dialogueTween = dialogueText.DOText(currDialogue[currSentenceIndex].text, currDialogue[currSentenceIndex].text.Length * 0.1f).OnComplete(() =>
+          { currDialogue[currSentenceIndex].OnDisplay.Invoke(); });
     }
 
     public void SwitchToNext()
     {
         dialogueTween.Kill();
-        Dialogue0[currDialogueIndex].OnSwitch.Invoke();
-        if (currDialogueIndex == Dialogue0.Count - 1)
+        currDialogue[currSentenceIndex].OnSwitch.Invoke();
+        if (currSentenceIndex == currDialogue.Count - 1)
         {
             EndDialogue();
             return;
         }
         else
         {
-            currDialogueIndex += 1;
+            currSentenceIndex += 1;
         }
         dialogueText.text = string.Empty;
-        dialogueTween = dialogueText.DOText(Dialogue0[currDialogueIndex].text, Dialogue0[currDialogueIndex].text.Length * 0.1f).OnComplete(() =>
-            { Dialogue0[currDialogueIndex].OnDisplay.Invoke(); });
+        dialogueTween = dialogueText.DOText(currDialogue[currSentenceIndex].text, currDialogue[currSentenceIndex].text.Length * 0.1f).OnComplete(() =>
+            { currDialogue[currSentenceIndex].OnDisplay.Invoke(); });
     }
 
     public void EndDialogue()
@@ -83,7 +111,12 @@ public class DialogueNPC : MonoBehaviour
         PlayerAttackControl.Instance.SetFreeze(false);
 
         InteractHint.SetActive(true);
+    }
 
+    public void SwitchDialogueIndex(int index)
+    {
+        currDialogueIndex = index;
+        GameManager.Instance.NPCDialogueIndex= index;
     }
 
     private void Update()
@@ -131,6 +164,7 @@ public class DialogueNPC : MonoBehaviour
         if (storeOpen)
         {
             Store.SetActive(false);
+            storeOpen = false;
             talkAble = true;
         }
     }

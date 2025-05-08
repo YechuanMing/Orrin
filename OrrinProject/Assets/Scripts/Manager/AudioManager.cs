@@ -77,6 +77,6 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySoundEffect(AudioClip clip)
     {
-        AudioSource.PlayClipAtPoint(clip, transform.position, 5f);
+        AudioSource.PlayClipAtPoint(clip, transform.position, 20f);
     }
 }

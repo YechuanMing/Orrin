@@ -175,7 +175,7 @@ MonoBehaviour:
   FlashColor: {r: 0.41509432, g: 0.33050907, b: 0.41509432, a: 1}
   BaseColor: {r: 0.14901961, g: 0.11764707, b: 0.14901961, a: 1}
   SelectColor: {r: 0.2830189, g: 0.16660734, b: 0.2830189, a: 1}
-  SoldOutColor: {r: 0.47167417, g: 0.4330189, b: 0.4811321, a: 1}
+  SoldOutColor: {r: 0.19303006, g: 0.13980065, b: 0.20754719, a: 0.53333336}
   PurchaseFailedColor: {r: 0.5188679, g: 0.27607688, b: 0.27607688, a: 1}
   soldOut: 0
   image: {fileID: 4514737425373867342}

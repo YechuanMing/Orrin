@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttackControl : MonoBehaviour
 {
-
+    public int attackDirection=0;//记录攻击方向
     public bool isFreeze;
     public static PlayerAttackControl Instance { get; private set; }
     private Animator m_animator;
@@ -29,9 +29,9 @@ public class PlayerAttackControl : MonoBehaviour
     [SerializeField]
     public Transform attackFrontSpot;
     [SerializeField]
-    private Transform attackUpSpot;
+    public Transform attackUpSpot;
     [SerializeField]
-    private Transform attackDownSpot;
+    public Transform attackDownSpot;
 
     [SerializeField]
     [Range(0.4f, 1)]
@@ -109,16 +109,18 @@ public class PlayerAttackControl : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.W))
                 {
                     //m_animator.SetTrigger("UpAttack");
-
+                    attackDirection = 1;//向上为1
                     m_animator.Play("UpAttack");
                 }
                 else if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.S))
                 {
                     //m_animator.SetTrigger("DownAttack");
+                    attackDirection = 2;//向下
                     m_animator.Play("DownAttack");
                 }
                 else
                 {
+                    attackDirection = 3;//向上为3
                     //m_animator.SetTrigger("FrontAttack");
                     m_animator.Play("FrontAttack");
                 }

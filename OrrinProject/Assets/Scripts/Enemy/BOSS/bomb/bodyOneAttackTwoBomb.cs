@@ -10,6 +10,7 @@ public class bodyOneAttackTwoBomb : MonoBehaviour
     private float repelForce = 3;
     public AnimationCurve moveCurve_Y; // 自定义动画曲线
     public AnimationCurve moveCurve_X; // 自定义动画曲线
+    public GameObject landingEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +41,8 @@ public class bodyOneAttackTwoBomb : MonoBehaviour
            .Join(transform.DOMoveX(transform.position.x + x, t).SetEase(moveCurve_X))
            .OnComplete(() =>
            {
+               GameObject effect = Instantiate(landingEffect, transform.position - new Vector3(0, 0.6f, 0), Quaternion.identity);
+   
                Destroy(gameObject, 0.3f);
            });
 

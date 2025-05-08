@@ -32,10 +32,10 @@ public class Product : MonoBehaviour
         //squareImage = GetComponent<Image>();
 
 
-        if (productData!=null)
+        if (productData != null)
         {
             UpdateDisplay();
-            if(productData.amount==0)
+            if (productData.amount == 0)
             {
                 soldOut = true;
                 SoldOutEffect();
@@ -48,22 +48,30 @@ public class Product : MonoBehaviour
         image.sprite = productData.sprite;
         title.text = productData.title;
         description.text = productData.description;
-        price.text = productData.price.ToString();
-    }
-    public void Purchase()
-    {
-        if(soldOut||GameManager.Instance.money<productData.price)
+        if(productData.price==999)
         {
-            //
+            price.text = "ÊÛóÀ";
+        }else
+        {
+            price.text = productData.price.ToString();
+        }
+
+    }
+    public bool Purchase()
+    {
+        if (soldOut || GameManager.Instance.money < productData.price)
+        {
             PurchaseFailedEffect();
-            return;
+
+            return false;
         }
 
         productData.amount -= 1;
-        if(productData.amount==0)
+        if (productData.amount == 0)
         {
             soldOut = true;
-            PurchaseEffect();
+            SoldOutEffect();
+            productData.price = 999;
         }
         else
         {
@@ -71,11 +79,12 @@ public class Product : MonoBehaviour
         }
 
         UpdateDisplay();
+        return true;
     }
     public void PurchaseEffect()
     {
         colorTween.Kill();
-        colorTween=squareImage.DOColor(FlashColor, 0.3f).OnComplete(() => { squareImage.DOColor(SelectColor, 0.4f); });
+        colorTween = squareImage.DOColor(FlashColor, 0.3f).OnComplete(() => { squareImage.DOColor(SelectColor, 0.4f); });
 
     }
 
@@ -89,7 +98,15 @@ public class Product : MonoBehaviour
     public void OnDeSelectEffect()
     {
         colorTween.Kill();
-        squareImage.DOColor(BaseColor, 0.3f);
+        if (soldOut)
+        {
+            squareImage.DOColor(SoldOutColor, 0.3f);
+        }
+        else
+        {
+            squareImage.DOColor(BaseColor, 0.3f);
+        }
+
         transform.DOScale(1f, 0.5f);
     }
 
@@ -102,7 +119,8 @@ public class Product : MonoBehaviour
     public void PurchaseFailedEffect()
     {
         colorTween.Kill();
-        squareImage.DOColor(PurchaseFailedColor, 0.3f);
+        squareImage.DOColor(PurchaseFailedColor, 0.3f).OnComplete(()=> 
+        { squareImage.DOColor(SelectColor, 0.3f); });
     }
 
 }
