@@ -166,6 +166,7 @@ MonoBehaviour:
   isSpirit: 0
   isSpiritDied: 0
   isBodyDied: 0
+  spirit: {fileID: 547656564861090633}
   OnEnemySpritualized:
     m_PersistentCalls:
       m_Calls:
@@ -211,17 +212,29 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 0
   playerDamagedEffect: {fileID: 0}
-  enemyDamagedEffect: {fileID: 0}
+  enemyDamagedEffect: {fileID: 4856510264240475413, guid: 50639398baf5b4546bd7bcf49cc13d6a, type: 3}
   currHealth: 35
   maxHealth: 35
   interactable: 1
-  delayDestroyTime: 2
+  delayDestroyTime: 1.47
   OnDamage:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 547656564415182837}
         m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
         m_MethodName: FlashWhite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 547656564415182837}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: EnemyDamageEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -475,7 +488,7 @@ GameObject:
   - component: {fileID: 547656564861090632}
   m_Layer: 11
   m_Name: Spirit
-  m_TagString: Enemy
+  m_TagString: EnemySpirit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

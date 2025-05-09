@@ -12,12 +12,13 @@ public class SpiritualEnemyBase : MonoBehaviour
 
     public bool isSpiritDied;
     public bool isBodyDied;
-
+    public GameObject spirit;
 
     private void OnEnable()
     {
         PlayerSpiritualization.SpiritualizeBroadcast += Spritualize;
         PlayerSpiritualization.DeSpiritualizeBroadcast += DeSpiritualize;
+
     }
 
     private void Spritualize()

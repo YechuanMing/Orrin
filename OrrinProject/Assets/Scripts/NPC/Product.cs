@@ -59,7 +59,7 @@ public class Product : MonoBehaviour
     }
     public bool Purchase()
     {
-        if (soldOut || GameManager.Instance.money < productData.price)
+        if (soldOut || GameManager.Instance.playerDataObj.wealth < productData.price)
         {
             PurchaseFailedEffect();
 
@@ -67,6 +67,7 @@ public class Product : MonoBehaviour
         }
 
         productData.amount -= 1;
+        GameManager.Instance.playerDataObj.wealth -= productData.price;
         if (productData.amount == 0)
         {
             soldOut = true;

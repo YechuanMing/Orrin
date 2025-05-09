@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerAttackControl : MonoBehaviour
 {
@@ -89,6 +90,24 @@ public class PlayerAttackControl : MonoBehaviour
 
     }
 
+    public int splashEnergyCost;
+    public GameObject splashWavePref;
+    public float splashDuration;
+    public float splashDistance;
+
+    [SerializeField]
+    private float splashWaveTimer = 0.0f;
+    [SerializeField]
+    private float splashWaveCoolDownTime = 0.5f;
+
+    public void Splash()
+    {
+        GameObject wave = Instantiate(splashWavePref, attackFrontSpot.position + Vector3.right * attackFrontOffsetX * transform.localScale.x, attackFrontSpot.rotation);
+        wave.transform.localScale = transform.localScale;
+        Destroy(wave, splashDuration);
+        wave.transform.DOMoveX(transform.position.x+splashDistance*transform.localScale.x,splashDuration).SetEase(Ease.OutQuad);
+    }
+
     public void SetFreeze(bool set)
     {
         isFreeze = set;
@@ -101,6 +120,21 @@ public class PlayerAttackControl : MonoBehaviour
         {
             return;
         }
+        if(splashWaveTimer<=0)
+        {
+            if (Input.GetKeyDown(KeyCode.G) && PlayerSpiritualization.Instance.currSpiritEnergy >= splashEnergyCost)
+            {
+                PlayerSpiritualization.Instance.currSpiritEnergy -= splashEnergyCost;
+                Splash();
+                splashWaveTimer = splashWaveCoolDownTime;
+            }
+            
+        }
+        else
+        {
+            splashWaveTimer -= Time.deltaTime;
+        }
+
 
         if (m_disablePhysicalAttackTimer <= 0)
         {
