@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SoulsBeDestroyInStage2 : MonoBehaviour
 {
-    private bool firstBeDestroy = false;
-    private bool secondBeDestroy = false;
-    private bool thirdBeDestroy = false;
+    private bool shock1 = false;
+    private bool shock2 = false;
+
     public Animator animator;
     public Destructable destructable;
     public int firstBeDestroyHealth;
@@ -25,21 +25,17 @@ public class SoulsBeDestroyInStage2 : MonoBehaviour
     }
     public void Bedestroy()
     {
-        if (destructable.currHealth <= thirdBeDestroyHealth && !thirdBeDestroy)
+        if (destructable.currHealth <= thirdBeDestroyHealth)
         {
-            animator.Play("maskBeDestroy_3");
             transform.GetComponent<SpiritualEnemyBase>().isSpiritDied = true;
-            thirdBeDestroy = true;
         }
-        else if (destructable.currHealth <= secondBeDestroyHealth && !secondBeDestroy)
+        else if (destructable.currHealth <= secondBeDestroyHealth && !shock2)
         {
-            animator.Play("maskBeDestroy_2");
-            secondBeDestroy = true;
+            shock2 = true;
         }
-        else if (destructable.currHealth <= firstBeDestroyHealth && !firstBeDestroy)
+        else if (destructable.currHealth <= firstBeDestroyHealth && !shock1)
         {
-            animator.Play("maskBeDestroy_1");
-            firstBeDestroy = true;
+            shock1 = true;
         }
     }
 }
