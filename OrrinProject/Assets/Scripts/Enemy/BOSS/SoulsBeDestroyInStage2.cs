@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class SoulsBeDestroyInStage2 : MonoBehaviour
 {
-    private bool shock1 = false;
-    private bool shock2 = false;
-
-    public Animator animator;
+    public bool shock1 = false;
+    public bool shock2 = false;
     public Destructable destructable;
     public int firstBeDestroyHealth;
     public int secondBeDestroyHealth;
