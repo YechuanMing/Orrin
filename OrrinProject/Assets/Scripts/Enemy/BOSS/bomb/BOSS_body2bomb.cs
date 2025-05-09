@@ -10,10 +10,13 @@ public class BOSS_body2bomb : MonoBehaviour
     public float BombTwo_time = 0.6f;
     public GameObject BombSpirits;
     public float radius = 5f;
+
+    public GameObject dot;
+    public GameObject bodydot;
     // Start is called before the first frame update
     public void bomb_body2Attack1()
     {
-        Vector3 center = transform.position;
+        Vector3 center = bodydot. transform.position;
         bool isPlayerOnLeft = GameObject.FindGameObjectWithTag("Player").transform.position.x < gameObject.transform.position.x;
         Transform player = GameObject.FindGameObjectWithTag("Player").transform;
         float startX = transform.InverseTransformPoint(player.position).x;
@@ -26,15 +29,15 @@ public class BOSS_body2bomb : MonoBehaviour
             GameObject bomb = Instantiate(BombOne, center, Quaternion.identity);
             float randomTime = timeOptions[Random.Range(0, timeOptions.Length)];
             if(isPlayerOnLeft)
-                 bomb.GetComponent<bodyTwoAttackOneBomb>().move(startX + offsets[i], -2.3f, randomTime);
+                 bomb.GetComponent<bodyTwoAttackOneBomb>().move(startX + offsets[i], -2.96f, randomTime);
             else
-                bomb.GetComponent<bodyTwoAttackOneBomb>().move(-(startX + offsets[i]), -2.3f, randomTime);
+                bomb.GetComponent<bodyTwoAttackOneBomb>().move(-(startX + offsets[i]), -2.96f, randomTime);
         }
 
     }
     public void bomb_body2Attack2()
     {
-        Vector3 center = transform.position;
+        Vector3 center = bodydot. transform.position;
 
         Instantiate(BombTwo, center, Quaternion.Euler(0, 0, 45));
         Instantiate(BombTwo, center, Quaternion.Euler(0, 0, 135));
@@ -45,10 +48,10 @@ public class BOSS_body2bomb : MonoBehaviour
 
     public void bombSpirit()
     {
-        Vector3 center = transform.position;
-        GameObject bomb1 = Instantiate(BombSpirits, center + new Vector3(1.5f, 0, 0), Quaternion.identity);
-        GameObject bomb2 = Instantiate(BombSpirits, center - new Vector3(1.5f, 0, 0), Quaternion.identity);
-        GameObject bomb3 = Instantiate(BombSpirits, center + new Vector3(0f, 1.5f, 0), Quaternion.identity);
-        GameObject bomb4 = Instantiate(BombSpirits, center - new Vector3(0f,1.5f, 0), Quaternion.identity);
+        //Vector3 center = dot.transform.position;
+        //GameObject bomb1 = Instantiate(BombSpirits, center + new Vector3(1.5f, 0, 0), Quaternion.identity);
+        //GameObject bomb2 = Instantiate(BombSpirits, center - new Vector3(1.5f, 0, 0), Quaternion.identity);
+        //GameObject bomb3 = Instantiate(BombSpirits, center + new Vector3(0f, 1.5f, 0), Quaternion.identity);
+        //GameObject bomb4 = Instantiate(BombSpirits, center - new Vector3(0f,1.5f, 0), Quaternion.identity);
     }
 }
