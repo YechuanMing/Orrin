@@ -8130,6 +8130,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7785508077653432286, guid: c96e9d59a61dca842b8feafd79f9fba7, type: 3}
   m_PrefabInstance: {fileID: 1238710232}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &764253029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 764253030}
+  m_Layer: 0
+  m_Name: ---waterBubble---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &764253030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764253029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2003119854}
+  - {fileID: 990173241}
+  m_Father: {fileID: 2080633719}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &784419822
 GameObject:
   m_ObjectHideFlags: 0
@@ -10004,6 +10036,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &990173240
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 764253030}
+    m_Modifications:
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.013474
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.125591
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 41.366688
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705772, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_Name
+      value: waterBubbles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+--- !u!4 &990173241 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+  m_PrefabInstance: {fileID: 990173240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &996502569
 GameObject:
   m_ObjectHideFlags: 0
@@ -19138,6 +19232,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &2003119853
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 764253030}
+    m_Modifications:
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.1934733
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.915592
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 41.366688
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679747616600705772, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+      propertyPath: m_Name
+      value: waterBubbles (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+--- !u!4 &2003119854 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8679747616600705769, guid: 315a7632b39b7444c9f1e372f52fb74a, type: 3}
+  m_PrefabInstance: {fileID: 2003119853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2023347105
 GameObject:
   m_ObjectHideFlags: 0
@@ -19716,6 +19872,7 @@ Transform:
   - {fileID: 2140971459}
   - {fileID: 1553867335}
   - {fileID: 1536885023}
+  - {fileID: 764253030}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
