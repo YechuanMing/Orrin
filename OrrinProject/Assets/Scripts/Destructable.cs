@@ -71,6 +71,7 @@ public class Destructable : MonoBehaviour
             }
             else
             {
+                Debug.Log("Áé»ê±»»÷´ò");
                 currHealth = value;
             }
 
