@@ -11,6 +11,7 @@ TagManager:
   - points
   - PlayerSpirit
   - spiritBomb
+  - EnemySpirit
   layers:
   - Default
   - TransparentFX
@@ -34,7 +35,7 @@ TagManager:
   - EnviromentDestrucable
   - Instructions
   - NPC
-  - 
+  - SplashWave
   - 
   - 
   - 

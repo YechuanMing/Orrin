@@ -382,6 +382,12 @@ MonoBehaviour:
   attackFrontOffsetX: 0.5
   attackUpOffsetY: 0.46
   attackDownOffsetY: 0.4
+  splashEnergyCost: 0
+  splashWavePref: {fileID: 6226650225405851048, guid: c8cda88156e46de41997cccec56e1321, type: 3}
+  splashDuration: 3
+  splashDistance: 32
+  splashWaveTimer: -0.13
+  splashWaveCoolDownTime: 0.5
 --- !u!114 &885849304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,7 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpiritPref: {fileID: 3840741183755558771, guid: 30be9115385af354ba21f9ca68d02ac4, type: 3}
   playerSpirit: {fileID: 0}
-  currSpiritEnergy: 0
+  currSpiritEnergy: 9.47
   OnCharacterSpiritualized:
     m_PersistentCalls:
       m_Calls:

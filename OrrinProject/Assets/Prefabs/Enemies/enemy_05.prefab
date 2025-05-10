@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1985315565831767202}
   m_Layer: 11
   m_Name: Spirit
-  m_TagString: Enemy
+  m_TagString: EnemySpirit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -463,6 +463,7 @@ MonoBehaviour:
   isSpirit: 0
   isSpiritDied: 0
   isBodyDied: 0
+  spirit: {fileID: 1985315565831767213}
   OnEnemySpritualized:
     m_PersistentCalls:
       m_Calls:

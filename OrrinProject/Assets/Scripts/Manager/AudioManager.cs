@@ -79,4 +79,11 @@ public class AudioManager : MonoBehaviour
     {
         AudioSource.PlayClipAtPoint(clip, transform.position, 20f);
     }
+
+
+
+    private void Update()
+    {
+        transform.position = Camera.main.transform.position;
+    }
 }

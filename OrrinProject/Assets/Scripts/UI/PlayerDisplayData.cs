@@ -13,6 +13,7 @@ public class PlayerDisplayData : MonoBehaviour
 
     public GameObject[] healthSprites;
 
+    public Text moneyNumText;
     
     public Destructable playerDestructable;
 
@@ -51,6 +52,10 @@ public class PlayerDisplayData : MonoBehaviour
 
     }
 
+    public void UpdateMoneyNum()
+    {
+        moneyNumText.text = playerDataObject.wealth.ToString();
+    }
     public void UpdateSpiritBar()
     {
         spiritEnergyBar.GetComponent<RectTransform>().

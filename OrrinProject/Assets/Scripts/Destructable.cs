@@ -150,7 +150,11 @@ public class Destructable : MonoBehaviour
             return;
         }
         CurrHealth -= damage;
-        impulseSource.GenerateImpulse();
+        if(impulseSource)
+        {
+            impulseSource.GenerateImpulse();
+        }
+
         Debug.Log("HitBy" + damage);
         if (CurrHealth <= 0)
         {
@@ -339,6 +343,31 @@ public class Destructable : MonoBehaviour
     public void DamageSound()
     {
         //AudioSource.PlayClipAtPoint(damageSounds[Random.Range(0, damageSounds.Length)], new Vector3(transform.position.x, transform.position.y, 20f), 100f);
-        AudioManager.Instance.PlaySoundEffect(damageSounds[Random.Range(0, damageSounds.Length)]);
+        if(damageSounds.Length>0)
+        {
+            AudioManager.Instance.PlaySoundEffect(damageSounds[Random.Range(0, damageSounds.Length-1)]);
+        }
+
+    }
+
+
+    public GameObject moneyPref;
+    public int maxDropMoney;
+    public int minDropMoney;
+    public int horiztontalSpawnForce;
+    public float verticalSpawnForce;
+    [Range(4,8)]
+    public float destroyTime;
+    public void MoneyDrop()
+    {
+        int dropNum = Random.Range(minDropMoney, maxDropMoney);
+
+        for(int i=0;i<dropNum;i++)
+        {
+            GameObject money=GameObject.Instantiate(moneyPref, this.transform.position, this.transform.rotation);
+            Destroy(money, destroyTime);
+            money.GetComponent<Rigidbody2D>().AddForce(Random.Range(-1f, 1f) * Vector2.right*horiztontalSpawnForce + Random.Range(0.1f, 1f)*Vector2.up*verticalSpawnForce,ForceMode2D.Impulse);
+        }
+
     }
 }

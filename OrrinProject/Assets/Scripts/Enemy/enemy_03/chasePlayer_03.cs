@@ -25,7 +25,7 @@ public class chasePlayer_03 : PhysicEnemyAction
     }
     private bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.8f, LayerMask.GetMask("Ground"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.8f, LayerMask.GetMask("Ground","Default","PlayerBody"));
         return hit.collider != null;
     }
     private void StartJump()

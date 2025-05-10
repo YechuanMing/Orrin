@@ -170,6 +170,7 @@ MonoBehaviour:
   isSpirit: 0
   isSpiritDied: 0
   isBodyDied: 0
+  spirit: {fileID: 6674782829121202781}
   OnEnemySpritualized:
     m_PersistentCalls:
       m_Calls:
@@ -217,7 +218,7 @@ MonoBehaviour:
   playerDamagedEffect: {fileID: 0}
   enemyDamagedEffect: {fileID: 0}
   currHealth: 35
-  maxHealth: 35
+  maxHealth: 20
   interactable: 1
   delayDestroyTime: 2
   OnDamage:
@@ -451,7 +452,7 @@ MonoBehaviour:
         Detect Player","Instant":true,"SinglefrontDis":3,"SinglebackDis":5,"SingleUpDis":2,"SinglelostChaseDis":8,"BooleanisAllDirection":false,"Singleradius":0,"SingleoffestY":0}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(40,150)"},"ID":16,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,110)"},"ID":17,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"idlMoveEnemy03","NodeData":{"Offset":"(-140,140)"},"ID":18,"Name":"Idl
         Move Enemy 03","Instant":true,"SinglemoveSpeed":1,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringstateName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"walk"},"Int32layer":-1,"SinglenormalizedTime":0},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(0,140)"},"ID":19,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.67},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}},{"Type":"SwitchTarget","NodeData":{"Offset":"(129.999939,140)"},"ID":20,"Name":"Switch
         Target","Instant":true}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(360,150)","WatchedFields":["abortType"]},"ID":21,"Name":"\u627e\u5230\u4e86\uff0c\u8ffd\u7740\u6253","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,130.000061)"},"ID":22,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"FacePlayer","NodeData":{"Offset":"(-160,170)"},"ID":23,"Name":"Face
-        Player","Instant":true,"Booleanrevert":true},{"Type":"chasePlayer_04","NodeData":{"Offset":"(-19.531189,168.569427)"},"ID":24,"Name":"jumpingToSky","Instant":true,"SingleinitialUpwardSpeed":10,"Singlegravity":-15},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.Play","NodeData":{"Offset":"(96.66882,171.569427)"},"ID":25,"Name":"Play","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringstateName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"jumping"},"Int32layer":-1,"SinglenormalizedTime":0},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(216.668823,171.569427)"},"ID":26,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.2},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}},{"Type":"jumpToGroundToPlayer","NodeData":{"Offset":"(369.668823,171.569427)"},"ID":27,"Name":"Jump
+        Player","Instant":true,"Booleanrevert":true},{"Type":"chasePlayer_04","NodeData":{"Offset":"(-19.531189,168.569427)"},"ID":24,"Name":"jumpingToSky","Instant":true,"SingleinitialUpwardSpeed":6.95,"Singlegravity":-15},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.Play","NodeData":{"Offset":"(96.66882,171.569427)"},"ID":25,"Name":"Play","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringstateName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"jumping"},"Int32layer":-1,"SinglenormalizedTime":0},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(216.668823,171.569427)"},"ID":26,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.2},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}},{"Type":"jumpToGroundToPlayer","NodeData":{"Offset":"(369.668823,171.569427)"},"ID":27,"Name":"Jump
         To Ground To Player","Instant":true,"Singlegravity":-30},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.Play","NodeData":{"Offset":"(541.304138,165.453156)"},"ID":28,"Name":"Play","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringstateName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"jumpend"},"Int32layer":-1,"SinglenormalizedTime":0},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(700,170)"},"ID":29,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]}]}]},"DetachedTasks":[{"Type":"enemy05MinDistanceJudge","NodeData":{"Offset":"(-360,750)"},"ID":30,"Name":"Enemy
         05 Min Distance Judge","Instant":true,"SingleapproachDistance":0.2}]}'
       fieldSerializationData:
@@ -599,7 +600,7 @@ GameObject:
   - component: {fileID: 6674782829121202780}
   m_Layer: 11
   m_Name: Spirit
-  m_TagString: Enemy
+  m_TagString: EnemySpirit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -723,7 +724,7 @@ MonoBehaviour:
   playerDamagedEffect: {fileID: 0}
   enemyDamagedEffect: {fileID: 0}
   currHealth: 5
-  maxHealth: 5
+  maxHealth: 8
   interactable: 1
   delayDestroyTime: 1.01
   OnDamage:
