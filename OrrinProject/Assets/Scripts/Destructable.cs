@@ -19,6 +19,8 @@ public class Destructable : MonoBehaviour
     public GameObject playerDamagedEffect;
     [Header("敌人受击特效预制体")]
     public GameObject enemyDamagedEffect;
+    [Header("敌人死亡特效")]
+    public GameObject enemyDieEffect;
 
     [Header("当前生命值")]
     public int currHealth;
@@ -41,6 +43,13 @@ public class Destructable : MonoBehaviour
     [Header("死亡时触发事件")]
     public UnityEvent OnDeath;
 
+    [Header("销毁时触发事件")]
+    public UnityEvent OnDestroy_E;
+
+    private void OnDestroy()
+    {
+        OnDestroy_E.Invoke();
+    }
 
     private Cinemachine.CinemachineImpulseSource impulseSource;
     public int CurrHealth
@@ -263,6 +272,11 @@ public class Destructable : MonoBehaviour
     {
         GameObject effect = Instantiate(enemyDamagedEffect, this.transform.position, this.transform.rotation);
         Destroy(effect, 0.3f);
+    }
+
+    public void EnemyDieEffect()
+    {
+        GameObject effect = Instantiate(enemyDieEffect, this.transform.position+Vector3.down*2, this.transform.rotation);
     }
     
 
