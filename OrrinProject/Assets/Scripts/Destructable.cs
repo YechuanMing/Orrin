@@ -179,6 +179,7 @@ public class Destructable : MonoBehaviour
             if (PlayerSpiritualization.m_State == PlayerSpiritualization.SpiritState.Spiritual)
             {
                 PlayerSpiritualization.Instance.DeSpiritualize();
+                Debug.Log("玩家回到物理状态");
             }
 
             //if (currHealth > 0)
@@ -267,16 +268,28 @@ public class Destructable : MonoBehaviour
         }
 
     }
-
+    public GameObject dot;
     public void EnemyDamageEffect()
     {
-        GameObject effect = Instantiate(enemyDamagedEffect, this.transform.position, this.transform.rotation);
-        Destroy(effect, 0.3f);
+        if (isBoss)
+        {
+            Debug.Log("生成受击特效");
+            Vector3 center = dot.transform.position;
+            GameObject effect = Instantiate(enemyDamagedEffect, center, this.transform.rotation);
+            Destroy(effect, 0.3f);
+        }
+        else
+        {
+            Debug.Log("生成受击特效");
+            GameObject effect = Instantiate(enemyDamagedEffect, this.transform.position, this.transform.rotation);
+            Destroy(effect, 0.3f);
+        }
     }
     public float offset = 0;
     public void EnemyDieEffect()
     {
-        GameObject effect = Instantiate(enemyDieEffect, this.transform.position+Vector3.down*offset, this.transform.rotation);
+        GameObject effect = Instantiate(enemyDieEffect, this.transform.position+Vector3.down* offset, this.transform.rotation);
+        Destroy(effect, 0.3f);
     }
     
 

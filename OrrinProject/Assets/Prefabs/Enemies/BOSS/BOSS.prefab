@@ -1,5 +1,95 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &375612534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 375612535}
+  m_Layer: 11
+  m_Name: dot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &375612535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375612534}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.68, y: 1.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2876495294978471158}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &689683197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 689683198}
+  m_Layer: 11
+  m_Name: dot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &689683198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689683197}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.09, y: 0.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2876495294423728228}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1899968223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1899968224}
+  m_Layer: 11
+  m_Name: dot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1899968224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899968223}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.27, y: 1.14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2876495292981116270}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &30151077733692769
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,7 +154,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5.83, y: -5.85, z: 0}
   m_LocalScale: {x: 1.82, y: 1.659, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1899968224}
   m_Father: {fileID: 2876495293577579072}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -153,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  isBoss: 0
+  isBoss: 1
   playerDamagedEffect: {fileID: 0}
   enemyDamagedEffect: {fileID: 2856819382807918979, guid: 1cbd457bd70010a489c482b984d399cf, type: 3}
   enemyDieEffect: {fileID: 0}
@@ -242,6 +333,8 @@ MonoBehaviour:
   OnDestroy_E:
     m_PersistentCalls:
       m_Calls: []
+  dot: {fileID: 1899968223}
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 0.8584906, g: 0.092328176, b: 0.092328176, a: 1}
   flashFadeTime: 0.2
@@ -249,6 +342,7 @@ MonoBehaviour:
   playerDamageflashDuration: 0.3
   damageSounds:
   - {fileID: 8300000, guid: 65ecbfd264ba0ba4099aa819754b8601, type: 3}
+  dieSounds: []
   moneyPref: {fileID: 0}
   maxDropMoney: 0
   minDropMoney: 0
@@ -760,6 +854,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dot: {fileID: 0}
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 0.754717, g: 0.109647535, b: 0.109647535, a: 1}
   flashFadeTime: 0.2
@@ -767,6 +863,7 @@ MonoBehaviour:
   playerDamageflashDuration: 0.3
   damageSounds:
   - {fileID: 8300000, guid: 50d549e0e5672f048aca152957f92435, type: 3}
+  dieSounds: []
   moneyPref: {fileID: 0}
   maxDropMoney: 0
   minDropMoney: 0
@@ -1373,6 +1470,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  dot: {fileID: 0}
+  offset: 0
   flashDuration: 0.033333335
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashFadeTime: 0.13333334
@@ -1380,6 +1479,7 @@ MonoBehaviour:
   playerDamageflashDuration: 0.3
   damageSounds:
   - {fileID: 8300000, guid: 50d549e0e5672f048aca152957f92435, type: 3}
+  dieSounds: []
   moneyPref: {fileID: 0}
   maxDropMoney: 0
   minDropMoney: 0
@@ -1468,7 +1568,7 @@ MonoBehaviour:
   BombOne: {fileID: 8309242971265628427, guid: 8e31966565a3fd349a4a48aba1fe13f3, type: 3}
   BombOne_time: 1.4
   BombTwo: {fileID: 820365179761228088, guid: 23a43d00375c7f145a815eb2654c4739, type: 3}
-  BombTwo_time: 1.2
+  BombTwo_time: 1.6
   BombSpirits: {fileID: 9175160797886411345, guid: f25cd08c185e90945a119cd07c08ddc1, type: 3}
   radius: 5
 --- !u!114 &2876495294061399580
@@ -1720,7 +1820,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.45, y: -6.73, z: 0}
   m_LocalScale: {x: 2.010608, y: 1.868307, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 689683198}
   m_Father: {fileID: 2876495293577579072}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1809,7 +1910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  isBoss: 0
+  isBoss: 1
   playerDamagedEffect: {fileID: 0}
   enemyDamagedEffect: {fileID: 2856819382807918979, guid: 1cbd457bd70010a489c482b984d399cf, type: 3}
   enemyDieEffect: {fileID: 0}
@@ -1898,6 +1999,8 @@ MonoBehaviour:
   OnDestroy_E:
     m_PersistentCalls:
       m_Calls: []
+  dot: {fileID: 689683197}
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 0.8584906, g: 0.092328176, b: 0.092328176, a: 1}
   flashFadeTime: 0.2
@@ -1905,6 +2008,7 @@ MonoBehaviour:
   playerDamageflashDuration: 0.3
   damageSounds:
   - {fileID: 8300000, guid: 65ecbfd264ba0ba4099aa819754b8601, type: 3}
+  dieSounds: []
   moneyPref: {fileID: 0}
   maxDropMoney: 0
   minDropMoney: 0
@@ -2077,7 +2181,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.64, y: -5.19, z: 0}
   m_LocalScale: {x: 1.787382, y: 1.5551101, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 375612535}
   m_Father: {fileID: 2876495293577579072}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2182,7 +2287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  isBoss: 0
+  isBoss: 1
   playerDamagedEffect: {fileID: 0}
   enemyDamagedEffect: {fileID: 2856819382807918979, guid: 1cbd457bd70010a489c482b984d399cf, type: 3}
   enemyDieEffect: {fileID: 0}
@@ -2271,6 +2376,8 @@ MonoBehaviour:
   OnDestroy_E:
     m_PersistentCalls:
       m_Calls: []
+  dot: {fileID: 375612534}
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 0.8584906, g: 0.092328176, b: 0.092328176, a: 1}
   flashFadeTime: 0.2
@@ -2278,6 +2385,7 @@ MonoBehaviour:
   playerDamageflashDuration: 0.3
   damageSounds:
   - {fileID: 8300000, guid: 65ecbfd264ba0ba4099aa819754b8601, type: 3}
+  dieSounds: []
   moneyPref: {fileID: 0}
   maxDropMoney: 0
   minDropMoney: 0
@@ -2553,7 +2661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  isBoss: 0
+  isBoss: 1
   playerDamagedEffect: {fileID: 0}
   enemyDamagedEffect: {fileID: 2856819382807918979, guid: 1cbd457bd70010a489c482b984d399cf, type: 3}
   enemyDieEffect: {fileID: 0}
@@ -2630,12 +2738,15 @@ MonoBehaviour:
   OnDestroy_E:
     m_PersistentCalls:
       m_Calls: []
+  dot: {fileID: 30151077733692769}
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 0.9150943, g: 0.19337837, b: 0.19337837, a: 1}
   flashFadeTime: 0.2
   playerDamageColor: {r: 0, g: 0, b: 0, a: 1}
   playerDamageflashDuration: 0.3
   damageSounds: []
+  dieSounds: []
   moneyPref: {fileID: 0}
   maxDropMoney: 0
   minDropMoney: 0
