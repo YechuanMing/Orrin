@@ -212,6 +212,7 @@ MonoBehaviour:
   isBoss: 0
   playerDamagedEffect: {fileID: 0}
   enemyDamagedEffect: {fileID: 4856510264240475413, guid: 50639398baf5b4546bd7bcf49cc13d6a, type: 3}
+  enemyDieEffect: {fileID: 3019085022333028614, guid: 353e2356f97c0ba468a2a321e82398d1, type: 3}
   currHealth: 0
   maxHealth: 5
   interactable: 1
@@ -318,6 +319,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  OnDestroy_E:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1884551774039776530}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: EnemyDieEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   flashDuration: 0.1
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashFadeTime: 0.2
@@ -325,6 +341,12 @@ MonoBehaviour:
   playerDamageflashDuration: 0.3
   damageSounds:
   - {fileID: 8300000, guid: 50d549e0e5672f048aca152957f92435, type: 3}
+  moneyPref: {fileID: 0}
+  maxDropMoney: 0
+  minDropMoney: 0
+  horiztontalSpawnForce: 0
+  verticalSpawnForce: 0
+  destroyTime: 0
 --- !u!114 &1884551774039776534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +615,8 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 0
   playerDamagedEffect: {fileID: 0}
-  enemyDamagedEffect: {fileID: 0}
+  enemyDamagedEffect: {fileID: 232029104522622595, guid: 73146fd0c2a9f394ca54da316542dba0, type: 3}
+  enemyDieEffect: {fileID: 8714860911963784451, guid: ed52366c69aecee4b9dc6398ddd96acf, type: 3}
   currHealth: 10
   maxHealth: 10
   interactable: 1
@@ -613,9 +636,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1884551775421765245}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: EnemyDamageEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeath:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1884551774039776531}
+        m_TargetAssemblyTypeName: SpiritualEnemyBase, Assembly-CSharp
+        m_MethodName: SpiritDied
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1884551775421765247}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: Play
@@ -628,9 +675,12 @@ MonoBehaviour:
           m_StringArgument: Die
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1884551774039776531}
-        m_TargetAssemblyTypeName: SpiritualEnemyBase, Assembly-CSharp
-        m_MethodName: SpiritDied
+  OnDestroy_E:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1884551775421765245}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: EnemyDieEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -646,6 +696,12 @@ MonoBehaviour:
   playerDamageColor: {r: 0, g: 0, b: 0, a: 1}
   playerDamageflashDuration: 0.3
   damageSounds: []
+  moneyPref: {fileID: 0}
+  maxDropMoney: 0
+  minDropMoney: 0
+  horiztontalSpawnForce: 0
+  verticalSpawnForce: 0
+  destroyTime: 0
 --- !u!114 &1884551775421765246
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -175,6 +175,7 @@ MonoBehaviour:
   isBoss: 0
   playerDamagedEffect: {fileID: 0}
   enemyDamagedEffect: {fileID: 4856510264240475413, guid: 50639398baf5b4546bd7bcf49cc13d6a, type: 3}
+  enemyDieEffect: {fileID: 3019085022333028614, guid: 353e2356f97c0ba468a2a321e82398d1, type: 3}
   currHealth: 50
   maxHealth: 50
   interactable: 1
@@ -257,12 +258,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDestroy_E:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7127866611878014448}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: EnemyDieEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   flashDuration: 0.1
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashFadeTime: 0.2
   playerDamageColor: {r: 0, g: 0, b: 0, a: 1}
   playerDamageflashDuration: 0.3
   damageSounds: []
+  moneyPref: {fileID: 0}
+  maxDropMoney: 0
+  minDropMoney: 0
+  horiztontalSpawnForce: 0
+  verticalSpawnForce: 0
+  destroyTime: 0
 --- !u!95 &8604351204917323247
 Animator:
   serializedVersion: 5
@@ -509,7 +531,8 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 0
   playerDamagedEffect: {fileID: 0}
-  enemyDamagedEffect: {fileID: 0}
+  enemyDamagedEffect: {fileID: 232029104522622595, guid: 73146fd0c2a9f394ca54da316542dba0, type: 3}
+  enemyDieEffect: {fileID: 8714860911963784451, guid: ed52366c69aecee4b9dc6398ddd96acf, type: 3}
   currHealth: 5
   maxHealth: 5
   interactable: 1
@@ -520,6 +543,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7000609430762208522}
         m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
         m_MethodName: FlashWhite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7000609430762208522}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: EnemyDamageEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -556,12 +591,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDestroy_E:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7000609430762208522}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: EnemyDieEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   flashDuration: 0.1
   flashColor: {r: 0.8867924, g: 0.48857242, b: 0.50464153, a: 1}
   flashFadeTime: 0.2
   playerDamageColor: {r: 0, g: 0, b: 0, a: 1}
   playerDamageflashDuration: 0.3
   damageSounds: []
+  moneyPref: {fileID: 0}
+  maxDropMoney: 0
+  minDropMoney: 0
+  horiztontalSpawnForce: 0
+  verticalSpawnForce: 0
+  destroyTime: 0
 --- !u!58 &7000609430762208533
 CircleCollider2D:
   m_ObjectHideFlags: 0
