@@ -155,7 +155,7 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 0
   playerDamagedEffect: {fileID: 0}
-  enemyDamagedEffect: {fileID: 4856510264240475413, guid: 50639398baf5b4546bd7bcf49cc13d6a, type: 3}
+  enemyDamagedEffect: {fileID: 2856819382807918979, guid: 1cbd457bd70010a489c482b984d399cf, type: 3}
   enemyDieEffect: {fileID: 0}
   currHealth: 3
   maxHealth: 3
@@ -179,6 +179,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2876495292981116260}
         m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
         m_MethodName: DamageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2876495292981116260}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: EnemyDamageEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -649,8 +661,8 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 1
   playerDamagedEffect: {fileID: 0}
-  enemyDamagedEffect: {fileID: 0}
-  enemyDieEffect: {fileID: 3642582359090235496, guid: 397a40fb1ad8691428916b6e77de04ac, type: 3}
+  enemyDamagedEffect: {fileID: 4585191309710612923, guid: 70df6a9c77345704396efc1a846549a8, type: 3}
+  enemyDieEffect: {fileID: 2963678308109536620, guid: 6c00dc4428235d34b8c0a37ae8e9bafb, type: 3}
   currHealth: 10
   maxHealth: 50
   interactable: 1
@@ -661,6 +673,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2876495293808151811}
         m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
         m_MethodName: FlashWhite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2876495293808151811}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: EnemyDamageEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1250,7 +1274,7 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 1
   playerDamagedEffect: {fileID: 0}
-  enemyDamagedEffect: {fileID: 0}
+  enemyDamagedEffect: {fileID: 4585191309710612923, guid: 70df6a9c77345704396efc1a846549a8, type: 3}
   enemyDieEffect: {fileID: 0}
   currHealth: 10
   maxHealth: 10
@@ -1262,6 +1286,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2876495294061399577}
         m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
         m_MethodName: FlashWhite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2876495294061399577}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: EnemyDamageEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1775,7 +1811,7 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 0
   playerDamagedEffect: {fileID: 0}
-  enemyDamagedEffect: {fileID: 4856510264240475413, guid: 50639398baf5b4546bd7bcf49cc13d6a, type: 3}
+  enemyDamagedEffect: {fileID: 2856819382807918979, guid: 1cbd457bd70010a489c482b984d399cf, type: 3}
   enemyDieEffect: {fileID: 0}
   currHealth: 3
   maxHealth: 3
@@ -1799,6 +1835,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2876495294423728226}
         m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
         m_MethodName: DamageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2876495294423728226}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: EnemyDamageEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2136,7 +2184,7 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 0
   playerDamagedEffect: {fileID: 0}
-  enemyDamagedEffect: {fileID: 4856510264240475413, guid: 50639398baf5b4546bd7bcf49cc13d6a, type: 3}
+  enemyDamagedEffect: {fileID: 2856819382807918979, guid: 1cbd457bd70010a489c482b984d399cf, type: 3}
   enemyDieEffect: {fileID: 0}
   currHealth: 3
   maxHealth: 3
@@ -2160,6 +2208,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2876495294978471145}
         m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
         m_MethodName: DamageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2876495294978471145}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: EnemyDamageEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2495,7 +2555,7 @@ MonoBehaviour:
   isPlayer: 0
   isBoss: 0
   playerDamagedEffect: {fileID: 0}
-  enemyDamagedEffect: {fileID: 0}
+  enemyDamagedEffect: {fileID: 2856819382807918979, guid: 1cbd457bd70010a489c482b984d399cf, type: 3}
   enemyDieEffect: {fileID: 0}
   currHealth: 20
   maxHealth: 20
@@ -2519,6 +2579,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2876495293808152056}
         m_TargetAssemblyTypeName: SoulsBeDestroyInStage2, Assembly-CSharp
         m_MethodName: Bedestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2876495294989859584}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: EnemyDamageEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
