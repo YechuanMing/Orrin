@@ -140,10 +140,10 @@ MonoBehaviour:
   playerDamagedEffect: {fileID: 0}
   enemyDamagedEffect: {fileID: 232029104522622595, guid: 73146fd0c2a9f394ca54da316542dba0, type: 3}
   enemyDieEffect: {fileID: 8714860911963784451, guid: ed52366c69aecee4b9dc6398ddd96acf, type: 3}
-  currHealth: 7
-  maxHealth: 7
+  currHealth: 2
+  maxHealth: 2
   interactable: 1
-  delayDestroyTime: 1.01
+  delayDestroyTime: 0.25
   OnDamage:
     m_PersistentCalls:
       m_Calls:
@@ -213,6 +213,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 0.8867924, g: 0.48857242, b: 0.50464153, a: 1}
   flashFadeTime: 0.2
@@ -548,7 +549,7 @@ MonoBehaviour:
   currHealth: 0
   maxHealth: 7
   interactable: 1
-  delayDestroyTime: 2
+  delayDestroyTime: 0.5
   OnDamage:
     m_PersistentCalls:
       m_Calls:
@@ -642,6 +643,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashFadeTime: 0.2

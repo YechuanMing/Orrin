@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 547656564415182832}
   - component: {fileID: 1393309581535242114}
   - component: {fileID: 4088233350469115821}
+  - component: {fileID: 6261883885256867647}
   m_Layer: 6
   m_Name: enemy_03
   m_TagString: Enemy
@@ -217,7 +218,7 @@ MonoBehaviour:
   currHealth: 35
   maxHealth: 35
   interactable: 1
-  delayDestroyTime: 1.47
+  delayDestroyTime: 0.5
   OnDamage:
     m_PersistentCalls:
       m_Calls:
@@ -296,6 +297,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6261883885256867647}
+        m_TargetAssemblyTypeName: freezeRigidbody2D, Assembly-CSharp
+        m_MethodName: freezePosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDestroy_E:
     m_PersistentCalls:
       m_Calls:
@@ -311,6 +324,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashFadeTime: 0.2
@@ -494,6 +508,18 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 1000
     m_PropagationSpeed: 343
+--- !u!114 &6261883885256867647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547656564415182843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71512f78c47c49f4b9acad62dc443fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &547656564861090633
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +594,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 3380e434b530c1e478e59913297deafa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -637,7 +663,7 @@ MonoBehaviour:
   currHealth: 5
   maxHealth: 5
   interactable: 1
-  delayDestroyTime: 1.01
+  delayDestroyTime: 0.25
   OnDamage:
     m_PersistentCalls:
       m_Calls:
@@ -707,6 +733,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 0.8867924, g: 0.48857242, b: 0.50464153, a: 1}
   flashFadeTime: 0.2

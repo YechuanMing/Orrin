@@ -170,7 +170,7 @@ MonoBehaviour:
   currHealth: 1
   maxHealth: 1
   interactable: 1
-  delayDestroyTime: 2
+  delayDestroyTime: 0.25
   OnDamage:
     m_PersistentCalls:
       m_Calls:
@@ -264,6 +264,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 0.7924528, g: 0.36183694, b: 0.36183694, a: 1}
   flashFadeTime: 0.2

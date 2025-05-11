@@ -273,10 +273,10 @@ public class Destructable : MonoBehaviour
         GameObject effect = Instantiate(enemyDamagedEffect, this.transform.position, this.transform.rotation);
         Destroy(effect, 0.3f);
     }
-
+    public float offset = 0;
     public void EnemyDieEffect()
     {
-        GameObject effect = Instantiate(enemyDieEffect, this.transform.position+Vector3.down*2, this.transform.rotation);
+        GameObject effect = Instantiate(enemyDieEffect, this.transform.position+Vector3.down*offset, this.transform.rotation);
     }
     
 

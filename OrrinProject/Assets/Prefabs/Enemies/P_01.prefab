@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7654388346845713259}
   - component: {fileID: 959279849}
   - component: {fileID: 4259589333069534194}
+  - component: {fileID: 261411751}
   m_Layer: 6
   m_Name: P_01
   m_TagString: Enemy
@@ -53,7 +54,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 70
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -179,7 +180,7 @@ MonoBehaviour:
   currHealth: 50
   maxHealth: 50
   interactable: 1
-  delayDestroyTime: 2
+  delayDestroyTime: 0.5
   OnDamage:
     m_PersistentCalls:
       m_Calls:
@@ -258,6 +259,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 261411751}
+        m_TargetAssemblyTypeName: freezeRigidbody2D, Assembly-CSharp
+        m_MethodName: freezePosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDestroy_E:
     m_PersistentCalls:
       m_Calls:
@@ -273,6 +286,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashFadeTime: 0.2
@@ -429,6 +443,18 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 1000
     m_PropagationSpeed: 343
+--- !u!114 &261411751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7000609430739116769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71512f78c47c49f4b9acad62dc443fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7000609430762208535
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +530,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 2803a57f23181ab4d9afeb9454df3d89, type: 3}
   m_Color: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
   m_FlipX: 0
@@ -536,7 +562,7 @@ MonoBehaviour:
   currHealth: 5
   maxHealth: 5
   interactable: 1
-  delayDestroyTime: 1.01
+  delayDestroyTime: 0.25
   OnDamage:
     m_PersistentCalls:
       m_Calls:
@@ -606,6 +632,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 0.8867924, g: 0.48857242, b: 0.50464153, a: 1}
   flashFadeTime: 0.2

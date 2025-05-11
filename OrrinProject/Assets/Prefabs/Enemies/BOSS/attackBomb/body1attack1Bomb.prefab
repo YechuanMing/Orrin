@@ -172,7 +172,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  landingEffect: {fileID: 6649419828746990918, guid: 2ceaa9b13864ff64ca682ca9393fe438, type: 3}
+  landingEffect: {fileID: 6922293018578593366, guid: 5a42355952cd05f4fa6e58656bdbb189, type: 3}
 --- !u!95 &1786919416870158249
 Animator:
   serializedVersion: 5

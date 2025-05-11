@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 453139518}
   - component: {fileID: 3823226191942948153}
   - component: {fileID: 7830854378794415231}
+  - component: {fileID: 7175758613954279574}
   m_Layer: 6
   m_Name: enemy_04
   m_TagString: Enemy
@@ -221,7 +222,7 @@ MonoBehaviour:
   currHealth: 35
   maxHealth: 20
   interactable: 1
-  delayDestroyTime: 2
+  delayDestroyTime: 0.5
   OnDamage:
     m_PersistentCalls:
       m_Calls:
@@ -300,6 +301,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7175758613954279574}
+        m_TargetAssemblyTypeName: freezeRigidbody2D, Assembly-CSharp
+        m_MethodName: freezePosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDestroy_E:
     m_PersistentCalls:
       m_Calls:
@@ -315,6 +328,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashFadeTime: 0.2
@@ -618,6 +632,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   touchDamage: 1
   repelForce: 4
+--- !u!114 &7175758613954279574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674782828694169327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71512f78c47c49f4b9acad62dc443fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6674782829121202781
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,7 +787,7 @@ MonoBehaviour:
   currHealth: 5
   maxHealth: 8
   interactable: 1
-  delayDestroyTime: 1.01
+  delayDestroyTime: 0.25
   OnDamage:
     m_PersistentCalls:
       m_Calls:
@@ -831,6 +857,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 0.8867924, g: 0.48857242, b: 0.50464153, a: 1}
   flashFadeTime: 0.2
