@@ -297,7 +297,8 @@ public class PlayerController : MonoBehaviour
 
     void AE_runStop()
     {
-        AudioSource.PlayClipAtPoint(m_RunSounds[0], this.transform.position);
+        //AudioSource.PlayClipAtPoint(m_RunSounds[0], this.transform.position);
+        AudioManager.Instance.PlaySoundEffect(m_RunSounds[0]);
         // Spawn Dust
         float dustXOffset = 0.6f;
         SpawnDustEffect(m_RunStopDust, dustXOffset);
@@ -306,7 +307,8 @@ public class PlayerController : MonoBehaviour
     void AE_footstep()
     {
         int seed = UnityEngine.Random.Range(0, m_RunSounds.Length);
-        AudioSource.PlayClipAtPoint(m_RunSounds[seed], this.transform.position);
+        //AudioSource.PlayClipAtPoint(m_RunSounds[seed], this.transform.position);
+        AudioManager.Instance.PlaySoundEffect(m_RunSounds[seed]);
     }
 
     void AE_Jump()
