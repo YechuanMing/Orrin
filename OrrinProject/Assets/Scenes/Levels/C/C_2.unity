@@ -13755,6 +13755,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 801436879}
     m_Modifications:
     - target: {fileID: 574310877, guid: 0978ca6fa1ae3df40961c0d8c6f1c3d4, type: 3}
+      propertyPath: m_ScreenX
+      value: 0.5015625
+      objectReference: {fileID: 0}
+    - target: {fileID: 574310877, guid: 0978ca6fa1ae3df40961c0d8c6f1c3d4, type: 3}
       propertyPath: m_XDamping
       value: 0
       objectReference: {fileID: 0}
@@ -13772,7 +13776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574310877, guid: 0978ca6fa1ae3df40961c0d8c6f1c3d4, type: 3}
       propertyPath: m_TrackedObjectOffset.z
-      value: -35
+      value: -69.44
       objectReference: {fileID: 0}
     - target: {fileID: 5794345334187626273, guid: 0978ca6fa1ae3df40961c0d8c6f1c3d4, type: 3}
       propertyPath: m_Name
