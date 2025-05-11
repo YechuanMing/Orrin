@@ -8,13 +8,12 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; }
 
     public AudioClip[] BGMs;
-
+    public AudioClip[] AmbientMusics;
     public AudioClip currBGM;
     public AudioClip currAmbientLoop;
 
     public AudioSource audioSource_BGM;
-    public AudioSource audioSource_UI;
-    public AudioSource audioSource_AmbientSoudLoop;
+    public AudioSource audioSource_AmbientSound;
     public AudioSource audioSource_SpecialLoop;
 
     public float defaultVolume = 0.5f;
@@ -35,15 +34,32 @@ public class AudioManager : MonoBehaviour
         Instance = this;
     }
 
+    public void PlayAmbient(int index, bool isQuick)
+    {
+        if (currBGM != null)
+        {
+            if (isQuick)
+            {
+                TransitionMusic(audioSource_AmbientSound, BGMs[index], transitionDuration_Quick);
+            }
+            else
+                TransitionMusic(audioSource_AmbientSound, BGMs[index], transitionDuration_Slow);
+        }
+        else
+        {
+            audioSource_AmbientSound.clip = BGMs[index];
+            audioSource_AmbientSound.Play();
+        }
+    }
     public void PlayBGM(int index,bool isQuick)
     {
         if(currBGM!=null)
         {
             if (isQuick)
             {
-                TransitionMusic(BGMs[index], transitionDuration_Quick);
+                TransitionMusic(audioSource_BGM,BGMs[index], transitionDuration_Quick);
             }else
-                TransitionMusic(BGMs[index], transitionDuration_Slow);
+                TransitionMusic(audioSource_BGM,BGMs[index], transitionDuration_Slow);
         }else
         {
             audioSource_BGM.clip = BGMs[index];
@@ -52,7 +68,7 @@ public class AudioManager : MonoBehaviour
     }
 
     Sequence sequence;
-    public void TransitionMusic(AudioClip newMusicClip,float duration)
+    public void TransitionMusic(AudioSource source,AudioClip newMusicClip,float duration)
     {
 
         // 创建一个 DOTween 序列
@@ -61,17 +77,17 @@ public class AudioManager : MonoBehaviour
         sequence = DOTween.Sequence();
 
         // 第一步：将音量降低到最低值
-        sequence.Append(audioSource_BGM.DOFade(minVolume, duration / 2));
+        sequence.Append(source.DOFade(minVolume, duration / 2));
 
         // 第二步：在音量降低完成后切换音乐
         sequence.AppendCallback(() =>
         {
-            audioSource_BGM.clip = newMusicClip;
-            audioSource_BGM.Play();
+            source.clip = newMusicClip;
+            source.Play();
         });
 
         // 第三步：将新音乐的音量升高到正常值
-        sequence.Append(audioSource_BGM.DOFade(defaultVolume, duration / 2));
+        sequence.Append(source.DOFade(defaultVolume, duration / 2));
 
         // 启动序列
         sequence.Play();
