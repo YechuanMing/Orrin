@@ -46,6 +46,8 @@ public class PlayerAttackControl : MonoBehaviour
     [Range(0.4f, 1)]
     private float attackDownOffsetY;
 
+    public AudioClip[] attackSounds;
+
     private void Awake()
     {
         // 检查是否已有实例
@@ -99,11 +101,16 @@ public class PlayerAttackControl : MonoBehaviour
     private float splashWaveTimer = 0.0f;
     [SerializeField]
     private float splashWaveCoolDownTime = 0.5f;
-
+    public GameObject splashEffect;
+    public AudioClip splashSoundEffect;
     public void Splash()
     {
         GameObject wave = Instantiate(splashWavePref, attackFrontSpot.position + Vector3.right * attackFrontOffsetX * transform.localScale.x, attackFrontSpot.rotation);
+        GameObject sE = Instantiate(splashEffect, transform.position+Vector3.right * transform.localScale.x/*+Vector3.right*0.5f*/, transform.rotation);
+        Destroy(sE, 0.3f);
+        AudioManager.Instance.PlaySoundEffect(splashSoundEffect);
         wave.transform.localScale = transform.localScale;
+        sE.transform.localScale = transform.localScale;
         Destroy(wave, splashDuration);
         wave.transform.DOMoveX(transform.position.x+splashDistance*transform.localScale.x,splashDuration).SetEase(Ease.OutQuad);
     }
@@ -140,6 +147,10 @@ public class PlayerAttackControl : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (attackSounds.Length > 0)
+                {
+                    AudioManager.Instance.PlaySoundEffect(attackSounds[Random.Range(0, attackSounds.Length - 1)]);
+                }
                 if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.W))
                 {
                     //m_animator.SetTrigger("UpAttack");

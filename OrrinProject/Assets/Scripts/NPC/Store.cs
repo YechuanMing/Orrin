@@ -7,6 +7,8 @@ public class Store : MonoBehaviour
     public List<Product> products;
     public int currSelectIndex;
 
+    public AudioClip interactSound;
+
     private void Start()
     {
         currSelectIndex = -1;
@@ -30,7 +32,7 @@ public class Store : MonoBehaviour
     public void Buy()
     {
         bool result=products[currSelectIndex].Purchase();
-        
+        AudioManager.Instance.PlaySoundEffect(interactSound);
 
         if(result)
         {

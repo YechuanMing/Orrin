@@ -43,9 +43,18 @@ public class DialogueNPC : MonoBehaviour
     public GameObject Store;
     public bool storeOpen;
 
+    public AudioClip[] TalkSounds;
     public void Start()
     {
         currDialogueIndex = GameManager.Instance.NPCDialogueIndex;
+    }
+
+    public void Talk()
+    {
+        if(TalkSounds.Length>0)
+        {
+            AudioManager.Instance.PlaySoundEffect(TalkSounds[UnityEngine.Random.Range(0, TalkSounds.Length - 1)]);
+        }
     }
 
     public void SetCurrentDialogue()

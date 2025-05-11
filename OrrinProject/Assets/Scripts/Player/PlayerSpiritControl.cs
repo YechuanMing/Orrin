@@ -168,11 +168,14 @@ public class PlayerSpiritControl : MonoBehaviour
         }
     }
 
+    public AudioClip teleportSoundEffect;
     private void TeleportToSpirit()
     {
         //后期可以加上特效
         PlayerController.Instance.transform.position = this.transform.position;
         PlayerSpiritualization.Instance.DeSpiritualize();
+        AudioManager.Instance.PlaySoundEffect(teleportSoundEffect);
+        
     }
 
 }

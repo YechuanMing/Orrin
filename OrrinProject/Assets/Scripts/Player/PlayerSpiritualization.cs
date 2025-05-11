@@ -111,11 +111,16 @@ public class PlayerSpiritualization : MonoBehaviour
 
     }
 
+
+    public AudioClip[] SpiritualSounds;
+
     //»•¡ÈªÍªØ
     public  void DeSpiritualize()
     {
         DeSpiritualizeBroadcast?.Invoke();
         OnCharacterhDeSpiritualized.Invoke();
+        AudioManager.Instance.EndSpecialSoundLoop();
+        AudioManager.Instance.PlaySoundEffect(SpiritualSounds[2]);
         m_State = SpiritState.Physical;
         PostProcessManager.Instance.ResetToDefault();
         Time.timeScale = 1f;
@@ -134,6 +139,8 @@ public class PlayerSpiritualization : MonoBehaviour
         PostProcessManager.Instance.PlayerSpiritualizeCombo();
         SpiritualizeBroadcast?.Invoke();
         OnCharacterSpiritualized.Invoke();
+        AudioManager.Instance.PlaySoundEffect(SpiritualSounds[0]);
+        AudioManager.Instance.PlaySpecialSoundLoop(SpiritualSounds[1]);
         m_State = SpiritState.Spiritual;
         Time.timeScale = 0.5f;
     }

@@ -313,14 +313,16 @@ public class PlayerController : MonoBehaviour
 
     void AE_Jump()
     {
-        AudioSource.PlayClipAtPoint(m_JumpSound, this.transform.position);
+        //AudioSource.PlayClipAtPoint(m_JumpSound, this.transform.position);
+        AudioManager.Instance.PlaySoundEffect(m_JumpSound);
         // Spawn Dust
         SpawnDustEffect(m_JumpDust);
     }
 
     void AE_Landing()
     {
-        AudioSource.PlayClipAtPoint(m_LandSound, this.transform.position);
+        //AudioSource.PlayClipAtPoint(m_LandSound, this.transform.position);
+        AudioManager.Instance.PlaySoundEffect(m_LandSound);
         // Spawn Dust
         SpawnDustEffect(m_LandingDust);
     }
@@ -333,10 +335,12 @@ public class PlayerController : MonoBehaviour
     private float dashTimer = 0f; // ³å´Ì¼ÆÊ±Æ÷
     private Tween dashTween;
 
+    public AudioClip dashSoundEffect;
     void Dash()
     {
         //m_body2d.isKinematic = true;
         m_animator.Play("Dash");
+        AudioManager.Instance.PlaySoundEffect(dashSoundEffect);
         m_body2d.gravityScale = 0;
         m_body2d.velocity = Vector2.zero;
         isFreeze = true;
