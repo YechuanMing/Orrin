@@ -629,6 +629,8 @@ MonoBehaviour:
   OnDestroy_E:
     m_PersistentCalls:
       m_Calls: []
+  dot: {fileID: 0}
+  offset: 0
   flashDuration: 0.1
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashFadeTime: 0.2

@@ -173,7 +173,7 @@ public class Destructable : MonoBehaviour
 
 
         //如果目前挂这个物体的是玩家，需要有独特的受击处理
-        if (isPlayer && currHealth > 0)
+        if (isPlayer)
         {
             //如果玩家处于灵魂状态，弹出来。
             if (PlayerSpiritualization.m_State == PlayerSpiritualization.SpiritState.Spiritual)
@@ -182,7 +182,7 @@ public class Destructable : MonoBehaviour
                 Debug.Log("玩家回到物理状态");
             }
 
-            //if (currHealth > 0)
+            if (currHealth > 0)
             {
                 //以下是玩家受攻击时候的僵硬和击退等效果
                 //短暂慢镜头
@@ -226,43 +226,18 @@ public class Destructable : MonoBehaviour
                     }).OnComplete(() => { DOVirtual.DelayedCall(3f, () => { interactable = true; StopCoroutine(FlashBlack); spriteRenderer.color = originalColor; }); });
                 });
             }
+            else
+            {
+
+            }
+
+
 
         }
         else
         {
-            ////如果不是玩家 被主角伤害到了溅血特效
-            //if (PlayerAttackControl.Instance.attackDirection == 1)
-            //{
-            //    GameObject slashObject = Instantiate(PlayerAttackControl.Instance.GetComponent<Destructable>().slashEffect,
-            //        PlayerAttackControl.Instance.attackUpSpot.position + Vector3.up * 0.5f, PlayerAttackControl.Instance.attackUpSpot.rotation);
-            //    slashObject.transform.localScale = PlayerAttackControl.Instance.transform.localScale;
-            //    slashObject.transform.SetParent(PlayerAttackControl.Instance.transform);
-            //    Destroy(slashObject, 0.3f);
-            //    //向上
-            //    PlayerAttackControl.Instance.attackDirection = 0;
-            //}
-            //else if (PlayerAttackControl.Instance.attackDirection == 2)
-            //{
-            //    GameObject slashObject = Instantiate(PlayerAttackControl.Instance.GetComponent<Destructable>().slashEffect,
-            //        PlayerAttackControl.Instance.attackDownSpot.position + Vector3.down * 0.5f, PlayerAttackControl.Instance.attackDownSpot.rotation);
-            //    slashObject.transform.localScale = PlayerAttackControl.Instance.transform.localScale;
-            //    slashObject.transform.SetParent(PlayerAttackControl.Instance.transform);
-            //    Destroy(slashObject, 0.3f);
-            //    //向下
-            //    PlayerAttackControl.Instance.attackDirection = 0;
-            //}
-            //else if (PlayerAttackControl.Instance.attackDirection == 3)
-            //{
-            //    GameObject slashObject = Instantiate(PlayerAttackControl.Instance.GetComponent<Destructable>().slashEffect,
-            //       PlayerAttackControl.Instance.attackFrontSpot.position + Vector3.right * 0.5f*PlayerAttackControl.Instance.transform.localScale.x,
-            //       PlayerAttackControl.Instance.attackFrontSpot.rotation);
-            //    slashObject.transform.localScale = PlayerAttackControl.Instance.transform.localScale;
-            //    slashObject.transform.SetParent(PlayerAttackControl.Instance.transform);
-            //    Destroy(slashObject, 0.3f);
-            //    //向前
-            //    PlayerAttackControl.Instance.attackDirection = 0;
-            //}
-            //如果不是玩家，会抖动一下，加强打击感。
+            ////如果不是玩家 
+
             transform.DOShakeScale(0.3f, 0.2f, 1, 10);
             DamageSound();
         }
