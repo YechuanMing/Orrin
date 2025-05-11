@@ -106,6 +106,7 @@ MonoBehaviour:
   basicAttackDashDistance: 1
   attackVelocityMultipier: 0.5
   dashDuration: 0.45
+  teleportSoundEffect: {fileID: 8300000, guid: 53129f6bf743c7640a1784baae5698f3, type: 3}
 --- !u!95 &3840741183755558768
 Animator:
   serializedVersion: 5

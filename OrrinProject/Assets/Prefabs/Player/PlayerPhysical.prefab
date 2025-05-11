@@ -356,6 +356,7 @@ MonoBehaviour:
   dustYOffset: 0.236
   dashSpeed: 4.22
   dashDuration: 0.31
+  dashSoundEffect: {fileID: 8300000, guid: 8f355092959f2c746839912cfb63abe3, type: 3}
 --- !u!114 &2555993183255677633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,12 +383,17 @@ MonoBehaviour:
   attackFrontOffsetX: 0.5
   attackUpOffsetY: 0.46
   attackDownOffsetY: 0.4
+  attackSounds:
+  - {fileID: 8300000, guid: da676e4c700f3dc42a0cfef4b6b8ca7c, type: 3}
+  - {fileID: 8300000, guid: ec04175c3ae770e4189e0f81f7567aa1, type: 3}
   splashEnergyCost: 0
   splashWavePref: {fileID: 6226650225405851048, guid: c8cda88156e46de41997cccec56e1321, type: 3}
   splashDuration: 3
   splashDistance: 32
   splashWaveTimer: -0.13
   splashWaveCoolDownTime: 0.5
+  splashEffect: {fileID: 8367743831625515696, guid: d1f9f5c676e3aff4a83adf7afc0755b6, type: 3}
+  splashSoundEffect: {fileID: 8300000, guid: bb11d5f2529d68443855f5dd12b25b93, type: 3}
 --- !u!114 &885849304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,6 +511,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  SpiritualSounds:
+  - {fileID: 8300000, guid: a7e553566630e84429c684dea3257269, type: 3}
+  - {fileID: 8300000, guid: aaab82689417c20498f3ebb66a123db3, type: 3}
+  - {fileID: 8300000, guid: 1a804c99f7c299340bffb1b24b123d0a, type: 3}
 --- !u!114 &8948243974802089904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,6 +531,7 @@ MonoBehaviour:
   isBoss: 0
   playerDamagedEffect: {fileID: 3822589874063496482, guid: 13d2c973aa567c447985240c2affe375, type: 3}
   enemyDamagedEffect: {fileID: 0}
+  enemyDieEffect: {fileID: 0}
   currHealth: 0
   maxHealth: 0
   interactable: 1
@@ -531,6 +542,18 @@ MonoBehaviour:
       - m_Target: {fileID: 8948243974802089904}
         m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
         m_MethodName: player_attackedEffects
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8948243974802089904}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: DamageSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -591,12 +614,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 8948243974802089904}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: DieSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  OnDestroy_E:
+    m_PersistentCalls:
+      m_Calls: []
   flashDuration: 0.1
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashFadeTime: 0.2
   playerDamageColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
   playerDamageflashDuration: 0.3
-  damageSounds: []
+  damageSounds:
+  - {fileID: 8300000, guid: 10f3b553821d4314eb60fbd528a00c93, type: 3}
+  dieSounds:
+  - {fileID: 8300000, guid: e051b857bcf9f3d4683136f544ae6040, type: 3}
+  moneyPref: {fileID: 0}
+  maxDropMoney: 0
+  minDropMoney: 0
+  horiztontalSpawnForce: 0
+  verticalSpawnForce: 0
+  destroyTime: 0
 --- !u!114 &6174881172730336970
 MonoBehaviour:
   m_ObjectHideFlags: 0

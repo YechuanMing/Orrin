@@ -10,9 +10,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] BGMs;
 
     public AudioClip currBGM;
+    public AudioClip currAmbientLoop;
 
     public AudioSource audioSource_BGM;
     public AudioSource audioSource_UI;
+    public AudioSource audioSource_AmbientSoudLoop;
+    public AudioSource audioSource_SpecialLoop;
 
     public float defaultVolume = 0.5f;
     public float minVolume=0.1f;
@@ -78,12 +81,27 @@ public class AudioManager : MonoBehaviour
     public void PlaySoundEffect(AudioClip clip)
     {
         AudioSource.PlayClipAtPoint(clip, transform.position, 20f);
+
     }
 
 
+    public void PlaySpecialSoundLoop(AudioClip clip)
+    {
+        audioSource_SpecialLoop.clip = clip;
+        audioSource_SpecialLoop.Play();
+    }
+
+    public void EndSpecialSoundLoop()
+    {
+        audioSource_SpecialLoop.Stop();
+        audioSource_SpecialLoop.clip = null;
+    }
 
     private void Update()
     {
         transform.position = Camera.main.transform.position;
     }
+
+
+
 }

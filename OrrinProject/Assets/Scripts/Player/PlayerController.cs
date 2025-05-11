@@ -297,7 +297,8 @@ public class PlayerController : MonoBehaviour
 
     void AE_runStop()
     {
-        AudioSource.PlayClipAtPoint(m_RunSounds[0], this.transform.position);
+        //AudioSource.PlayClipAtPoint(m_RunSounds[0], this.transform.position);
+        AudioManager.Instance.PlaySoundEffect(m_RunSounds[0]);
         // Spawn Dust
         float dustXOffset = 0.6f;
         SpawnDustEffect(m_RunStopDust, dustXOffset);
@@ -306,19 +307,22 @@ public class PlayerController : MonoBehaviour
     void AE_footstep()
     {
         int seed = UnityEngine.Random.Range(0, m_RunSounds.Length);
-        AudioSource.PlayClipAtPoint(m_RunSounds[seed], this.transform.position);
+        //AudioSource.PlayClipAtPoint(m_RunSounds[seed], this.transform.position);
+        AudioManager.Instance.PlaySoundEffect(m_RunSounds[seed]);
     }
 
     void AE_Jump()
     {
-        AudioSource.PlayClipAtPoint(m_JumpSound, this.transform.position);
+        //AudioSource.PlayClipAtPoint(m_JumpSound, this.transform.position);
+        AudioManager.Instance.PlaySoundEffect(m_JumpSound);
         // Spawn Dust
         SpawnDustEffect(m_JumpDust);
     }
 
     void AE_Landing()
     {
-        AudioSource.PlayClipAtPoint(m_LandSound, this.transform.position);
+        //AudioSource.PlayClipAtPoint(m_LandSound, this.transform.position);
+        AudioManager.Instance.PlaySoundEffect(m_LandSound);
         // Spawn Dust
         SpawnDustEffect(m_LandingDust);
     }
@@ -331,10 +335,12 @@ public class PlayerController : MonoBehaviour
     private float dashTimer = 0f; // ³å´Ì¼ÆÊ±Æ÷
     private Tween dashTween;
 
+    public AudioClip dashSoundEffect;
     void Dash()
     {
         //m_body2d.isKinematic = true;
         m_animator.Play("Dash");
+        AudioManager.Instance.PlaySoundEffect(dashSoundEffect);
         m_body2d.gravityScale = 0;
         m_body2d.velocity = Vector2.zero;
         isFreeze = true;

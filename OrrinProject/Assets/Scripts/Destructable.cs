@@ -354,13 +354,23 @@ public class Destructable : MonoBehaviour
     }
 
     public AudioClip[] damageSounds;
-
+    public AudioClip[] dieSounds;
     public void DamageSound()
     {
         //AudioSource.PlayClipAtPoint(damageSounds[Random.Range(0, damageSounds.Length)], new Vector3(transform.position.x, transform.position.y, 20f), 100f);
         if(damageSounds.Length>0)
         {
             AudioManager.Instance.PlaySoundEffect(damageSounds[Random.Range(0, damageSounds.Length-1)]);
+        }
+
+    }
+
+    public void DieSound()
+    {
+        //AudioSource.PlayClipAtPoint(damageSounds[Random.Range(0, damageSounds.Length)], new Vector3(transform.position.x, transform.position.y, 20f), 100f);
+        if (damageSounds.Length > 0)
+        {
+            AudioManager.Instance.PlaySoundEffect(dieSounds[Random.Range(0, damageSounds.Length - 1)]);
         }
 
     }
