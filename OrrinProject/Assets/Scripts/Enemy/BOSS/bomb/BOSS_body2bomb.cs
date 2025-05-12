@@ -29,9 +29,9 @@ public class BOSS_body2bomb : MonoBehaviour
             GameObject bomb = Instantiate(BombOne, center, Quaternion.identity);
             float randomTime = timeOptions[Random.Range(0, timeOptions.Length)];
             if(isPlayerOnLeft)
-                 bomb.GetComponent<bodyTwoAttackOneBomb>().move(startX + offsets[i], -2.96f, randomTime);
+                 bomb.GetComponent<bodyTwoAttackOneBomb>().move(startX + offsets[i], -2.6f, randomTime);
             else
-                bomb.GetComponent<bodyTwoAttackOneBomb>().move(-(startX + offsets[i]), -2.96f, randomTime);
+                bomb.GetComponent<bodyTwoAttackOneBomb>().move(-(startX + offsets[i]), -2.6f, randomTime);
         }
 
     }
