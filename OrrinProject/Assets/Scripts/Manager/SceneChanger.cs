@@ -33,7 +33,10 @@ public class SceneChanger : MonoBehaviour
         blackScreenCanvasGroup.alpha = 0; // 黑幕默认透明
     }
 
-
+    private void Start()
+    {
+        SceneMusicSwitch();
+    }
 
     /// <summary>
     /// 切换到指定场景并带有黑屏过渡效果
@@ -42,6 +45,7 @@ public class SceneChanger : MonoBehaviour
     public void TransitionToScene(string sceneName,int doorIndex)
     {
         StartCoroutine(PerformSceneTransition(sceneName,doorIndex));
+        SceneMusicSwitch();
     }
 
     /// <summary>
@@ -60,6 +64,9 @@ public class SceneChanger : MonoBehaviour
         // 等待一帧以确保场景加载完成
         yield return null;
 
+
+        
+
         SpawnPlayerNearTargetDoor(doorIndex);
 
         // 黑屏淡出
@@ -71,7 +78,22 @@ public class SceneChanger : MonoBehaviour
         StartCoroutine(PlayerRebornCoro_Local(rebornFadeTime));
     }
 
-    
+    public void SceneMusicSwitch()
+    {
+        switch (SceneManager.GetActiveScene().name[0])
+        {
+            case 'A':
+                AudioManager.Instance.PlayBGM(0, false);
+                break;
+            case 'B':
+                AudioManager.Instance.PlayBGM(1, false);
+                break;
+            case 'C':
+                AudioManager.Instance.PlayBGM(2, false);
+                break;
+        }
+    }
+
     public IEnumerator PlayerRebornCoro_Local(float rebornFadeTime)
     {
         yield return FadeToBlack(rebornFadeTime/2);
@@ -85,6 +107,7 @@ public class SceneChanger : MonoBehaviour
     public void PlayerRebornTransition_Global(float rebornFadeTime,string sceneName)
     {
         StartCoroutine(PlayerRebornCoro_Global(rebornFadeTime,sceneName));
+        SceneMusicSwitch();
     }
 
     public IEnumerator PlayerRebornCoro_Global(float rebornFadeTime, string sceneName)

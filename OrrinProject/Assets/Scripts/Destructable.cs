@@ -142,6 +142,11 @@ public class Destructable : MonoBehaviour
             GameManager.Instance.RebornPlayer_Global();
 
             PostProcessManager.Instance.PlayerDieVignette();
+            if (PlayerSpiritualization.m_State == PlayerSpiritualization.SpiritState.Spiritual)
+            {
+                PlayerSpiritualization.Instance.DeSpiritualize();
+                Debug.Log("玩家回到物理状态");
+            }
 
         }
 

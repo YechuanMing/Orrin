@@ -55,6 +55,10 @@ public class AudioManager : MonoBehaviour
     {
         if(currBGM!=null)
         {
+            if(BGMs[index]==currBGM)
+            {
+
+            }
             if (isQuick)
             {
                 TransitionMusic(audioSource_BGM,BGMs[index], transitionDuration_Quick);
@@ -64,6 +68,7 @@ public class AudioManager : MonoBehaviour
         {
             audioSource_BGM.clip = BGMs[index];
             audioSource_BGM.Play();
+            currBGM = BGMs[index];
         }
     }
 
