@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        DontDestroyOnLoad(gameObject);
         // 设置实例并标记为不销毁
         Instance = this;
     }
@@ -57,7 +57,7 @@ public class AudioManager : MonoBehaviour
         {
             if(BGMs[index]==currBGM)
             {
-
+                return;
             }
             if (isQuick)
             {
