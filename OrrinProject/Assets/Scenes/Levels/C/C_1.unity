@@ -1133,7 +1133,7 @@ PrefabInstance:
     - target: {fileID: 871785643542116197, guid: 96344a1db86425a4991c4e437a10a987, type: 3}
       propertyPath: firstPoint
       value: 
-      objectReference: {fileID: 1397580592}
+      objectReference: {fileID: 189393605}
     - target: {fileID: 871785643542116197, guid: 96344a1db86425a4991c4e437a10a987, type: 3}
       propertyPath: playerDataObj
       value: 
