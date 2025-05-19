@@ -213,6 +213,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dot: {fileID: 0}
   offset: 0
   flashDuration: 0.1
   flashColor: {r: 0.8867924, g: 0.48857242, b: 0.50464153, a: 1}
@@ -220,6 +221,7 @@ MonoBehaviour:
   playerDamageColor: {r: 0, g: 0, b: 0, a: 1}
   playerDamageflashDuration: 0.3
   damageSounds: []
+  dieSounds: []
   moneyPref: {fileID: 0}
   maxDropMoney: 0
   minDropMoney: 0
@@ -415,7 +417,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 056c551de003c794482ae95ace2d7db6, type: 3}
-  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 0.70980394}
+  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -628,6 +630,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1985315567213825998}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: DieSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDestroy_E:
     m_PersistentCalls:
       m_Calls:
@@ -643,14 +657,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dot: {fileID: 0}
   offset: 0
   flashDuration: 0.1
-  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashColor: {r: 0.7264151, g: 0.16035953, b: 0.16035953, a: 1}
   flashFadeTime: 0.2
   playerDamageColor: {r: 0, g: 0, b: 0, a: 1}
   playerDamageflashDuration: 0.3
   damageSounds:
   - {fileID: 8300000, guid: 50d549e0e5672f048aca152957f92435, type: 3}
+  dieSounds:
+  - {fileID: 8300000, guid: 0c2e68281bb70684bb3485f268e1f82c, type: 3}
+  - {fileID: 8300000, guid: 61e50bc14d6f6ca4ab77e43b677becd7, type: 3}
+  - {fileID: 8300000, guid: e6a79ccab978322488158b8c454e3470, type: 3}
   moneyPref: {fileID: 0}
   maxDropMoney: 0
   minDropMoney: 0

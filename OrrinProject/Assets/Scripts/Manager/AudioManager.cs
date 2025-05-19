@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        DontDestroyOnLoad(gameObject);
         // 设置实例并标记为不销毁
         Instance = this;
     }
@@ -55,6 +55,10 @@ public class AudioManager : MonoBehaviour
     {
         if(currBGM!=null)
         {
+            if(BGMs[index]==currBGM)
+            {
+                return;
+            }
             if (isQuick)
             {
                 TransitionMusic(audioSource_BGM,BGMs[index], transitionDuration_Quick);
@@ -64,6 +68,7 @@ public class AudioManager : MonoBehaviour
         {
             audioSource_BGM.clip = BGMs[index];
             audioSource_BGM.Play();
+            currBGM = BGMs[index];
         }
     }
 

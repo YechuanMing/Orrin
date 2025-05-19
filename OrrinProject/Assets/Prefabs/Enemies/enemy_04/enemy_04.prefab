@@ -313,6 +313,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6674782828694169313}
+        m_TargetAssemblyTypeName: Destructable, Assembly-CSharp
+        m_MethodName: DieSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDestroy_E:
     m_PersistentCalls:
       m_Calls:
@@ -328,6 +340,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dot: {fileID: 0}
   offset: 0
   flashDuration: 0.1
   flashColor: {r: 1, g: 1, b: 1, a: 1}
@@ -336,6 +349,16 @@ MonoBehaviour:
   playerDamageflashDuration: 0.3
   damageSounds:
   - {fileID: 8300000, guid: 50d549e0e5672f048aca152957f92435, type: 3}
+  - {fileID: 8300000, guid: 50d549e0e5672f048aca152957f92435, type: 3}
+  - {fileID: 8300000, guid: 65ecbfd264ba0ba4099aa819754b8601, type: 3}
+  - {fileID: 8300000, guid: f50344ae8b9affc42b447c2098e14fe7, type: 3}
+  - {fileID: 8300000, guid: b1bf5b41b9693b94e8f9b64c14057282, type: 3}
+  - {fileID: 8300000, guid: 2854f342b39ab30449c4f4cff23ca389, type: 3}
+  - {fileID: 8300000, guid: 65461c8fae4731948911718d9eed851e, type: 3}
+  dieSounds:
+  - {fileID: 8300000, guid: 0c2e68281bb70684bb3485f268e1f82c, type: 3}
+  - {fileID: 8300000, guid: 61e50bc14d6f6ca4ab77e43b677becd7, type: 3}
+  - {fileID: 8300000, guid: e6a79ccab978322488158b8c454e3470, type: 3}
   moneyPref: {fileID: 0}
   maxDropMoney: 0
   minDropMoney: 0
@@ -857,6 +880,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dot: {fileID: 0}
   offset: 0
   flashDuration: 0.1
   flashColor: {r: 0.8867924, g: 0.48857242, b: 0.50464153, a: 1}
@@ -864,6 +888,7 @@ MonoBehaviour:
   playerDamageColor: {r: 0, g: 0, b: 0, a: 1}
   playerDamageflashDuration: 0.3
   damageSounds: []
+  dieSounds: []
   moneyPref: {fileID: 0}
   maxDropMoney: 0
   minDropMoney: 0

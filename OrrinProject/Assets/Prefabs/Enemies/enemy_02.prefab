@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5462bf8d89a1fbb4a96275bf481925f5, type: 3}
-  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -347,14 +347,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dot: {fileID: 0}
   offset: 0
   flashDuration: 0.1
-  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashColor: {r: 0.8018868, g: 0.24510501, b: 0.24510501, a: 1}
   flashFadeTime: 0.2
   playerDamageColor: {r: 0, g: 0, b: 0, a: 1}
   playerDamageflashDuration: 0.3
   damageSounds:
   - {fileID: 8300000, guid: 50d549e0e5672f048aca152957f92435, type: 3}
+  dieSounds: []
   moneyPref: {fileID: 0}
   maxDropMoney: 0
   minDropMoney: 0
@@ -715,6 +717,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dot: {fileID: 0}
   offset: 0
   flashDuration: 0.1
   flashColor: {r: 0.8867924, g: 0.48857242, b: 0.50464153, a: 1}
@@ -722,6 +725,7 @@ MonoBehaviour:
   playerDamageColor: {r: 0, g: 0, b: 0, a: 1}
   playerDamageflashDuration: 0.3
   damageSounds: []
+  dieSounds: []
   moneyPref: {fileID: 0}
   maxDropMoney: 0
   minDropMoney: 0

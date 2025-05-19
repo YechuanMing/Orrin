@@ -17,13 +17,13 @@ public class BOSS_bomb : MonoBehaviour
         float startX =Mathf.Abs(transform.InverseTransformPoint(player.position).x);
         // ÊµÀý»¯Õ¨µ¯
         GameObject bomb1 = Instantiate(BombOne, center, Quaternion.identity);
-        bomb1.GetComponent<bodyOneAttackOneBomb>().move(startX, -2.16f, BombOne_time);
+        bomb1.GetComponent<bodyOneAttackOneBomb>().move(startX, -2.1f, BombOne_time);
         GameObject bomb2 = Instantiate(BombOne, center, Quaternion.identity);
-        bomb2.GetComponent<bodyOneAttackOneBomb>().move(startX+3f, -2.16f, BombOne_time);
+        bomb2.GetComponent<bodyOneAttackOneBomb>().move(startX+3f, -2.1f, BombOne_time);
         GameObject bomb3 = Instantiate(BombOne, center, Quaternion.identity);
-        bomb3.GetComponent<bodyOneAttackOneBomb>().move(-startX, -2.16f, BombOne_time);
+        bomb3.GetComponent<bodyOneAttackOneBomb>().move(-startX, -2.1f, BombOne_time);
         GameObject bomb4 = Instantiate(BombOne, center, Quaternion.identity);
-        bomb4.GetComponent<bodyOneAttackOneBomb>().move(-startX-3f, -2.16f, BombOne_time);
+        bomb4.GetComponent<bodyOneAttackOneBomb>().move(-startX-3f, -2.1f, BombOne_time);
 
     }
     public void bomb_body1Attack2()
@@ -44,7 +44,7 @@ public class BOSS_bomb : MonoBehaviour
                 float x = moveStartX + 1.5f- i * 0.5f;
                 bombs[i] = Instantiate(BombTwo, center, Quaternion.identity);
                 float randomTime = timeOptions[Random.Range(0, timeOptions.Length)];
-                bombs[i].GetComponent<bodyOneAttackTwoBomb>().move(x, -2.16f, randomTime);
+                bombs[i].GetComponent<bodyOneAttackTwoBomb>().move(x, -2.1f, randomTime);
             }
         }
         else
@@ -54,7 +54,7 @@ public class BOSS_bomb : MonoBehaviour
                 float x = moveStartX - 1.5f + i * 0.5f;
                 bombs[i] = Instantiate(BombTwo, center, Quaternion.identity);
                 float randomTime = timeOptions[Random.Range(0, timeOptions.Length)];
-                bombs[i].GetComponent<bodyOneAttackTwoBomb>().move(x, -2.16f, randomTime);
+                bombs[i].GetComponent<bodyOneAttackTwoBomb>().move(x, -2.1f, randomTime);
             }
         }
     }

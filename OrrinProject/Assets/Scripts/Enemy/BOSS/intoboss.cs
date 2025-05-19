@@ -34,6 +34,7 @@ public class intoboss : MonoBehaviour
 
             isTrigger = true;
             triggerBoss.SetActive(true);
+            AudioManager.Instance.PlayBGM(3, true);
         }
     }
 }
