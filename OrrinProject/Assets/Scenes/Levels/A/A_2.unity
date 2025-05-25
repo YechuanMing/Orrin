@@ -11077,7 +11077,7 @@ GameObject:
   - component: {fileID: 1014457624}
   - component: {fileID: 1014457623}
   - component: {fileID: 1014457622}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: attackHint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

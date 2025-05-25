@@ -11495,6 +11495,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerDataCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6656963167255613173, guid: 3c415ac25f44ef94f83b752fe465e1e0, type: 3}
+      propertyPath: m_Text
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c415ac25f44ef94f83b752fe465e1e0, type: 3}
 --- !u!1 &1201521333
@@ -12062,7 +12066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574310877, guid: 0978ca6fa1ae3df40961c0d8c6f1c3d4, type: 3}
       propertyPath: m_TrackedObjectOffset.z
-      value: -78
+      value: -43.76
       objectReference: {fileID: 0}
     - target: {fileID: 5794345334187626273, guid: 0978ca6fa1ae3df40961c0d8c6f1c3d4, type: 3}
       propertyPath: m_Name

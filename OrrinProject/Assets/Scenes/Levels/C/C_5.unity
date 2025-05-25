@@ -27281,7 +27281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574310877, guid: 0978ca6fa1ae3df40961c0d8c6f1c3d4, type: 3}
       propertyPath: m_TrackedObjectOffset.z
-      value: -35
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 5794345334187626273, guid: 0978ca6fa1ae3df40961c0d8c6f1c3d4, type: 3}
       propertyPath: m_Name
