@@ -32,7 +32,9 @@ public class GameManager : MonoBehaviour
 
     public int money;
 
-    public int NPCDialogueIndex;
+    public int NPC1DialogueIndex;
+    public int NPC2DialogueIndex;
+    public int NPC3DialogueIndex;
 
     private void Awake()
     {

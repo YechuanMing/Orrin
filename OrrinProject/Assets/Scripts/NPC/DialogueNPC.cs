@@ -16,6 +16,13 @@ public class DialogueNPC : MonoBehaviour
         public UnityEvent OnSwitch;
         //public float duration;
     }
+    public DialogueNPCNum dialogueNPCNum;
+    public int currDialogueIndex;
+    public int currSentenceIndex;
+    
+    public KeyCode InteractKey = KeyCode.E;
+    public bool talkAble = true;
+
 
     //"按E交互"
     public GameObject InteractHint;
@@ -27,12 +34,10 @@ public class DialogueNPC : MonoBehaviour
     public List<DialogueEvent> Dialogue3;
 
     private List<DialogueEvent> currDialogue;
-    public int currDialogueIndex;
-    public int currSentenceIndex;
+
 
     private Tween dialogueTween;
-    public KeyCode InteractKey = KeyCode.E;
-    public bool talkAble = true;
+
 
     //场景对话UI组件
     public GameObject dialogueUIObject;
@@ -44,14 +49,32 @@ public class DialogueNPC : MonoBehaviour
     public bool storeOpen;
 
     public AudioClip[] TalkSounds;
+
+
+    public enum DialogueNPCNum
+    {
+        NPC1, NPC2, NPC3
+    }
     public void Start()
     {
-        currDialogueIndex = GameManager.Instance.NPCDialogueIndex;
+        switch (dialogueNPCNum)
+        {
+            case DialogueNPCNum.NPC1:
+                currDialogueIndex = GameManager.Instance.NPC1DialogueIndex;
+                break;
+            case DialogueNPCNum.NPC2:
+                currDialogueIndex = GameManager.Instance.NPC2DialogueIndex;
+                break;
+            case DialogueNPCNum.NPC3:
+                currDialogueIndex = GameManager.Instance.NPC3DialogueIndex;
+                break;
+        }
+
     }
 
     public void Talk()
     {
-        if(TalkSounds.Length>0)
+        if (TalkSounds.Length > 0)
         {
             AudioManager.Instance.PlaySoundEffect(TalkSounds[UnityEngine.Random.Range(0, TalkSounds.Length - 1)]);
         }
@@ -59,7 +82,7 @@ public class DialogueNPC : MonoBehaviour
 
     public void SetCurrentDialogue()
     {
-        switch(currDialogueIndex)
+        switch (currDialogueIndex)
         {
             case 0:
                 currDialogue = Dialogue0;
@@ -125,13 +148,12 @@ public class DialogueNPC : MonoBehaviour
     public void SwitchDialogueIndex(int index)
     {
         currDialogueIndex = index;
-        GameManager.Instance.NPCDialogueIndex= index;
     }
 
     private void Update()
     {
         //当当前对话在显示，且受到交互指令“E”
-        if (talkAble && Input.GetKeyDown(InteractKey))
+        if (talkAble && Input.GetKeyDown(InteractKey)&&playerInZone)
         {
             if (isDialogueActive)
             {
@@ -150,15 +172,17 @@ public class DialogueNPC : MonoBehaviour
         }
     }
 
-
+    private bool playerInZone;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         InteractHint.SetActive(true);
+        playerInZone = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         InteractHint.SetActive(false);
+        playerInZone = false;
     }
 
     public void OpenStore()

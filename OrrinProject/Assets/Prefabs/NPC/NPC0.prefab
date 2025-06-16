@@ -174,6 +174,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1276cb7016beb744bbcad280fa3d4c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueNPCNum: 0
+  currDialogueIndex: 0
+  currSentenceIndex: 0
+  InteractKey: 101
+  talkAble: 1
   InteractHint: {fileID: 5661258347490722621}
   Dialogue0:
   - text: "\u5662\u2026\u2026"
@@ -346,13 +351,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  InteractKey: 101
-  talkAble: 1
   dialogueUIObject: {fileID: 5661258347685376527}
   dialogueText: {fileID: 5661258346454737412}
   isDialogueActive: 0
   Store: {fileID: 5661258346462739755}
   storeOpen: 0
+  TalkSounds: []
 --- !u!61 &5661258346296517730
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -577,6 +581,7 @@ MonoBehaviour:
   - {fileID: 8086008330052953025}
   - {fileID: 8086008331693372606}
   currSelectIndex: 0
+  interactSound: {fileID: 0}
 --- !u!1 &5661258346686057062
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,7 +814,7 @@ RectTransform:
   m_GameObject: {fileID: 5661258346908491289}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.81172, y: 0.81172, z: 0.81172}
   m_Children: []
   m_Father: {fileID: 5661258347490722620}
   m_RootOrder: 0
