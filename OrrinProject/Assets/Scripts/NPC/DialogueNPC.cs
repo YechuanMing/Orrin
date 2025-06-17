@@ -19,7 +19,7 @@ public class DialogueNPC : MonoBehaviour
     public DialogueNPCNum dialogueNPCNum;
     public int currDialogueIndex;
     public int currSentenceIndex;
-    
+
     public KeyCode InteractKey = KeyCode.E;
     public bool talkAble = true;
 
@@ -49,7 +49,8 @@ public class DialogueNPC : MonoBehaviour
     public bool storeOpen;
 
     public AudioClip[] TalkSounds;
-
+    public AudioClip IdleSound;
+    public AudioClip wakeSound;
 
     public enum DialogueNPCNum
     {
@@ -72,12 +73,34 @@ public class DialogueNPC : MonoBehaviour
 
     }
 
-    public void Talk()
+    public void WakeSound()
     {
+        if(wakeSound)
+        {
+            AudioManager.Instance.PlaySoundEffect(wakeSound);
+        }
+    }
+
+    public void Talk(int i = -1)
+    {
+
         if (TalkSounds.Length > 0)
         {
-            AudioManager.Instance.PlaySoundEffect(TalkSounds[UnityEngine.Random.Range(0, TalkSounds.Length - 1)]);
+            if (i == -1)
+            {
+                AudioManager.Instance.PlaySoundEffect(TalkSounds[UnityEngine.Random.Range(0, TalkSounds.Length - 1)]);
+            }else if(i>=0&&i<TalkSounds.Length)
+            {
+                AudioManager.Instance.PlaySoundEffect(TalkSounds[i]);
+            }
+
         }
+    }
+
+    
+    public void IdleSoundLoop(bool set)
+    {
+
     }
 
     public void SetCurrentDialogue()
@@ -153,7 +176,7 @@ public class DialogueNPC : MonoBehaviour
     private void Update()
     {
         //当当前对话在显示，且受到交互指令“E”
-        if (talkAble && Input.GetKeyDown(InteractKey)&&playerInZone)
+        if (talkAble && Input.GetKeyDown(InteractKey) && playerInZone)
         {
             if (isDialogueActive)
             {
